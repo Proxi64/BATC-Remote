@@ -1,0 +1,413 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>BATC Remote — Présentation technique</title>
+<style>
+  :root {
+    --ink: #1b2330; --muted: #5b667a; --line: #e2e7ef; --soft: #f5f7fb;
+    --blue: #3f74bf; --violet: #7c52c2; --code: #eef2f8;
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body { margin: 0; background: #fff; color: var(--ink);
+    font: 16px/1.6 "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; }
+  .hero { background: linear-gradient(120deg, #1d2a44 0%, #2c3f6b 55%, #4b3a7a 100%); color: #fff; }
+  .hero-inner { max-width: 1040px; margin: 0 auto; padding: 56px 32px 44px; }
+  .eyebrow { text-transform: uppercase; letter-spacing: .14em; font-size: 12px; font-weight: 700; color: #b9c9ee; }
+  .hero h1 { margin: 10px 0 8px; font-size: 40px; line-height: 1.15; letter-spacing: -.01em; }
+  .hero p { margin: 0; color: #d6def0; font-size: 18px; max-width: 720px; }
+  .meta { margin-top: 22px; display: flex; flex-wrap: wrap; gap: 8px; }
+  .pill { font-size: 13px; padding: 4px 12px; border-radius: 999px; background: rgba(255,255,255,.12); border: 1px solid rgba(255,255,255,.22); }
+  .layout { max-width: 1040px; margin: 0 auto; padding: 32px; display: grid; grid-template-columns: 220px minmax(0, 1fr); gap: 48px; }
+  nav.toc { position: sticky; top: 24px; align-self: start; font-size: 14px; }
+  nav.toc h3 { font-size: 11px; letter-spacing: .12em; text-transform: uppercase; color: var(--muted); margin: 8px 0 10px; }
+  nav.toc ol { list-style: none; padding: 0; margin: 0; counter-reset: s; }
+  nav.toc li { counter-increment: s; margin: 0; }
+  nav.toc a { display: block; padding: 6px 10px; border-left: 2px solid var(--line); color: var(--muted); text-decoration: none; }
+  nav.toc a::before { content: counter(s) ". "; color: #a0aabb; }
+  nav.toc a:hover { color: var(--blue); border-left-color: var(--blue); background: var(--soft); }
+  main { min-width: 0; }
+  main h2 { counter-increment: h; font-size: 26px; margin: 48px 0 12px; padding-top: 8px; letter-spacing: -.01em; }
+  main { counter-reset: h; }
+  main h2::before { content: counter(h, decimal-leading-zero); display: block; font-size: 13px; font-weight: 700;
+    letter-spacing: .12em; color: var(--violet); margin-bottom: 4px; }
+  main h2:first-child { margin-top: 0; }
+  main > h2:first-of-type + p { font-size: 18px; }
+  p { margin: 0 0 14px; }
+  ul, ol { margin: 0 0 16px; padding-left: 22px; }
+  li { margin: 4px 0; }
+  strong { color: #111827; }
+  code { font-family: "Cascadia Code", Consolas, "SF Mono", Menlo, monospace; font-size: .86em; background: var(--code);
+    padding: 1px 6px; border-radius: 4px; color: #243b63; }
+  pre { background: #1d2433; color: #dce4f2; padding: 18px 20px; border-radius: 10px; overflow-x: auto; font-size: 13.5px; line-height: 1.55; }
+  pre code { background: none; color: inherit; padding: 0; font-size: inherit; }
+  .table-wrap { overflow-x: auto; margin: 6px 0 20px; border: 1px solid var(--line); border-radius: 10px; }
+  table { border-collapse: collapse; width: 100%; font-size: 14.5px; }
+  th { text-align: left; background: var(--soft); color: #334055; font-weight: 600; padding: 10px 14px; border-bottom: 1px solid var(--line); }
+  td { padding: 10px 14px; border-bottom: 1px solid var(--line); vertical-align: top; }
+  tr:last-child td { border-bottom: 0; }
+  td:first-child { font-weight: 600; white-space: nowrap; }
+  figure.diagram { margin: 10px 0 22px; padding: 22px; background: var(--soft); border: 1px solid var(--line); border-radius: 12px; text-align: center; }
+  figure.diagram svg { max-width: 100%; height: auto; }
+  .box { display: inline-block; width: 14px; height: 14px; border: 2px solid #9aa6bb; border-radius: 3px; margin-right: 8px; vertical-align: -2px; }
+  main ul li:has(.box) { list-style: none; margin-left: -22px; }
+  footer { max-width: 1040px; margin: 0 auto; padding: 24px 32px 48px; color: var(--muted); font-size: 13px; border-top: 1px solid var(--line); }
+  @media (max-width: 860px) {
+    .layout { grid-template-columns: 1fr; gap: 12px; padding: 20px 16px; }
+    nav.toc { position: static; }
+    .hero-inner { padding: 40px 16px 32px; }
+    .hero h1 { font-size: 30px; }
+    footer { padding: 20px 16px 40px; }
+    td:first-child { white-space: normal; }
+  }
+  @media print {
+    .hero { background: #1d2a44 !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    nav.toc { display: none; }
+    .layout { grid-template-columns: 1fr; padding: 16px 0; }
+    main h2 { break-after: avoid; }
+    figure, .table-wrap, pre { break-inside: avoid; }
+  }
+</style>
+</head>
+<body>
+<header class="hero">
+  <div class="hero-inner">
+    <div class="eyebrow">Présentation technique</div>
+    <h1>BATC Remote</h1>
+    <p>Contrôler BeyondATC depuis un téléphone ou une tablette Android en Wi-Fi, avec tout ce que propose la toolbar du simulateur.</p>
+    <div class="meta">
+      <span class="pill">Version 0.6.0</span>
+      <span class="pill">6 octobre 2026</span>
+      <a class="pill" style="color:inherit" href="BATC-Remote-Technical-Overview.html" lang="en">English</a>
+    </div>
+  </div>
+</header>
+<div class="layout">
+  <nav class="toc" aria-label="Sommaire">
+    <h3>Sommaire</h3>
+    <ol><li><a href="#summary">Résumé</a></li><li><a href="#why-a-remote">Pourquoi une télécommande</a></li><li><a href="#how-it-works">Fonctionnement</a></li><li><a href="#protocol-usage">Utilisation du protocole</a></li><li><a href="#web-app">App web</a></li><li><a href="#windows-host-batcremote-exe">Hôte Windows (BatcRemote.exe)</a></li><li><a href="#android-app">App Android</a></li><li><a href="#features-and-screens">Fonctions et écrans</a></li><li><a href="#quality-and-tooling">Qualité et outils</a></li><li><a href="#deployment-limits-and-security">Déploiement, limites et sécurité</a></li><li><a href="#protocol-observations">Observations sur le protocole</a></li><li><a href="#code-and-build">Code et compilation</a></li><li><a href="#disclaimer">Avertissement</a></li></ol>
+  </nav>
+  <main>
+<h2 id="summary">Résumé</h2>
+<p>BATC Remote est une application compagnon indépendante et non commerciale qui permet à un pilote de contrôler BeyondATC depuis un téléphone ou une tablette Android, sur le réseau Wi-Fi local, avec tout ce que propose la toolbar du simulateur.</p>
+<p>Elle utilise la même interface WebSocket que la toolbar BeyondATC (protocole v3.1, port 41716). Elle ne nécessite <strong>aucune modification de BeyondATC</strong> et aucun add-on MSFS. La toolbar officielle peut rester ouverte en même temps, mais elle n'est pas nécessaire.</p>
+<ul>
+<li><strong>État :</strong> prototype fonctionnel (v0.6.0), testé sur un vol IFR complet (LFBZ → LFBO) avec MSFS 2024, BeyondATC et un téléphone Android.</li>
+<li><strong>Composants :</strong> une app web pour le téléphone (TypeScript), et une petite app Windows pour le PC (.NET 8, un seul <code>BatcRemote.exe</code> qui se loge dans la zone de notification) qui sert l'app web. La même app web existe aussi en application Android (Capacitor), compilée à partir du même code.</li>
+</ul>
+<h2 id="why-a-remote">Pourquoi une télécommande</h2>
+<p>La toolbar du simulateur fonctionne bien, mais elle dispute au cockpit la place à l'écran et la souris. Un téléphone ou une tablette à côté du manche fait office de panneau ATC dédié.</p>
+<ul>
+<li><strong>Home cockpits et VR :</strong> pas besoin d'ouvrir un panneau dans le simulateur ni de quitter la vue VR pour répondre à l'ATC ou changer de fréquence.</li>
+<li><strong>Vol en plein écran :</strong> tout le moniteur reste consacré au cockpit et à la vue extérieure.</li>
+<li><strong>Pensé pour le tactile :</strong> de gros boutons pour les demandes, un seul toucher pour régler COM1 ou COM2 depuis la liste des fréquences.</li>
+<li><strong>Second écran :</strong> le journal ATC, les clairances (transpondeur, SID, altitude…) et le D-ATIS restent visibles sans encombrer le simulateur.</li>
+</ul>
+<h2 id="how-it-works">Fonctionnement</h2>
+<p>Le téléphone charge l'app web depuis le PC, puis parle <strong>directement</strong> au serveur WebSocket de BeyondATC. Rien ne s'intercale entre le téléphone et BeyondATC.</p>
+<figure class="diagram"><svg id="d0" width="100%" xmlns="http://www.w3.org/2000/svg" class="flowchart" style="max-width: 893.7998046875px;" viewBox="0 0 893.7998046875 274" role="graphics-document document" aria-roledescription="flowchart-v2"><style>#d0{font-family:Segoe UI,Roboto,Helvetica,Arial,sans-serif;font-size:15px;fill:#1b2330;}@keyframes edge-animation-frame{from{stroke-dashoffset:0;}}@keyframes dash{to{stroke-dashoffset:0;}}#d0 .edge-animation-slow{stroke-dasharray:9,5!important;stroke-dashoffset:900;animation:dash 50s linear infinite;stroke-linecap:round;}#d0 .edge-animation-fast{stroke-dasharray:9,5!important;stroke-dashoffset:900;animation:dash 20s linear infinite;stroke-linecap:round;}#d0 .error-icon{fill:hsl(36.9230769231, 61.9047619048%, 100%);}#d0 .error-text{fill:#000000;stroke:#000000;}#d0 .edge-thickness-normal{stroke-width:1px;}#d0 .edge-thickness-thick{stroke-width:3.5px;}#d0 .edge-pattern-solid{stroke-dasharray:0;}#d0 .edge-thickness-invisible{stroke-width:0;fill:none;}#d0 .edge-pattern-dashed{stroke-dasharray:3;}#d0 .edge-pattern-dotted{stroke-dasharray:2;}#d0 .marker{fill:#7a86a0;stroke:#7a86a0;}#d0 .marker.cross{stroke:#7a86a0;}#d0 svg{font-family:Segoe UI,Roboto,Helvetica,Arial,sans-serif;font-size:15px;}#d0 p{margin:0;}#d0 .label{font-family:Segoe UI,Roboto,Helvetica,Arial,sans-serif;color:#1b2330;}#d0 .cluster-label text{fill:#000000;}#d0 .cluster-label span{color:#000000;}#d0 .cluster-label span p{background-color:transparent;}#d0 .label text,#d0 span{fill:#1b2330;color:#1b2330;}#d0 .node rect,#d0 .node circle,#d0 .node ellipse,#d0 .node polygon,#d0 .node path{fill:#eef3fb;stroke:#5e8fd0;stroke-width:1px;}#d0 .rough-node .label text,#d0 .node .label text,#d0 .image-shape .label,#d0 .icon-shape .label{text-anchor:middle;}#d0 .node .katex path{fill:#000;stroke:#000;stroke-width:1px;}#d0 .rough-node .label,#d0 .node .label,#d0 .image-shape .label,#d0 .icon-shape .label{text-align:center;}#d0 .node.clickable{cursor:pointer;}#d0 .root .anchor path{fill:#7a86a0!important;stroke-width:0;stroke:#7a86a0;}#d0 .arrowheadPath{fill:#0b0b0b;}#d0 .edgePaths .path{stroke:#7a86a0;stroke-width:1px;}#d0 .flowchart-link{stroke:#7a86a0;fill:none;}#d0 .edgeLabel{background-color:#ffffff;text-align:center;}#d0 .edgeLabel p{background-color:#ffffff;}#d0 .edgeLabel rect{opacity:0.5;background-color:#ffffff;fill:#ffffff;}#d0 .labelBkg{background-color:rgba(255, 255, 255, 0.5);}#d0 .cluster rect{fill:hsl(36.9230769231, 61.9047619048%, 100%);stroke:hsl(36.9230769231, 21.9047619048%, 90%);stroke-width:1px;}#d0 .cluster text{fill:#000000;}#d0 .cluster span{color:#000000;}#d0 .node .collapsed-indicator{fill:hsl(36.9230769231, 21.9047619048%, 90%);stroke:none;opacity:0.6;}#d0 .node .collapsed-separator{stroke:hsl(36.9230769231, 21.9047619048%, 90%);stroke-width:0.75px;}#d0 div.mermaidTooltip{position:absolute;text-align:center;max-width:200px;padding:2px;font-family:Segoe UI,Roboto,Helvetica,Arial,sans-serif;font-size:12px;background:hsl(36.9230769231, 61.9047619048%, 100%);border:1px solid hsl(36.9230769231, 21.9047619048%, 90%);border-radius:2px;pointer-events:none;z-index:100;}#d0 .flowchartTitleText{text-anchor:middle;font-size:18px;fill:#1b2330;}#d0 rect.text{fill:none;stroke-width:0;}#d0 .icon-shape,#d0 .image-shape{background-color:#ffffff;text-align:center;}#d0 .icon-shape p,#d0 .image-shape p{background-color:#ffffff;padding:2px;}#d0 .icon-shape .label rect,#d0 .image-shape .label rect{opacity:0.5;background-color:#ffffff;fill:#ffffff;}#d0 .label-icon{display:inline-block;height:1em;overflow:visible;vertical-align:-0.125em;}#d0 .node .label-icon path{fill:currentColor;stroke:revert;stroke-width:revert;}#d0 .node .neo-node{stroke:#5e8fd0;}#d0 [data-look="neo"].node rect,#d0 [data-look="neo"].cluster rect,#d0 [data-look="neo"].node polygon{stroke:url(#d0-gradient);filter:drop-shadow( 1px 2px 2px rgba(185,185,185,1));}#d0 [data-look="neo"].swimlane.cluster rect{filter:none;}#d0 [data-look="neo"].node path{stroke:url(#d0-gradient);stroke-width:1px;}#d0 [data-look="neo"].node .outer-path{filter:drop-shadow( 1px 2px 2px rgba(185,185,185,1));}#d0 [data-look="neo"].node .neo-line path{stroke:#5e8fd0;filter:none;}#d0 [data-look="neo"].node circle{stroke:url(#d0-gradient);filter:drop-shadow( 1px 2px 2px rgba(185,185,185,1));}#d0 [data-look="neo"].node circle .state-start{fill:#000000;}#d0 [data-look="neo"].icon-shape .icon{fill:url(#d0-gradient);filter:drop-shadow( 1px 2px 2px rgba(185,185,185,1));}#d0 [data-look="neo"].icon-shape .icon-neo path{stroke:url(#d0-gradient);filter:drop-shadow( 1px 2px 2px rgba(185,185,185,1));}#d0 :root{--mermaid-font-family:Segoe UI,Roboto,Helvetica,Arial,sans-serif;}</style><g><marker id="d0_flowchart-v2-pointEnd" class="marker flowchart-v2" viewBox="0 0 10 10" refX="5" refY="5" markerUnits="userSpaceOnUse" markerWidth="8" markerHeight="8" orient="auto"><path d="M 0 0 L 10 5 L 0 10 z" class="arrowMarkerPath" style="stroke-width: 1; stroke-dasharray: 1, 0;"></path></marker><marker id="d0_flowchart-v2-pointStart" class="marker flowchart-v2" viewBox="0 0 10 10" refX="4.5" refY="5" markerUnits="userSpaceOnUse" markerWidth="8" markerHeight="8" orient="auto"><path d="M 0 5 L 10 10 L 10 0 z" class="arrowMarkerPath" style="stroke-width: 1; stroke-dasharray: 1, 0;"></path></marker><marker id="d0_flowchart-v2-pointEnd-margin" class="marker flowchart-v2" viewBox="0 0 11.5 14" refX="11.5" refY="7" markerUnits="userSpaceOnUse" markerWidth="10.5" markerHeight="14" orient="auto"><path d="M 0 0 L 11.5 7 L 0 14 z" class="arrowMarkerPath" style="stroke-width: 0; stroke-dasharray: 1, 0;"></path></marker><marker id="d0_flowchart-v2-pointStart-margin" class="marker flowchart-v2" viewBox="0 0 11.5 14" refX="1" refY="7" markerUnits="userSpaceOnUse" markerWidth="11.5" markerHeight="14" orient="auto"><polygon points="0,7 11.5,14 11.5,0" class="arrowMarkerPath" style="stroke-width: 0; stroke-dasharray: 1, 0;"></polygon></marker><marker id="d0_flowchart-v2-circleEnd" class="marker flowchart-v2" viewBox="0 0 10 10" refX="11" refY="5" markerUnits="userSpaceOnUse" markerWidth="11" markerHeight="11" orient="auto"><circle cx="5" cy="5" r="5" class="arrowMarkerPath" style="stroke-width: 1; stroke-dasharray: 1, 0;"></circle></marker><marker id="d0_flowchart-v2-circleStart" class="marker flowchart-v2" viewBox="0 0 10 10" refX="-1" refY="5" markerUnits="userSpaceOnUse" markerWidth="11" markerHeight="11" orient="auto"><circle cx="5" cy="5" r="5" class="arrowMarkerPath" style="stroke-width: 1; stroke-dasharray: 1, 0;"></circle></marker><marker id="d0_flowchart-v2-circleEnd-margin" class="marker flowchart-v2" viewBox="0 0 10 10" refY="5" refX="12.25" markerUnits="userSpaceOnUse" markerWidth="14" markerHeight="14" orient="auto"><circle cx="5" cy="5" r="5" class="arrowMarkerPath" style="stroke-width: 0; stroke-dasharray: 1, 0;"></circle></marker><marker id="d0_flowchart-v2-circleStart-margin" class="marker flowchart-v2" viewBox="0 0 10 10" refX="-2" refY="5" markerUnits="userSpaceOnUse" markerWidth="14" markerHeight="14" orient="auto"><circle cx="5" cy="5" r="5" class="arrowMarkerPath" style="stroke-width: 0; stroke-dasharray: 1, 0;"></circle></marker><marker id="d0_flowchart-v2-crossEnd" class="marker cross flowchart-v2" viewBox="0 0 11 11" refX="12" refY="5.2" markerUnits="userSpaceOnUse" markerWidth="11" markerHeight="11" orient="auto"><path d="M 1,1 l 9,9 M 10,1 l -9,9" class="arrowMarkerPath" style="stroke-width: 2; stroke-dasharray: 1, 0;"></path></marker><marker id="d0_flowchart-v2-crossStart" class="marker cross flowchart-v2" viewBox="0 0 11 11" refX="-1" refY="5.2" markerUnits="userSpaceOnUse" markerWidth="11" markerHeight="11" orient="auto"><path d="M 1,1 l 9,9 M 10,1 l -9,9" class="arrowMarkerPath" style="stroke-width: 2; stroke-dasharray: 1, 0;"></path></marker><marker id="d0_flowchart-v2-crossEnd-margin" class="marker cross flowchart-v2" viewBox="0 0 15 15" refX="17.7" refY="7.5" markerUnits="userSpaceOnUse" markerWidth="12" markerHeight="12" orient="auto"><path d="M 1,1 L 14,14 M 1,14 L 14,1" class="arrowMarkerPath" style="stroke-width: 2.5;"></path></marker><marker id="d0_flowchart-v2-crossStart-margin" class="marker cross flowchart-v2" viewBox="0 0 15 15" refX="-3.5" refY="7.5" markerUnits="userSpaceOnUse" markerWidth="12" markerHeight="12" orient="auto"><path d="M 1,1 L 14,14 M 1,14 L 14,1" class="arrowMarkerPath" style="stroke-width: 2.5; stroke-dasharray: 1, 0;"></path></marker><g class="root"><g class="clusters"></g><g class="edgePaths"><path d="M179.188,63.2L199.553,60.25C219.919,57.3,260.651,51.4,297.615,48.45C334.578,45.5,367.773,45.5,384.371,45.5L400.969,45.5" id="d0-L_P_H_0" class="edge-thickness-normal edge-pattern-solid edge-thickness-normal edge-pattern-solid flowchart-link" style=";" data-edge="true" data-et="edge" data-id="L_P_H_0" data-points="W3sieCI6MTc5LjE4NzUsInkiOjYzLjE5OTcwNjc2MjE4MjE2fSx7IngiOjMwMS4zODI4MTI1LCJ5Ijo0NS41fSx7IngiOjQwNC45Njg3NSwieSI6NDUuNX1d" data-look="classic" marker-end="url(#d0_flowchart-v2-pointEnd)"></path><path d="M179.188,94.189L199.553,99.511C219.919,104.834,260.651,115.48,299.816,126.177C338.981,136.874,376.579,147.623,395.378,152.998L414.178,158.372" id="d0-L_P_B_0" class="edge-thickness-normal edge-pattern-solid edge-thickness-normal edge-pattern-solid flowchart-link" style=";" data-edge="true" data-et="edge" data-id="L_P_B_0" data-points="W3sieCI6MTc5LjE4NzUsInkiOjk0LjE4ODU3MjU4MTI4MDAxfSx7IngiOjMwMS4zODI4MTI1LCJ5IjoxMjYuMTI1fSx7IngiOjQxOC4wMjM0Mzc1LCJ5IjoxNTkuNDcxNjA1MDM0MTgyNzJ9XQ==" data-look="classic" marker-end="url(#d0_flowchart-v2-pointEnd)"></path><path d="M197.797,208.25L215.061,208.25C232.326,208.25,266.854,208.25,302.897,205.951C338.94,203.652,376.496,199.053,395.275,196.754L414.053,194.455" id="d0-L_T_B_0" class="edge-thickness-normal edge-pattern-solid edge-thickness-normal edge-pattern-solid flowchart-link" style=";" data-edge="true" data-et="edge" data-id="L_T_B_0" data-points="W3sieCI6MTk3Ljc5Njg3NSwieSI6MjA4LjI1fSx7IngiOjMwMS4zODI4MTI1LCJ5IjoyMDguMjV9LHsieCI6NDE4LjAyMzQzNzUsInkiOjE5My45Njg5NTM5MzEwMTMwNn1d" data-look="classic" marker-end="url(#d0_flowchart-v2-pointEnd)"></path><path d="M586.992,183.625L601.379,183.625C615.766,183.625,644.54,183.625,670.472,183.625C696.403,183.625,719.492,183.625,731.037,183.625L742.581,183.625" id="d0-L_B_M_0" class="edge-thickness-normal edge-pattern-solid edge-thickness-normal edge-pattern-solid flowchart-link" style=";" data-edge="true" data-et="edge" data-id="L_B_M_0" data-points="W3sieCI6NTg2Ljk5MjE4NzUsInkiOjE4My42MjV9LHsieCI6NjczLjMxMzk2NDg0Mzc1LCJ5IjoxODMuNjI1fSx7IngiOjc0Ni41ODEwNTQ2ODc1LCJ5IjoxODMuNjI1fV0=" data-look="classic" marker-end="url(#d0_flowchart-v2-pointEnd)"></path></g><g class="edgeLabels"><g class="edgeLabel" transform="translate(301.3828125, 45.5)"><g class="label" data-id="L_P_H_0" transform="translate(0, -17.75)"><g><rect class="background" style="" x="-50.6484375" y="-1" width="101.296875" height="37.5"></rect><text y="-10.1" text-anchor="middle" style=""><tspan class="text-outer-tspan row" x="0" y="-0.1em" dy="1.1em" text-anchor="middle"><tspan font-style="normal" class="text-inner-tspan" font-weight="normal">1.</tspan><tspan font-style="normal" class="text-inner-tspan" font-weight="normal"> HTTP</tspan><tspan font-style="normal" class="text-inner-tspan" font-weight="normal"> :8741</tspan></tspan><tspan class="text-outer-tspan row" x="0" y="1em" dy="1.1em" text-anchor="middle"><tspan font-style="normal" class="text-inner-tspan" font-weight="normal">charge</tspan><tspan font-style="normal" class="text-inner-tspan" font-weight="normal"></tspan><tspan font-style="normal" class="text-inner-tspan" font-weight="normal"> l'app</tspan></tspan></text></g></g></g><g class="edgeLabel" transform="translate(301.3828125, 126.125)"><g class="label" data-id="L_P_B_0" transform="translate(0, -17.75)"><g><rect class="background" style="" x="-73.5859375" y="-1" width="147.171875" height="37.5"></rect><text y="-10.1" text-anchor="middle" style=""><tspan class="text-outer-tspan row" x="0" y="-0.1em" dy="1.1em" text-anchor="middle"><tspan font-style="normal" class="text-inner-tspan" font-weight="normal">2.</tspan><tspan font-style="normal" class="text-inner-tspan" font-weight="normal"> WebSocket</tspan><tspan font-style="normal" class="text-inner-tspan" font-weight="normal"> :41716</tspan></tspan><tspan class="text-outer-tspan row" x="0" y="1em" dy="1.1em" text-anchor="middle"><tspan font-style="normal" class="text-inner-tspan" font-weight="normal">Échanges</tspan><tspan font-style="normal" class="text-inner-tspan" font-weight="normal"> ATC</tspan></tspan></text></g></g></g><g class="edgeLabel" transform="translate(301.3828125, 208.25)"><g class="label" data-id="L_T_B_0" transform="translate(0, -9.5)"><g><rect class="background" style="" x="-65.2421875" y="-1" width="130.484375" height="21"></rect><text y="-10.1" text-anchor="middle" style=""><tspan class="text-outer-tspan row" x="0" y="-0.1em" dy="1.1em" text-anchor="middle"><tspan font-style="normal" class="text-inner-tspan" font-weight="normal">WebSocket</tspan><tspan font-style="normal" class="text-inner-tspan" font-weight="normal"> :41716</tspan></tspan></text></g></g></g><g class="edgeLabel" transform="translate(673.31396484375, 183.625)"><g class="label" data-id="L_B_M_0" transform="translate(-0.41552734375, -9.5)"><g><rect class="background" style="" x="-42.8515625" y="-1" width="86.5341796875" height="21"></rect><text y="-10.1" text-anchor="middle" style=""><tspan class="text-outer-tspan row" x="0" y="-0.1em" dy="1.1em" text-anchor="middle"><tspan font-style="normal" class="text-inner-tspan" font-weight="normal">SimConnect</tspan></tspan></text></g></g></g></g><g class="nodes"><g class="node default" id="d0-flowchart-P-0" data-look="classic" transform="translate(102.8984375, 74.25)"><rect class="basic label-container" style="" x="-76.2890625" y="-37.5" width="152.578125" height="75"></rect><g class="label" style="" transform="translate(-71.2891, -22.5)"><rect></rect><foreignObject width="142.5781" height="45"><div xmlns="http://www.w3.org/1999/xhtml" style="display: table-cell; width: 142.5781px; white-space: nowrap; line-height: 1.5; text-align: center;"><span class="nodeLabel"><p>Téléphone / tablette<br>(navigateur ou app)</p></span></div></foreignObject></g></g><g class="node default" id="d0-flowchart-H-1" data-look="classic" transform="translate(502.5078125, 45.5)"><rect class="basic label-container" style="" x="-97.5390625" y="-37.5" width="195.078125" height="75"></rect><g class="label" style="" transform="translate(-92.5391, -22.5)"><rect></rect><foreignObject width="185.0781" height="45"><div xmlns="http://www.w3.org/1999/xhtml" style="display: table-cell; width: 185.0781px; white-space: nowrap; line-height: 1.5; text-align: center;"><span class="nodeLabel"><p>BatcRemote.exe<br>(icône sur le PC)</p></span></div></foreignObject></g></g><g class="node default" id="d0-flowchart-B-3" data-look="classic" transform="translate(502.5078125, 183.625)"><rect class="basic label-container" style="" x="-84.484375" y="-26.25" width="168.96875" height="52.5"></rect><g class="label" style="" transform="translate(-79.4844, -11.25)"><rect></rect><foreignObject width="158.9688" height="22.5"><div xmlns="http://www.w3.org/1999/xhtml" style="display: table-cell; width: 158.9688px; white-space: nowrap; line-height: 1.5; text-align: center;"><span class="nodeLabel"><p>App BeyondATC</p></span></div></foreignObject></g></g><g class="node default" id="d0-flowchart-T-4" data-look="classic" transform="translate(102.8984375, 208.25)"><rect class="basic label-container" style="" x="-94.8984375" y="-37.5" width="189.796875" height="75"></rect><g class="label" style="" transform="translate(-89.8984, -22.5)"><rect></rect><foreignObject width="179.7969" height="45"><div xmlns="http://www.w3.org/1999/xhtml" style="display: table-cell; width: 179.7969px; white-space: nowrap; line-height: 1.5; text-align: center;"><span class="nodeLabel"><p>Toolbar BeyondATC<br>(dans MSFS)</p></span></div></foreignObject></g></g><text x="102.8984375" y="266" text-anchor="middle" style="font-size:13px;font-style:italic;fill:#5b6578">optionnelle</text><g class="node default" id="d0-flowchart-M-7" data-look="classic" transform="translate(816.1904296875, 183.625)"><rect class="basic label-container" style="" x="-69.609375" y="-26.25" width="139.21875" height="52.5"></rect><g class="label" style="" transform="translate(-64.6094, -11.25)"><rect></rect><foreignObject width="129.2188" height="22.5"><div xmlns="http://www.w3.org/1999/xhtml" style="display: table-cell; width: 129.2188px; white-space: nowrap; line-height: 1.5; text-align: center;"><span class="nodeLabel"><p>MSFS 2024</p></span></div></foreignObject></g></g></g></g></g><defs><filter id="d0-drop-shadow" height="130%" width="130%"><feDropShadow dx="4" dy="4" stdDeviation="0" flood-opacity="0.06" flood-color="#000000"></feDropShadow></filter></defs><defs><filter id="d0-drop-shadow-small" height="150%" width="150%"><feDropShadow dx="2" dy="2" stdDeviation="0" flood-opacity="0.06" flood-color="#000000"></feDropShadow></filter></defs><linearGradient id="d0-gradient" gradientUnits="objectBoundingBox" x1="0%" y1="0%" x2="100%" y2="0%"><stop offset="0%" stop-color="#5e8fd0" stop-opacity="1"></stop><stop offset="100%" stop-color="hsl(96.9230769231, 21.9047619048%, 85.8823529412%)" stop-opacity="1"></stop></linearGradient></svg></figure>
+
+<p>Le téléphone n'est qu'un client de plus de BeyondATC, à côté de la toolbar.</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Composant</th>
+<th>Tourne sur</th>
+<th>Technologie</th>
+<th>Rôle</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>App web</td>
+<td>Navigateur du téléphone / de la tablette</td>
+<td>TypeScript, Preact, Vite</td>
+<td>Toute l'interface et toute la logique du protocole</td>
+</tr>
+<tr>
+<td>App Android</td>
+<td>Téléphone / tablette Android</td>
+<td>Capacitor 8</td>
+<td>La même app web, empaquetée en APK</td>
+</tr>
+<tr>
+<td>BatcRemote.exe</td>
+<td>PC du simulateur</td>
+<td>.NET 8, ASP.NET Core (Kestrel), WinForms</td>
+<td>Sert l'app web en HTTP ; icône avec QR code, état de BeyondATC et réglages</td>
+</tr>
+<tr>
+<td>BeyondATC</td>
+<td>PC du simulateur</td>
+<td>(inchangé)</td>
+<td>Serveur WebSocket sur le port 41716, utilisé aussi par la toolbar</td>
+</tr>
+</tbody>
+</table></div>
+<p>L'app web trouve BeyondATC toute seule : par défaut, elle se connecte au port 41716 du PC qui l'a servie, si bien que l'utilisateur ne saisit jamais d'adresse IP. Quand BeyondATC tourne sur un autre PC ou un autre port, l'adresse est déterminée dans cet ordre (<code>src/web/src/core/host.ts</code>), l'IP et le port étant pris séparément :</p>
+<ol>
+<li><code>?host=IP:port</code> dans l'adresse de la page (tests) ;</li>
+<li>le réglage du téléphone (<em>Settings → Connection</em>) ;</li>
+<li>le réglage du PC (icône → <strong>Settings…</strong>), lu via <code>GET /api/config</code> ;</li>
+<li>le PC qui a servi la page, port 41716.</li>
+</ol>
+<p>L'app web lit <code>/api/config</code> au démarrage, puis à nouveau entre deux tentatives de reconnexion et quand le téléphone revient au premier plan : un changement fait sur le PC parvient aux téléphones sans recharger la page.</p>
+<p>Dans l'<strong>app Android</strong>, la page est intégrée à l'APK au lieu d'être servie par le PC : il n'y a donc pas d'adresse automatique. Au premier lancement, l'utilisateur scanne le QR code affiché par <code>BatcRemote.exe</code> : l'app y lit l'adresse du PC, demande à <code>GET /api/config</code> l'adresse et le port de BeyondATC, puis se connecte directement à BeyondATC, comme dans le navigateur. Si le réglage du PC est vide (BeyondATC sur ce PC), c'est l'adresse du PC vue depuis le téléphone qui est utilisée. Un QR code qui contient simplement <code>IP[:port]</code> est pris comme l'adresse de BeyondATC elle-même, et l'adresse IP peut aussi être saisie.</p>
+<h2 id="protocol-usage">Utilisation du protocole</h2>
+<p>BATC Remote utilise tel quel le protocole texte de la toolbar : des trames de la forme <code>Préfixe: contenu</code> (texte brut ou JSON) venant de BeyondATC, et des trames <code>commande: argument</code> en retour. Il a été établi à partir de la toolbar BeyondATC (v3.1) et d'un vol réel de 36 minutes (940 messages), enregistré avec une petite page « sniffer ». Ce n'est pas une spécification officielle, et il peut changer à chaque mise à jour de BeyondATC. La référence complète des messages se trouve dans <code>Documentation/TECHNICAL-FR.md</code>.</p>
+<p><strong>Messages traités (BeyondATC → client) :</strong></p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Domaine</th>
+<th>Préfixes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Journal ATC</td>
+<td><code>ATC</code>, <code>ATCTraffic</code>, <code>Player</code>, <code>Traffic</code>, <code>CPDLC_ATC</code>, <code>CPDLC_Pilot</code></td>
+</tr>
+<tr>
+<td>Radios et vol</td>
+<td><code>Facility</code>, <code>Com2</code>, <code>RadioMute</code>, <code>Callsign</code>, <code>InfoBoxes</code>, <code>Progress</code>, <code>CPDLCCode</code></td>
+</tr>
+<tr>
+<td>Actions et état de l'échange</td>
+<td><code>Actions</code>, <code>CommsState</code> (+ l'ancien <code>HideActions</code> ; <code>QueuedAction</code> est lu mais ignoré)</td>
+</tr>
+<tr>
+<td>Fréquences</td>
+<td><code>Frequencies</code>, <code>DATIS</code>, <code>DATIS_END</code></td>
+</tr>
+<tr>
+<td>Copilote</td>
+<td><code>AutoTune</code>, <code>AutoRespond</code></td>
+</tr>
+<tr>
+<td>Cycle de vie de l'app</td>
+<td><code>LoadState</code>, <code>Wipe</code>, <code>Prompt</code>, <code>AppError</code>, <code>Settings</code>, <code>ToolbarVersion</code>, <code>Pong</code></td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>Commandes envoyées (client → BeyondATC) :</strong> <code>atc_log</code>, <code>frequencies</code>, <code>datis</code>, <code>settings</code>, <code>ping</code>, <code>set_action</code>, <code>set_frequency</code>, <code>set_frequency_com2</code>, <code>set_autotune</code>, <code>set_autorespond</code>, <code>set_setting</code>, <code>play_sample</code>, <code>start_flight</code>, <code>prompt_reply</code>, <code>ack_error</code>, <code>quit_to_menu</code>, <code>turnaround</code>.</p>
+<p><strong>Comportements sur lesquels s'appuie le client</strong> (tous observés sur le vol réel) :</p>
+<ul>
+<li>À chaque nouvelle connexion, BeyondATC envoie un état complet (snapshot) à <strong>tous</strong> les clients connectés. Le client l'applique sans effet de bord (idempotent).</li>
+<li>Plusieurs clients sont acceptés : la toolbar et le téléphone ont reçu exactement les mêmes messages.</li>
+<li><code>Pong:</code> n'est envoyé qu'au client qui a envoyé <code>ping</code>.</li>
+<li><code>Frequencies</code> n'est envoyé que sur demande : le client le demande (avec <code>datis</code>) à la connexion, à chaque ouverture de l'onglet Fréquences, et avec son bouton d'actualisation.</li>
+<li>À la connexion, le client envoie <code>atc_log</code>, <code>settings</code>, <code>datis</code> et <code>frequencies</code>, et renvoie <code>settings</code> toutes les 3 s jusqu'à ce que les réglages arrivent. En dehors de cela et du <code>ping</code> de maintien de connexion, il n'envoie que ce que l'utilisateur déclenche.</li>
+</ul>
+<p>Les préfixes inconnus et les messages illisibles sont ignorés et listés dans la section <em>Settings → About</em> de l'app, qui signale aussi quand BeyondATC annonce une version de protocole autre que 3.1 : un changement de protocole se voit au lieu de casser l'app.</p>
+<h2 id="web-app">App web</h2>
+<p>L'app web est écrite en <strong>TypeScript</strong> (mode strict) avec <strong>Preact</strong> et <strong>@preact/signals</strong>, et compilée par <strong>Vite</strong>. La version de production pèse environ 83 Ko de JavaScript (28 Ko compressés) et 20 Ko de CSS, sans autre dépendance à l'exécution que Preact et le noyau de Capacitor (utilisé seulement dans l'app Android).</p>
+<p>Elle est découpée en trois couches, pour qu'un seul module voie le protocole brut :</p>
+<figure class="diagram"><svg id="d1" width="100%" xmlns="http://www.w3.org/2000/svg" class="flowchart" style="max-width: 260.265625px;" viewBox="0 0 260.265625 494.5" role="graphics-document document" aria-roledescription="flowchart-v2"><style>#d1{font-family:Segoe UI,Roboto,Helvetica,Arial,sans-serif;font-size:15px;fill:#1b2330;}@keyframes edge-animation-frame{from{stroke-dashoffset:0;}}@keyframes dash{to{stroke-dashoffset:0;}}#d1 .edge-animation-slow{stroke-dasharray:9,5!important;stroke-dashoffset:900;animation:dash 50s linear infinite;stroke-linecap:round;}#d1 .edge-animation-fast{stroke-dasharray:9,5!important;stroke-dashoffset:900;animation:dash 20s linear infinite;stroke-linecap:round;}#d1 .error-icon{fill:hsl(36.9230769231, 61.9047619048%, 100%);}#d1 .error-text{fill:#000000;stroke:#000000;}#d1 .edge-thickness-normal{stroke-width:1px;}#d1 .edge-thickness-thick{stroke-width:3.5px;}#d1 .edge-pattern-solid{stroke-dasharray:0;}#d1 .edge-thickness-invisible{stroke-width:0;fill:none;}#d1 .edge-pattern-dashed{stroke-dasharray:3;}#d1 .edge-pattern-dotted{stroke-dasharray:2;}#d1 .marker{fill:#7a86a0;stroke:#7a86a0;}#d1 .marker.cross{stroke:#7a86a0;}#d1 svg{font-family:Segoe UI,Roboto,Helvetica,Arial,sans-serif;font-size:15px;}#d1 p{margin:0;}#d1 .label{font-family:Segoe UI,Roboto,Helvetica,Arial,sans-serif;color:#1b2330;}#d1 .cluster-label text{fill:#000000;}#d1 .cluster-label span{color:#000000;}#d1 .cluster-label span p{background-color:transparent;}#d1 .label text,#d1 span{fill:#1b2330;color:#1b2330;}#d1 .node rect,#d1 .node circle,#d1 .node ellipse,#d1 .node polygon,#d1 .node path{fill:#eef3fb;stroke:#5e8fd0;stroke-width:1px;}#d1 .rough-node .label text,#d1 .node .label text,#d1 .image-shape .label,#d1 .icon-shape .label{text-anchor:middle;}#d1 .node .katex path{fill:#000;stroke:#000;stroke-width:1px;}#d1 .rough-node .label,#d1 .node .label,#d1 .image-shape .label,#d1 .icon-shape .label{text-align:center;}#d1 .node.clickable{cursor:pointer;}#d1 .root .anchor path{fill:#7a86a0!important;stroke-width:0;stroke:#7a86a0;}#d1 .arrowheadPath{fill:#0b0b0b;}#d1 .edgePaths .path{stroke:#7a86a0;stroke-width:1px;}#d1 .flowchart-link{stroke:#7a86a0;fill:none;}#d1 .edgeLabel{background-color:#ffffff;text-align:center;}#d1 .edgeLabel p{background-color:#ffffff;}#d1 .edgeLabel rect{opacity:0.5;background-color:#ffffff;fill:#ffffff;}#d1 .labelBkg{background-color:rgba(255, 255, 255, 0.5);}#d1 .cluster rect{fill:hsl(36.9230769231, 61.9047619048%, 100%);stroke:hsl(36.9230769231, 21.9047619048%, 90%);stroke-width:1px;}#d1 .cluster text{fill:#000000;}#d1 .cluster span{color:#000000;}#d1 .node .collapsed-indicator{fill:hsl(36.9230769231, 21.9047619048%, 90%);stroke:none;opacity:0.6;}#d1 .node .collapsed-separator{stroke:hsl(36.9230769231, 21.9047619048%, 90%);stroke-width:0.75px;}#d1 div.mermaidTooltip{position:absolute;text-align:center;max-width:200px;padding:2px;font-family:Segoe UI,Roboto,Helvetica,Arial,sans-serif;font-size:12px;background:hsl(36.9230769231, 61.9047619048%, 100%);border:1px solid hsl(36.9230769231, 21.9047619048%, 90%);border-radius:2px;pointer-events:none;z-index:100;}#d1 .flowchartTitleText{text-anchor:middle;font-size:18px;fill:#1b2330;}#d1 rect.text{fill:none;stroke-width:0;}#d1 .icon-shape,#d1 .image-shape{background-color:#ffffff;text-align:center;}#d1 .icon-shape p,#d1 .image-shape p{background-color:#ffffff;padding:2px;}#d1 .icon-shape .label rect,#d1 .image-shape .label rect{opacity:0.5;background-color:#ffffff;fill:#ffffff;}#d1 .label-icon{display:inline-block;height:1em;overflow:visible;vertical-align:-0.125em;}#d1 .node .label-icon path{fill:currentColor;stroke:revert;stroke-width:revert;}#d1 .node .neo-node{stroke:#5e8fd0;}#d1 [data-look="neo"].node rect,#d1 [data-look="neo"].cluster rect,#d1 [data-look="neo"].node polygon{stroke:url(#d1-gradient);filter:drop-shadow( 1px 2px 2px rgba(185,185,185,1));}#d1 [data-look="neo"].swimlane.cluster rect{filter:none;}#d1 [data-look="neo"].node path{stroke:url(#d1-gradient);stroke-width:1px;}#d1 [data-look="neo"].node .outer-path{filter:drop-shadow( 1px 2px 2px rgba(185,185,185,1));}#d1 [data-look="neo"].node .neo-line path{stroke:#5e8fd0;filter:none;}#d1 [data-look="neo"].node circle{stroke:url(#d1-gradient);filter:drop-shadow( 1px 2px 2px rgba(185,185,185,1));}#d1 [data-look="neo"].node circle .state-start{fill:#000000;}#d1 [data-look="neo"].icon-shape .icon{fill:url(#d1-gradient);filter:drop-shadow( 1px 2px 2px rgba(185,185,185,1));}#d1 [data-look="neo"].icon-shape .icon-neo path{stroke:url(#d1-gradient);filter:drop-shadow( 1px 2px 2px rgba(185,185,185,1));}#d1 :root{--mermaid-font-family:Segoe UI,Roboto,Helvetica,Arial,sans-serif;}</style><g><marker id="d1_flowchart-v2-pointEnd" class="marker flowchart-v2" viewBox="0 0 10 10" refX="5" refY="5" markerUnits="userSpaceOnUse" markerWidth="8" markerHeight="8" orient="auto"><path d="M 0 0 L 10 5 L 0 10 z" class="arrowMarkerPath" style="stroke-width: 1; stroke-dasharray: 1, 0;"></path></marker><marker id="d1_flowchart-v2-pointStart" class="marker flowchart-v2" viewBox="0 0 10 10" refX="4.5" refY="5" markerUnits="userSpaceOnUse" markerWidth="8" markerHeight="8" orient="auto"><path d="M 0 5 L 10 10 L 10 0 z" class="arrowMarkerPath" style="stroke-width: 1; stroke-dasharray: 1, 0;"></path></marker><marker id="d1_flowchart-v2-pointEnd-margin" class="marker flowchart-v2" viewBox="0 0 11.5 14" refX="11.5" refY="7" markerUnits="userSpaceOnUse" markerWidth="10.5" markerHeight="14" orient="auto"><path d="M 0 0 L 11.5 7 L 0 14 z" class="arrowMarkerPath" style="stroke-width: 0; stroke-dasharray: 1, 0;"></path></marker><marker id="d1_flowchart-v2-pointStart-margin" class="marker flowchart-v2" viewBox="0 0 11.5 14" refX="1" refY="7" markerUnits="userSpaceOnUse" markerWidth="11.5" markerHeight="14" orient="auto"><polygon points="0,7 11.5,14 11.5,0" class="arrowMarkerPath" style="stroke-width: 0; stroke-dasharray: 1, 0;"></polygon></marker><marker id="d1_flowchart-v2-circleEnd" class="marker flowchart-v2" viewBox="0 0 10 10" refX="11" refY="5" markerUnits="userSpaceOnUse" markerWidth="11" markerHeight="11" orient="auto"><circle cx="5" cy="5" r="5" class="arrowMarkerPath" style="stroke-width: 1; stroke-dasharray: 1, 0;"></circle></marker><marker id="d1_flowchart-v2-circleStart" class="marker flowchart-v2" viewBox="0 0 10 10" refX="-1" refY="5" markerUnits="userSpaceOnUse" markerWidth="11" markerHeight="11" orient="auto"><circle cx="5" cy="5" r="5" class="arrowMarkerPath" style="stroke-width: 1; stroke-dasharray: 1, 0;"></circle></marker><marker id="d1_flowchart-v2-circleEnd-margin" class="marker flowchart-v2" viewBox="0 0 10 10" refY="5" refX="12.25" markerUnits="userSpaceOnUse" markerWidth="14" markerHeight="14" orient="auto"><circle cx="5" cy="5" r="5" class="arrowMarkerPath" style="stroke-width: 0; stroke-dasharray: 1, 0;"></circle></marker><marker id="d1_flowchart-v2-circleStart-margin" class="marker flowchart-v2" viewBox="0 0 10 10" refX="-2" refY="5" markerUnits="userSpaceOnUse" markerWidth="14" markerHeight="14" orient="auto"><circle cx="5" cy="5" r="5" class="arrowMarkerPath" style="stroke-width: 0; stroke-dasharray: 1, 0;"></circle></marker><marker id="d1_flowchart-v2-crossEnd" class="marker cross flowchart-v2" viewBox="0 0 11 11" refX="12" refY="5.2" markerUnits="userSpaceOnUse" markerWidth="11" markerHeight="11" orient="auto"><path d="M 1,1 l 9,9 M 10,1 l -9,9" class="arrowMarkerPath" style="stroke-width: 2; stroke-dasharray: 1, 0;"></path></marker><marker id="d1_flowchart-v2-crossStart" class="marker cross flowchart-v2" viewBox="0 0 11 11" refX="-1" refY="5.2" markerUnits="userSpaceOnUse" markerWidth="11" markerHeight="11" orient="auto"><path d="M 1,1 l 9,9 M 10,1 l -9,9" class="arrowMarkerPath" style="stroke-width: 2; stroke-dasharray: 1, 0;"></path></marker><marker id="d1_flowchart-v2-crossEnd-margin" class="marker cross flowchart-v2" viewBox="0 0 15 15" refX="17.7" refY="7.5" markerUnits="userSpaceOnUse" markerWidth="12" markerHeight="12" orient="auto"><path d="M 1,1 L 14,14 M 1,14 L 14,1" class="arrowMarkerPath" style="stroke-width: 2.5;"></path></marker><marker id="d1_flowchart-v2-crossStart-margin" class="marker cross flowchart-v2" viewBox="0 0 15 15" refX="-3.5" refY="7.5" markerUnits="userSpaceOnUse" markerWidth="12" markerHeight="12" orient="auto"><path d="M 1,1 L 14,14 M 1,14 L 14,1" class="arrowMarkerPath" style="stroke-width: 2.5; stroke-dasharray: 1, 0;"></path></marker><g class="root"><g class="clusters"></g><g class="edgePaths"><path d="M130.133,60.5L130.133,65.5C130.133,70.5,130.133,80.5,130.133,89.833C130.133,99.167,130.133,107.833,130.133,112.167L130.133,116.5" id="d1-L_WS_PR_0" class="edge-thickness-normal edge-pattern-solid edge-thickness-normal edge-pattern-solid flowchart-link" style=";" data-edge="true" data-et="edge" data-id="L_WS_PR_0" data-points="W3sieCI6MTMwLjEzMjgxMjUsInkiOjYwLjV9LHsieCI6MTMwLjEzMjgxMjUsInkiOjkwLjV9LHsieCI6MTMwLjEzMjgxMjUsInkiOjEyMC41fV0=" data-look="classic" marker-end="url(#d1_flowchart-v2-pointEnd)"></path><path d="M130.133,195.5L130.133,200.5C130.133,205.5,130.133,215.5,130.133,224.833C130.133,234.167,130.133,242.833,130.133,247.167L130.133,251.5" id="d1-L_PR_CO_0" class="edge-thickness-normal edge-pattern-solid edge-thickness-normal edge-pattern-solid flowchart-link" style=";" data-edge="true" data-et="edge" data-id="L_PR_CO_0" data-points="W3sieCI6MTMwLjEzMjgxMjUsInkiOjE5NS41fSx7IngiOjEzMC4xMzI4MTI1LCJ5IjoyMjUuNX0seyJ4IjoxMzAuMTMyODEyNSwieSI6MjU1LjV9XQ==" data-look="classic" marker-end="url(#d1_flowchart-v2-pointEnd)"></path><path d="M115.122,330.5L112.42,337.25C109.718,344,104.314,357.5,104.066,370.381C103.819,383.262,108.727,395.524,111.181,401.655L113.635,407.786" id="d1-L_CO_UI_0" class="edge-thickness-normal edge-pattern-solid edge-thickness-normal edge-pattern-solid flowchart-link" style=";" data-edge="true" data-et="edge" data-id="L_CO_UI_0" data-points="W3sieCI6MTE1LjEyMTkyMDA3MjExNTM5LCJ5IjozMzAuNX0seyJ4Ijo5OC45MTAxNTYyNSwieSI6MzcxfSx7IngiOjExNS4xMjE5MjAwNzIxMTUzOSwieSI6NDExLjV9XQ==" data-look="classic" marker-end="url(#d1_flowchart-v2-pointEnd)"></path><path d="M145.144,411.5L147.846,404.75C150.548,398,155.952,384.5,156.199,371.619C156.447,358.738,151.539,346.476,149.084,340.345L146.63,334.214" id="d1-L_UI_CO_0" class="edge-thickness-normal edge-pattern-solid edge-thickness-normal edge-pattern-solid flowchart-link" style=";" data-edge="true" data-et="edge" data-id="L_UI_CO_0" data-points="W3sieCI6MTQ1LjE0MzcwNDkyNzg4NDYsInkiOjQxMS41fSx7IngiOjE2MS4zNTU0Njg3NSwieSI6MzcxfSx7IngiOjE0NS4xNDM3MDQ5Mjc4ODQ2LCJ5IjozMzAuNX1d" data-look="classic" marker-end="url(#d1_flowchart-v2-pointEnd)"></path></g><g class="edgeLabels"><g class="edgeLabel"><g class="label" data-id="L_WS_PR_0" transform="translate(0, 0)"><text y="-10.1" text-anchor="middle"><tspan class="text-outer-tspan row" x="0" y="-0.1em" dy="1.1em" text-anchor="middle"></tspan></text></g></g><g><rect class="background" style="stroke: none"></rect></g><g class="edgeLabel"><g class="label" data-id="L_PR_CO_0" transform="translate(0, 0)"><text y="-10.1" text-anchor="middle"><tspan class="text-outer-tspan row" x="0" y="-0.1em" dy="1.1em" text-anchor="middle"></tspan></text></g></g><g><rect class="background" style="stroke: none"></rect></g><g class="edgeLabel"><g class="label" data-id="L_CO_UI_0" transform="translate(0, 0)"><text y="-10.1" text-anchor="middle"><tspan class="text-outer-tspan row" x="0" y="-0.1em" dy="1.1em" text-anchor="middle"></tspan></text></g></g><g><rect class="background" style="stroke: none"></rect></g><g class="edgeLabel" transform="translate(161.35546875, 371)"><g class="label" data-id="L_UI_CO_0" transform="translate(0, -9.5)"><g><rect class="background" style="" x="-42.4453125" y="-1" width="84.890625" height="21"></rect><text y="-10.1" text-anchor="middle" style=""><tspan class="text-outer-tspan row" x="0" y="-0.1em" dy="1.1em" text-anchor="middle"><tspan font-style="normal" class="text-inner-tspan" font-weight="normal">actions</tspan><tspan font-style="normal" class="text-inner-tspan" font-weight="normal"> utilisateur</tspan></tspan></text></g></g></g></g><g class="nodes"><g class="node default" id="d1-flowchart-WS-0" data-look="classic" transform="translate(130.1328125, 34.25)"><rect class="basic label-container" style="" x="-93.2265625" y="-26.25" width="186.453125" height="52.5"></rect><g class="label" style="" transform="translate(-88.2266, -11.25)"><rect></rect><foreignObject width="176.4531" height="22.5"><div xmlns="http://www.w3.org/1999/xhtml" style="display: table-cell; width: 176.4531px; white-space: nowrap; line-height: 1.5; text-align: center;"><span class="nodeLabel"><p>trames WebSocket</p></span></div></foreignObject></g></g><g class="node default" id="d1-flowchart-PR-1" data-look="classic" transform="translate(130.1328125, 158)"><rect class="basic label-container" style="" x="-96.4921875" y="-37.5" width="192.984375" height="75"></rect><g class="label" style="" transform="translate(-91.4922, -22.5)"><rect></rect><foreignObject width="182.9844" height="45"><div xmlns="http://www.w3.org/1999/xhtml" style="display: table-cell; width: 182.9844px; white-space: nowrap; line-height: 1.5; text-align: center;"><span class="nodeLabel"><p>protocol/<br>parseur + commandes</p></span></div></foreignObject></g></g><g class="node default" id="d1-flowchart-CO-3" data-look="classic" transform="translate(130.1328125, 293)"><rect class="basic label-container" style="" x="-122.1328125" y="-37.5" width="244.265625" height="75"></rect><g class="label" style="" transform="translate(-117.1328, -22.5)"><rect></rect><foreignObject width="234.2656" height="45"><div xmlns="http://www.w3.org/1999/xhtml" style="display: table-cell; width: 234.2656px; white-space: nowrap; line-height: 1.5; text-align: center;"><span class="nodeLabel"><p>core/<br>connexion, état, contrôleur</p></span></div></foreignObject></g></g><g class="node default" id="d1-flowchart-UI-5" data-look="classic" transform="translate(130.1328125, 449)"><rect class="basic label-container" style="" x="-95.046875" y="-37.5" width="190.09375" height="75"></rect><g class="label" style="" transform="translate(-90.0469, -22.5)"><rect></rect><foreignObject width="180.0938" height="45"><div xmlns="http://www.w3.org/1999/xhtml" style="display: table-cell; width: 180.0938px; white-space: nowrap; line-height: 1.5; text-align: center;"><span class="nodeLabel"><p>ui/<br>écrans et panneaux</p></span></div></foreignObject></g></g></g></g></g><defs><filter id="d1-drop-shadow" height="130%" width="130%"><feDropShadow dx="4" dy="4" stdDeviation="0" flood-opacity="0.06" flood-color="#000000"></feDropShadow></filter></defs><defs><filter id="d1-drop-shadow-small" height="150%" width="150%"><feDropShadow dx="2" dy="2" stdDeviation="0" flood-opacity="0.06" flood-color="#000000"></feDropShadow></filter></defs><linearGradient id="d1-gradient" gradientUnits="objectBoundingBox" x1="0%" y1="0%" x2="100%" y2="0%"><stop offset="0%" stop-color="#5e8fd0" stop-opacity="1"></stop><stop offset="100%" stop-color="hsl(96.9230769231, 21.9047619048%, 85.8823529412%)" stop-opacity="1"></stop></linearGradient></svg></figure>
+
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Domaine</th>
+<th>Fichiers</th>
+<th>Rôle</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Protocole</td>
+<td><code>protocol/types.ts</code>, <code>parser.ts</code>, <code>commands.ts</code></td>
+<td>Transforme chaque trame en message typé ; ne lève jamais d'exception (un JSON invalide devient un message <code>invalid</code>). Construit les commandes.</td>
+</tr>
+<tr>
+<td>Connexion</td>
+<td><code>core/connection.ts</code>, <code>host.ts</code></td>
+<td>Cycle de vie du WebSocket : reconnexion avec attente progressive (1, 2, 4, 8, puis 15 s, plus un décalage aléatoire de 300 ms au plus), délai d'ouverture de 8 s, <code>ping</code> toutes les 15 s, relance si rien n'arrive pendant 45 s, nouvelle vérification au réveil du téléphone ou au retour du réseau. <code>host.ts</code> détermine l'adresse (ordre de priorité ci-dessus) et valide l'IP et le port saisis par l'utilisateur.</td>
+</tr>
+<tr>
+<td>État</td>
+<td><code>core/store.ts</code>, <code>controller.ts</code>, <code>frequencies.ts</code></td>
+<td>Un signal par domaine (radios, actions, journal, fréquences, réglages…) : une mise à jour de <code>Progress</code> toutes les 5 s ne redessine que la barre de progression. Le journal garde les 400 derniers messages. <code>frequencies.ts</code> regroupe les fréquences par aéroport et par type. <code>controller.ts</code> relie la connexion, le parseur et l'état, et met les actions du pilote à disposition de l'interface.</td>
+</tr>
+<tr>
+<td>Préférences</td>
+<td><code>core/prefs.ts</code></td>
+<td>Réglages propres à l'appareil (adresse de BeyondATC, filtres du journal, taille du texte, vibration, carillon), enregistrés dans le stockage local du navigateur et jamais envoyés à BeyondATC.</td>
+</tr>
+<tr>
+<td>Notifications</td>
+<td><code>core/notify.ts</code></td>
+<td>Décide quand sonner (messages <code>ATC:</code> adressés à notre avion, <code>CPDLC_ATC:</code> en option ; silence pendant 1,5 s après la connexion, le temps que le journal soit rejoué ; au plus un carillon toutes les 1,5 s) et synthétise le carillon à deux tons avec la Web Audio API, sans fichier audio.</td>
+</tr>
+<tr>
+<td>Plateforme</td>
+<td><code>core/platform.ts</code>, <code>scanner.ts</code>, <code>screen.ts</code></td>
+<td>Détermine si le code tourne dans un navigateur ou dans l'app Android, gère le scan du QR code du PC (lecture du code, puis de <code>/api/config</code>), et garde l'écran allumé et assombri pendant le vol (app Android). Seuls ces fichiers connaissent Capacitor.</td>
+</tr>
+<tr>
+<td>Interface</td>
+<td><code>ui/*.tsx</code>, <code>styles.css</code>, <code>i18n.ts</code></td>
+<td>Écrans, panneaux et dialogues ; tous les textes en anglais, dans <code>i18n.ts</code>.</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>Règles de temps tirées de la capture réelle :</strong></p>
+<ul>
+<li><code>Actions</code> arrive en rafales (ancienne liste → <code>[]</code> → nouvelle liste en moins de 2 ms). L'état ne garde que la dernière liste reçue dans un délai de 200 ms, pour que les boutons ne clignotent pas.</li>
+<li>Pendant un échange, <code>CommsState</code> repasse à <code>ready</code> pendant 20 à 30 ms environ entre les étapes. Les actions sont désactivées dès que l'état est occupé, et ne sont réactivées qu'après 250 ms de <code>ready</code>.</li>
+<li>Quand l'utilisateur touche une action, elle est marquée comme envoyée jusqu'à la réaction de BeyondATC, ou 6 s au plus. Cela évite les doubles envois.</li>
+<li>Le mode <code>request</code> de <code>CommsState</code> est traité comme « occupé », et son texte est affiché comme la demande en cours.</li>
+</ul>
+<h2 id="windows-host-batcremote-exe">Hôte Windows (BatcRemote.exe)</h2>
+<p><code>BatcRemote.exe</code> est une petite app <strong>.NET 8</strong> (C#, un seul fichier de 0,8 Mo avec l'app web intégrée) qui se loge dans la zone de notification de Windows. Elle se contente de servir les fichiers de l'app web en HTTP. Elle ne relaie, ne lit et ne modifie <strong>aucun</strong> échange ATC.</p>
+<ul>
+<li><strong>Serveur web :</strong> ASP.NET Core en hébergement minimal (Kestrel) sur le port 8741, toutes interfaces réseau. Les fichiers à nom haché sous <code>/assets</code> sont mis en cache indéfiniment ; <code>index.html</code> est toujours revalidé pour que les mises à jour soient prises en compte. Les fichiers sont intégrés à l'exe (<code>ManifestEmbeddedFileProvider</code>) : pas de dossier <code>wwwroot</code> à copier ; <code>--webroot &lt;dossier&gt;</code> sert un dossier à la place, pour le développement.</li>
+<li><strong>Au démarrage :</strong> une notification Windows indique l'adresse à ouvrir sur le téléphone.</li>
+<li><strong>Icône :</strong> le logo BATC Remote, avec une pastille verte quand BeyondATC répond à son adresse (ce PC, port 41716 par défaut), orange sinon ; vérifié toutes les 4 s.</li>
+<li><strong>Clic :</strong> une fenêtre avec le QR code de l'adresse du PC sur le réseau local (bibliothèque QRCoder), à scanner avec le téléphone. Quand le PC a plusieurs cartes réseau (Ethernet, Wi-Fi, VPN…), un lien permet de passer de l'une à l'autre.</li>
+<li><strong>Menu du clic droit :</strong> version, mention « outil non officiel », <strong>Show QR code…</strong>, copier l'adresse, ouvrir l'app sur le PC, état de BeyondATC, <strong>Settings…</strong>, <em>Launch at Windows startup</em> (clé <code>HKCU\…\Run</code> de l'utilisateur, sans droits administrateur), Quit.</li>
+<li><strong>Fenêtre des réglages :</strong> IP et port de BeyondATC, avec un bouton <em>Test</em> (appliqués aussitôt ; les téléphones les reprennent à leur prochaine connexion), et port de la page web (redémarre l'app). Un bouton rétablit les valeurs par défaut. Enregistrés dans <code>%AppData%\BATC Remote\settings.json</code>.</li>
+<li><strong>Sûreté :</strong> une seule instance à la fois (mutex nommé). Si le port 8741 est déjà utilisé, un message l'explique et la fenêtre des réglages s'ouvre pour choisir un autre port ; <code>--port 8742</code> change le port pour un lancement.</li>
+<li><strong>Points d'accès :</strong> <code>GET /api/config</code> donne aux téléphones l'adresse et le port de BeyondATC choisis sur le PC (avec un en-tête CORS, pour que l'app Android puisse le lire) ; <code>GET /api/status</code> renvoie la version et indique si BeyondATC est joignable.</li>
+</ul>
+<p>Avec la version navigateur, l'hôte doit rester lancé pendant le vol, car Android peut fermer un onglet en arrière-plan et la page doit pouvoir être rechargée. Il n'occupe que quelques Mo de mémoire (ramasse-miettes « workstation »). Il fonctionne avec .NET 8 ou tout runtime plus récent.</p>
+<h2 id="android-app">App Android</h2>
+<p>L'app Android place la même app web dans une coque native <strong>Capacitor 8</strong> : le code du protocole, de l'état et de l'interface est partagé avec la version navigateur. <code>npm run build</code> alimente les deux ; <code>npx cap sync android</code> copie la compilation dans le projet Android, et Gradle produit l'APK (environ 6 Mo).</p>
+<ul>
+<li><strong>Identifiant :</strong> <code>io.github.proxi64.batcremote</code>, version 0.6.0, Android 7.0 (API 24) et plus récent. La seule autorisation demandée est l'accès à Internet.</li>
+<li><strong>Accès au réseau local :</strong> la page est servie dans l'app sous <code>http://localhost</code> et le trafic non chiffré est autorisé : la connexion <code>ws://</code> simple vers BeyondATC fonctionne comme dans le navigateur.</li>
+<li><strong>Trouver le PC :</strong> un petit plugin maison (<code>QrScannerPlugin.java</code>) utilise le scanner de codes des services Google Play. L'écran de l'appareil photo tourne dans les services Play : pas d'autorisation d'accès à l'appareil photo ni de modèle de reconnaissance d'image dans l'APK. <code>/api/config</code> est ensuite lu par le client HTTP natif de Capacitor. L'adresse peut être scannée à nouveau ou saisie à tout moment dans <em>Settings → Connection</em>.</li>
+<li><strong>Écran pendant le vol :</strong> tant que l'app est connectée à un vol, l'écran reste allumé (<code>ScreenPlugin.java</code>). Après 30 s sans toucher l'écran, l'app passe à la luminosité minimale ; un toucher (qui ne fait alors que réveiller l'écran), un appel de l'ATC, une question ou une erreur de BeyondATC rétablissent la luminosité normale. En option, reprendre le téléphone en main ou le bouger fait de même : l'accéléromètre n'est lu que pendant l'assombrissement, avec une sensibilité réglable, et les brèves vibrations du bureau sont ignorées. Aucune autorisation n'est nécessaire, et le téléphone retrouve son comportement habituel après le vol.</li>
+<li><strong>Taille du texte :</strong> la taille de police du système Android est ignorée (zoom du texte de la WebView fixé à 100 %) ; seul le réglage <em>Text size</em> de l'app s'applique.</li>
+<li><strong>Apparence :</strong> icône et écran de démarrage BATC Remote, icônes claires dans la barre d'état sur le thème sombre, pas de bouton plein écran (l'app est déjà en plein écran).</li>
+<li><strong>Distribution :</strong> un APK signé (<code>BatcRemote.apk</code>), publié avec <code>BatcRemote.exe</code> sur la page Releases du dépôt et installé à la main. Comme avec la version navigateur, le carillon ne sonne pas téléphone verrouillé.</li>
+</ul>
+<h2 id="features-and-screens">Fonctions et écrans</h2>
+<p>Toutes les fonctions de la toolbar sont disponibles, organisées pour le tactile : sur un téléphone, trois onglets en bas (Actions, Log, Frequencies) ; sur une tablette en paysage (900 px de large ou plus), le panneau radio et le journal à gauche, Actions ou Frequencies à droite.</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Écran</th>
+<th>Ce que le pilote voit et fait</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Barre du haut</td>
+<td>Pastille d'état de la connexion, indicatif (complet et abrégé), bouton plein écran (navigateur seulement), réglages</td>
+</tr>
+<tr>
+<td>Panneau radio</td>
+<td>Station et fréquence COM1, COM2 (avec l'étiquette <em>Monitor</em> en écoute seule), « Muted » quand une radio est coupée, barre de progression du vol, cases de clairance (piste de roulage, SID, altitude, transpondeur…) qui passent à la ligne</td>
+</tr>
+<tr>
+<td>Bandeau d'échange</td>
+<td>Affiché au-dessus des onglets pendant un échange : <em>Queued</em>, <em>Awaiting response</em>, <em>Transmitting</em>, <em>Processing…</em>, <em>Request in progress</em> (avec la demande), ou le texte de BeyondATC pour les transmissions de l'ATC et du trafic ; <em>Sent…</em> avec l'action qui vient d'être touchée</td>
+</tr>
+<tr>
+<td>Actions</td>
+<td>De gros boutons pour chaque demande, désactivés pendant un échange ; au-dessus, une barre copilote (icône de casque, puis deux colonnes égales) avec les interrupteurs <em>Auto respond</em> et <em>Auto tune</em>, qui reste visible pendant le défilement ; une carte de rotation (turnaround) quand BeyondATC en propose une</td>
+</tr>
+<tr>
+<td>Log</td>
+<td>Messages ATC, pilote, trafic et CPDLC sous forme de bulles de conversation, avec leur source et leur heure ; filtres Traffic et CPDLC (mémorisés) ; un bouton « New messages » avec un compteur quand on a remonté le fil</td>
+</tr>
+<tr>
+<td>Frequencies</td>
+<td>Un onglet par aéroport (départ d'abord, arrivée après la moitié du vol), types dans l'ordre de la toolbar, services VFR et centres en route en dessous ; toucher = régler COM1, bouton latéral = régler COM2, avec une confirmation ; fréquences réglées mises en évidence ; pistes, codes de logon CPDLC, lettre ATIS et texte D-ATIS (2 lignes, toucher pour tout lire) ; bouton d'actualisation</td>
+</tr>
+<tr>
+<td>Menu / chargement</td>
+<td><em>Start a flight</em> (IFR SimBrief ; VFR SimBrief et carte VFR MSFS quand ils sont disponibles), un message quand l'utilisateur n'est pas connecté à BeyondATC, progression du téléchargement et du chargement</td>
+</tr>
+<tr>
+<td>Dialogues</td>
+<td>Questions de BeyondATC (Oui/Non), erreurs et avertissements à acquitter, confirmation <em>Quit to main menu</em></td>
+</tr>
+<tr>
+<td>Settings</td>
+<td><em>Connection</em> (état en direct, adresse utilisée, un seul champ IP:port ; badge <em>Auto</em> / <em>Manual</em> dans le navigateur, bouton <em>Scan</em> dans l'app Android) ; <em>Display</em> (taille du texte en 4 crans, vibration ; dans l'app Android, écran gardé allumé pendant le vol, assombri après 30 s, réveillé par un mouvement du téléphone avec un curseur de sensibilité) ; <em>Notifications</em> (carillon, CPDLC, volume, test) ; tous les réglages de BeyondATC (flèches de roulage, volume des voix, sons de l'interface, voix du copilote, qualité des voix avec échantillons et caractères premium restants, trafic IA et densités, trafic réel Navigraph) ; <em>Flight</em> (Quit to main menu) ; <em>About</em> (versions, messages inconnus, avertissement)</td>
+</tr>
+<tr>
+<td>Notifications</td>
+<td>Un court carillon à deux tons quand l'ATC appelle votre avion (CPDLC en option) ; muet pour les appels au trafic, vos propres collationnements et l'historique rejoué à la reconnexion</td>
+</tr>
+<tr>
+<td>Connexion</td>
+<td>Reconnexion automatique avec un bandeau « Reconnecting… » ; au bout de 6 s, un écran complet avec l'adresse, un compte à rebours, <em>Retry now</em> et <em>Change address</em>, et à partir du deuxième échec une liste de vérifications (BeyondATC lancé, même Wi-Fi, pare-feu, adresse et port)</td>
+</tr>
+</tbody>
+</table></div>
+<p>L'interface utilise un thème sombre façon cockpit, des zones tactiles d'au moins 44 px (52 px pour les boutons d'action), de courtes vibrations aux touchers (désactivables), et respecte le réglage système <em>réduire les animations</em>.</p>
+<h2 id="quality-and-tooling">Qualité et outils</h2>
+<p>La logique du protocole et de l'état est testée sur un <strong>vrai vol enregistré</strong> (<code>tests/fixtures/capture-2026-09-23.jsonl</code>), pas sur des exemples écrits à la main. Le projet compte 63 tests automatiques (Vitest) et deux outils de développement.</p>
+<ul>
+<li><strong>Tests du parseur (16) :</strong> les 940 messages de la capture sont tous reconnus, sans résultat inconnu ni invalide ; les 15 fréquences et les vrais réglages sont lus correctement ; cas limites (<code>¬</code> final, contenus vides, deux-points dans le texte ATC, <code>|</code> dans le texte D-ATIS, virgule finale dans <code>Frequencies</code>, JSON invalide) ; format exact de chaque commande.</li>
+<li><strong>Tests de l'état (9) :</strong> le vol entier est rejoué avec ses vrais délais et l'état final est vérifié (station, indicatif, clairances, D-ATIS, 12 messages ATC). Des tests dédiés couvrent les rafales d'<code>Actions</code>, les états <code>ready</code> brefs, le trafic qui ne bloque pas les actions du pilote, la libération d'une action envoyée, <code>Wipe</code>, le remplacement du D-ATIS et le regroupement des fréquences.</li>
+<li><strong>Tests de la connexion (15) :</strong> délais de reconnexion, délai d'ouverture, ping et relance d'une connexion muette, anciens sockets ignorés, arrêt, ordre de priorité des adresses (URL, téléphone, PC, hôte de la page, app Android) et validation de l'IP et du port saisis par l'utilisateur.</li>
+<li><strong>Tests des notifications (5) :</strong> quels messages sonnent, les options, la période de silence après la connexion et les rafales ; rejouer le vol enregistré donne exactement un carillon par appel ATC à notre avion (12).</li>
+<li><strong>Tests de l'écran (9) :</strong> écran gardé allumé pendant le vol, assombri après 30 s, réveillé par un toucher (ignoré quand l'écran est assombri), un appel de l'ATC ou un mouvement du téléphone, capteurs lus seulement pendant l'assombrissement, comportement normal après le vol, réglages désactivés ou modifiés.</li>
+<li><strong>Tests du scan QR (9) :</strong> lecture de l'adresse de la page affichée par le PC, d'une simple <code>IP[:port]</code>, rejet des QR codes sans rapport, et conversion des réglages du PC lus dans <code>/api/config</code> en adresse BeyondATC (y compris un PC injoignable).</li>
+<li><strong>Simulateur BeyondATC</strong> (<code>npm run sim</code>, <code>dev/batc-simulator.mjs</code>) : un serveur WebSocket Node.js sur le port 41716 qui rejoue la capture et imite BeyondATC (snapshot à chaque client, <code>Pong</code> à l'expéditeur seulement, un échange scénarisé sur <code>set_action</code>). Taper <code>menu</code>, <code>loading</code>, <code>wipe</code>, <code>prompt</code>, <code>error</code>, <code>warning</code>, <code>turnaround</code>, <code>pause</code> ou <code>resume</code> dans sa console déclenche les autres écrans ; <code>--menu</code> démarre sur le menu principal. Il permet de développer sans MSFS.</li>
+<li><strong>Sniffer</strong> (<code>Tools/batc-sniffer.html</code>) : une page HTML autonome qui enregistre chaque trame avec un horodatage à la milliseconde, compte les préfixes, affiche les structures JSON, peut ouvrir deux clients simultanés, et exporte en <code>.txt</code> / <code>.jsonl</code>. C'est avec elle que le protocole a été confirmé.</li>
+</ul>
+<h2 id="deployment-limits-and-security">Déploiement, limites et sécurité</h2>
+<p>L'installation prend environ une minute : lancer <code>BatcRemote.exe</code>, scanner le QR code avec le téléphone, ajouter la page à l'écran d'accueil (ou installer l'app Android et scanner le même QR code).</p>
+<p><strong>Prérequis :</strong> Windows avec les runtimes ASP.NET Core 8 et Windows Desktop 8 (ou plus récents), BeyondATC lancé, téléphone et PC sur le même Wi-Fi, et le pare-feu Windows autorisant les ports 8741 (l'app) et 41716 (BeyondATC) sur les réseaux privés. Testé avec Firefox et Samsung Internet sous Android, et avec l'app Android (qui a besoin des services Google Play pour le scan QR ; l'adresse IP peut aussi être saisie).</p>
+<p><strong>Limites du HTTP simple sur un réseau local :</strong> les navigateurs réservent certaines fonctions aux pages sécurisées (HTTPS).</p>
+<ul>
+<li>La version navigateur ne peut pas empêcher la mise en veille de l'écran (API Screen Wake Lock) ; l'utilisateur allonge plutôt le délai de mise en veille, ou utilise l'app Android, qui le fait.</li>
+<li>Le raccourci de l'écran d'accueil s'ouvre dans un onglet du navigateur plutôt que comme une app autonome installée ; un bouton plein écran dans l'app masque les barres du navigateur.</li>
+<li>Le son ne joue qu'après un premier toucher dans l'app, et pas quand l'écran est verrouillé ou que le navigateur est en arrière-plan.</li>
+<li>La page doit pouvoir être rechargée depuis le PC : <code>BatcRemote.exe</code> reste donc lancé pendant le vol.</li>
+</ul>
+<p>Une page en HTTPS ne pourrait de toute façon pas fonctionner ainsi : une page sécurisée n'a pas le droit d'ouvrir une connexion <code>ws://</code> simple vers une adresse du réseau local.</p>
+<p><strong>Sécurité :</strong> le port 41716 accepte les connexions de n'importe quel appareil du réseau local, sans authentification. Quelqu'un sur le même Wi-Fi qui connaît le protocole pourrait envoyer des commandes à BeyondATC (par exemple <code>quit_to_menu</code>). C'est déjà le cas aujourd'hui avec BeyondATC ; BATC Remote n'ouvre rien de nouveau. Sur un réseau domestique le risque est faible ; évitez les réseaux publics ou partagés.</p>
+<h2 id="protocol-observations">Observations sur le protocole</h2>
+<p>L'interface fonctionne très bien pour un second client. Quelques comportements observés sur le vol enregistré sont importants pour qui écrit un client :</p>
+<ol>
+<li><strong><code>QueuedAction</code> et le texte de <code>queued</code> ont une action de retard.</strong> Toucher « Request Taxi to Runway » a produit <code>QueuedAction: Request IFR Clearance</code> (l'action précédente) ; toucher « Affirm » a produit <code>queued: "FL120"</code>. BATC Remote ignore ce texte et affiche à la place celui de <code>request</code>.</li>
+<li><strong><code>Actions</code> est envoyé trois fois par mise à jour</strong> (ancienne liste, <code>[]</code>, nouvelle liste, en moins de 2 ms). Les clients ont donc besoin d'un court anti-rebond.</li>
+<li><strong><code>CommsState</code> repasse brièvement à <code>ready</code></strong> (20 à 30 ms) entre les étapes d'un même échange : les clients doivent attendre un peu avant de réactiver les actions.</li>
+<li><strong>Les listes <code>Actions</code> se terminent par un <code>¬</code></strong> (<code>[A¬B¬]</code>), ce qui crée un dernier élément vide.</li>
+<li><strong>Le snapshot est renvoyé à tous les clients</strong> chaque fois qu'un client se connecte. C'est sans conséquence, mais les clients doivent l'appliquer de façon idempotente.</li>
+<li><strong>Les actions envoyées par un client ne sont pas renvoyées aux autres :</strong> seuls leurs effets sont visibles (<code>CommsState</code>, puis <code>Player:</code>, puis <code>ATC:</code>).</li>
+</ol>
+<h2 id="code-and-build">Code et compilation</h2>
+<p>Le code est compact et organisé par responsabilité. Le code source complet se trouve dans ce dépôt.</p>
+<pre><code>src/web/                   App web (TypeScript + Preact + Vite)
+  src/main.tsx             Point d'entrée
+  src/protocol/            Protocole BeyondATC : types, parseur, commandes
+  src/core/                Connexion (connection.ts), résolution d'adresse (host.ts),
+                           état (store.ts, controller.ts), préférences (prefs.ts),
+                           regroupement des fréquences (frequencies.ts), notifications (notify.ts),
+                           détection de plateforme (platform.ts), scan QR (scanner.ts),
+                           écran gardé allumé et assombri (screen.ts)
+  src/ui/                  Écrans, panneaux, dialogues
+  src/i18n.ts, styles.css  Textes (en anglais) et styles
+  public/                  Icônes et manifeste de l'app web
+  resources/               Sources de l'icône et de l'écran de démarrage Android
+  tests/                   Tests Vitest + vol enregistré (fixtures/capture-2026-09-23.jsonl)
+  dev/batc-simulator.mjs   Simulateur BeyondATC
+  android/                 App Android (Capacitor) ; code natif dans
+                           app/src/main/java/io/github/proxi64/batcremote/
+                           (MainActivity, QrScannerPlugin, ScreenPlugin)
+src/host/BatcRemote.Host/  App .NET 8 de la zone de notification : serveur web avec l'app web
+                           intégrée (WebServer.cs), menu de l'icône (TrayContext.cs),
+                           QR code (QrForm.cs), réglages (SettingsForm.cs, AppSettings.cs),
+                           démarrage automatique (AutoStart.cs)
+Documentation/             Cette présentation et le guide technique (TECHNICAL.md), en anglais et en français
+Tools/                     batc-sniffer.html (enregistreur de protocole), logo
+build.ps1                  Tests + compilation web + publication dans dist\ (+ APK)
+</code></pre>
+<p><strong>Compilation :</strong> Node.js 22+ et le SDK .NET 8. <code>build.ps1</code> installe les dépendances web, vérifie les types et lance les tests, compile l'app web dans le <code>wwwroot</code> de l'hôte, puis publie un <code>BatcRemote.exe</code> unique pour Windows x64 dans <code>dist\</code>, avec l'app web intégrée. Si le SDK Android est installé (Android Studio), il produit aussi l'app Android : le <code>dist\BatcRemote.apk</code> signé quand <code>src/web/android/keystore.properties</code> désigne une clé de signature (voir <code>keystore.properties.example</code> ; la clé et ses mots de passe ne sont jamais commités), sinon <code>dist\BatcRemote-debug.apk</code>, pour les tests uniquement.</p>
+<p><strong>Contact :</strong> via le dépôt GitHub du projet (Proxi64/BATC-Remote). Merci de ne pas contacter le support de BeyondATC au sujet de cet outil.</p>
+<h2 id="disclaimer">Avertissement</h2>
+<p>BATC Remote est un outil communautaire indépendant et non commercial. Il n'est <strong>pas supporté</strong> et <strong>n'est pas un outil officiel BeyondATC</strong> ; il n'est ni affilié à BeyondATC, ni approuvé par BeyondATC. Publié avec l'autorisation de BeyondATC.</p>
+  </main>
+</div>
+<footer>BATC Remote est un outil communautaire indépendant et non commercial. Il n'est pas supporté et n'est pas un outil officiel BeyondATC ; il n'est ni affilié à BeyondATC, ni approuvé par BeyondATC. BeyondATC et Microsoft Flight Simulator sont des marques de leurs propriétaires respectifs.</footer>
+</body>
+</html>

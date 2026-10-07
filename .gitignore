@@ -1,0 +1,13 @@
+# Node
+node_modules/
+# Generated build of the web app (produced by npm run build)
+src/host/BatcRemote.Host/wwwroot/
+# .NET
+bin/
+obj/
+*.user
+.vs/
+# Distribution
+dist/
+# Third-party installers (download them from Microsoft)
+Tools/*.exe

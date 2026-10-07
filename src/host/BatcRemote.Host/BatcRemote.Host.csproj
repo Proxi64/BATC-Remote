@@ -1,0 +1,47 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <!-- Windows app: web server + icon in the notification area (no console) -->
+    <TargetFramework>net8.0-windows</TargetFramework>
+    <OutputType>WinExe</OutputType>
+    <UseWindowsForms>true</UseWindowsForms>
+    <EnableWindowsTargeting>true</EnableWindowsTargeting>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <AssemblyName>BatcRemote</AssemblyName>
+    <RootNamespace>BatcRemote.Host</RootNamespace>
+    <Version>0.6.0</Version>
+    <Product>BATC Remote</Product>
+    <Description>Serves the BATC Remote web app to phones and tablets on the local network. Unofficial, unsupported community tool; not an official BeyondATC tool.</Description>
+    <ApplicationIcon>app.ico</ApplicationIcon>
+    <GenerateEmbeddedFilesManifest>true</GenerateEmbeddedFilesManifest>
+    <!-- Light footprint: this app runs all day in the background -->
+    <ServerGarbageCollection>false</ServerGarbageCollection>
+    <ConcurrentGarbageCollection>false</ConcurrentGarbageCollection>
+    <ApplicationHighDpiMode>PerMonitorV2</ApplicationHighDpiMode>
+    <IsTransformWebConfigDisabled>true</IsTransformWebConfigDisabled>
+    <DebugType Condition="'$(Configuration)' == 'Release'">none</DebugType>
+    <!-- dotnet publish -c Release -r win-x64 → a single BatcRemote.exe
+         (requires the ASP.NET Core 8 + Windows Desktop 8 runtimes, included in the .NET SDK) -->
+    <PublishSingleFile>true</PublishSingleFile>
+    <SelfContained>false</SelfContained>
+    <!-- Also runs if only .NET 9/10 is installed -->
+    <RollForward>Major</RollForward>
+    <IncludeNativeLibrariesForSelfExtract>true</IncludeNativeLibrariesForSelfExtract>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <!-- The web app (built by src/web → npm run build) is EMBEDDED in the executable:
+         BatcRemote.exe is self-contained, with no wwwroot folder to copy. -->
+    <Content Remove="wwwroot\**" />
+    <None Remove="wwwroot\**" />
+    <EmbeddedResource Include="wwwroot\**" />
+    <EmbeddedResource Include="app.ico" LogicalName="BatcRemote.app.ico" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="QRCoder" Version="1.6.0" />
+    <PackageReference Include="Microsoft.Extensions.FileProviders.Embedded" Version="8.0.*" />
+  </ItemGroup>
+
+</Project>

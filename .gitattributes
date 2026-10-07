@@ -1,0 +1,19 @@
+# Auto detect text files and perform LF normalization
+* text=auto
+
+# Shell scripts must keep LF (they no longer run on Linux/macOS with CRLF)
+gradlew        text eol=lf
+*.sh           text eol=lf
+
+# Windows scripts keep CRLF
+*.bat          text eol=crlf
+*.cmd          text eol=crlf
+*.ps1          text eol=crlf
+
+# Binary files: never converted
+*.png          binary
+*.jpg          binary
+*.ico          binary
+*.jar          binary
+*.apk          binary
+*.exe          binary

@@ -1,0 +1,492 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#12161d">
+<title>BATC Sniffer</title>
+<style>
+  :root{
+    --bg:#12161d; --panel:#1b212b; --panel2:#232b37; --line:#323c4b;
+    --text:#e8edf4; --muted:#93a1b5; --blue:#5E87BD; --purple:#915EBD;
+    --green:#5EBD87; --red:#BD5E5E; --amber:#d4a24c;
+    --mono: ui-monospace, "Cascadia Mono", Consolas, Menlo, monospace;
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0;background:var(--bg);color:var(--text);font:14px/1.4 system-ui,"Segoe UI",Roboto,sans-serif}
+  body{padding:max(10px,env(safe-area-inset-top)) 10px max(10px,env(safe-area-inset-bottom))}
+  h1{font-size:15px;margin:0;letter-spacing:.06em;text-transform:uppercase}
+  h2{font-size:11px;margin:0 0 8px;color:var(--muted);letter-spacing:.1em;text-transform:uppercase}
+  .wrap{max-width:1200px;margin:0 auto;display:grid;gap:10px}
+  .card{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:10px}
+  .row{display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+  input[type=text]{flex:1;min-width:160px;background:var(--panel2);color:var(--text);border:1px solid var(--line);border-radius:8px;padding:9px 10px;font:inherit}
+  button{background:var(--panel2);color:var(--text);border:1px solid var(--line);border-radius:8px;padding:8px 12px;font:inherit;cursor:pointer;min-height:38px}
+  button.primary{background:linear-gradient(135deg,var(--blue),var(--purple));border:0;font-weight:700}
+  button.danger{border-color:var(--red);color:#f1b3b3}
+  button:disabled{opacity:.45;cursor:not-allowed}
+  label.chk{display:inline-flex;gap:6px;align-items:center;color:var(--muted);font-size:13px;user-select:none}
+  .badge{display:inline-block;padding:2px 8px;border-radius:999px;font-size:11px;font-weight:700;letter-spacing:.06em;border:1px solid var(--line)}
+  .st-off{color:#f1b3b3;border-color:var(--red)}
+  .st-on{color:#a8e6c4;border-color:var(--green)}
+  .st-wait{color:#f0d49a;border-color:var(--amber)}
+  .top{display:flex;justify-content:space-between;align-items:center;gap:8px}
+  .grid2{display:grid;grid-template-columns:1fr;gap:10px}
+  @media(min-width:900px){.grid2{grid-template-columns:320px 1fr}}
+  table{width:100%;border-collapse:collapse;font-size:12px}
+  td,th{padding:4px 6px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top}
+  th{color:var(--muted);font-weight:600}
+  td.num{text-align:right;font-family:var(--mono)}
+  tr.unknown td:first-child{color:var(--amber)}
+  tr.clickable{cursor:pointer}
+  tr.active td{background:#2b3547}
+  #log{height:55vh;min-height:260px;overflow:auto;background:#0d1016;border:1px solid var(--line);border-radius:8px;font-family:var(--mono);font-size:12px}
+  .ln{display:grid;grid-template-columns:auto auto 1fr;gap:8px;padding:3px 8px;border-bottom:1px solid #1a1f28;white-space:pre-wrap;word-break:break-word}
+  .ln .t{color:var(--muted)}
+  .ln .d{font-weight:700}
+  .ln.in .d{color:var(--green)}
+  .ln.out .d{color:var(--blue)}
+  .ln.sys .d{color:var(--amber)}
+  .ln.sys .m{color:var(--amber)}
+  .ln.unk .m{color:#f0d49a}
+  .ln .conn{color:var(--purple);font-weight:700}
+  .muted{color:var(--muted);font-size:12px}
+  pre.box{margin:0;background:#0d1016;border:1px solid var(--line);border-radius:8px;padding:8px;font:12px/1.4 var(--mono);white-space:pre-wrap;word-break:break-word;max-height:40vh;overflow:auto}
+  .warn{color:#f0d49a;font-size:12px}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="card">
+    <div class="top">
+      <h1>BATC Sniffer <span class="muted">· protocol recorder</span></h1>
+      <span id="stA" class="badge st-off">A: OFF</span>
+    </div>
+    <div class="row" style="margin-top:10px">
+      <input id="host" type="text" inputmode="url" placeholder="PC IP (e.g. 192.168.1.20) — port 41716 by default" autocomplete="off" autocapitalize="off" spellcheck="false">
+      <button id="btnConnect" class="primary">Connect</button>
+      <button id="btnDisconnect" disabled>Disconnect</button>
+    </div>
+    <div class="row" style="margin-top:8px">
+      <label class="chk"><input type="checkbox" id="optBootstrap" checked> On connect: atc_log + settings + frequencies + datis</label>
+      <label class="chk"><input type="checkbox" id="optPing" checked> Ping every 20 s</label>
+    </div>
+  </div>
+
+  <div class="card">
+    <h2>Commands (read-only — no effect on the flight)</h2>
+    <div class="row">
+      <button data-cmd="atc_log">atc_log</button>
+      <button data-cmd="settings">settings</button>
+      <button data-cmd="frequencies">frequencies</button>
+      <button data-cmd="datis">datis</button>
+      <button data-cmd="ping">ping</button>
+    </div>
+    <div class="row" style="margin-top:8px">
+      <input id="freeCmd" type="text" placeholder="Free command (e.g. set_action: …) — it WILL be executed by BeyondATC" autocomplete="off" autocapitalize="off" spellcheck="false">
+      <button id="btnSendFree">Send</button>
+    </div>
+  </div>
+
+  <div class="card">
+    <h2>Multi-client test</h2>
+    <div class="row">
+      <button id="btnB">Open a 2nd connection (B)</button>
+      <span id="stB" class="badge st-off">B: OFF</span>
+      <span id="cmpAB" class="muted"></span>
+    </div>
+    <p class="muted" style="margin:8px 0 0">B connects to the same host without sending anything. If A and B receive the same messages, BeyondATC broadcasts to every client. (The toolbar inside MSFS is itself already a client.)</p>
+  </div>
+
+  <div class="grid2">
+    <div class="card">
+      <h2>Received prefixes <span id="totals" class="muted"></span></h2>
+      <table>
+        <thead><tr><th>Prefix</th><th class="num">A</th><th class="num">B</th></tr></thead>
+        <tbody id="stats"></tbody>
+      </table>
+      <p class="muted" style="margin:8px 0 0">Amber = prefix not documented in the v3.1 analysis. Tap a row to filter the log.</p>
+    </div>
+
+    <div class="card">
+      <div class="top">
+        <h2 style="margin:0">Raw log <span id="filterLbl" class="muted"></span></h2>
+        <div class="row">
+          <label class="chk"><input type="checkbox" id="optAutoscroll" checked> Autoscroll</label>
+          <label class="chk"><input type="checkbox" id="optHidePing" checked> Hide ping/Pong</label>
+          <button id="btnClear">Clear</button>
+        </div>
+      </div>
+      <div id="log" style="margin-top:8px"></div>
+      <div class="row" style="margin-top:8px">
+        <button id="btnExportTxt" class="primary">Export .txt</button>
+        <button id="btnExportJson">Export .jsonl</button>
+        <button id="btnCopy">Copy all</button>
+        <span id="exportMsg" class="muted"></span>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <h2>“Frequencies” analysis (last one received)</h2>
+    <pre id="freqAnalysis" class="box">Nothing received yet.</pre>
+  </div>
+
+  <div class="card">
+    <h2>Observed JSON structures (keys per prefix)</h2>
+    <pre id="shapes" class="box">Nothing received yet.</pre>
+  </div>
+
+</div>
+
+<script>
+"use strict";
+(() => {
+  const PORT = 41716;
+  const KNOWN = new Set(["ATC","ATCTraffic","Player","Traffic","CPDLC_ATC","CPDLC_Pilot","Facility","Frequencies","Actions",
+    "AutoTune","AutoRespond","RadioMute","HideActions","CommsState","DATIS_END","DATIS","CPDLCCode","QueuedAction","InfoBoxes",
+    "Com2","Settings","Wipe","LoadState","AppError","Callsign","Prompt","ToolbarVersion","Pong","Progress","Donut"]);
+  const JSON_PREFIXES = new Set(["RadioMute","CommsState","InfoBoxes","Com2","Settings","LoadState","AppError","Callsign","Prompt","Progress","Frequencies"]);
+  const MAX_DOM_LINES = 3000;
+
+  const $ = id => document.getElementById(id);
+  const session = [];              // every event, for export
+  const stats = new Map();         // prefix -> {A,B}
+  const shapes = new Map();        // prefix -> Set of keys
+  const t0 = Date.now();
+  let filterPrefix = null;
+  let pendingRender = false;
+
+  // ---------- storage (best effort) ----------
+  const store = {
+    get(k, d){ try { const v = localStorage.getItem(k); return v === null ? d : v; } catch { return d; } },
+    set(k, v){ try { localStorage.setItem(k, v); } catch {} }
+  };
+  $("host").value = store.get("batcSniffer.host", "");
+
+  // ---------- helpers ----------
+  function normalizeUrl(input){
+    let s = (input || "").trim();
+    if (!s) s = "127.0.0.1";
+    s = s.replace(/^wss?:\/\//i, "").replace(/\/+$/, "");
+    if (!/:\d+$/.test(s)) s += ":" + PORT;
+    return "ws://" + s;
+  }
+  function prefixOf(msg){
+    const i = msg.indexOf(":");
+    return i > 0 ? msg.slice(0, i) : msg;
+  }
+  function payloadOf(msg){
+    const i = msg.indexOf(":");
+    return i > 0 ? msg.slice(i + 1).replace(/^ /, "") : "";
+  }
+  function ts(ms){
+    const d = new Date(ms);
+    const p = (n, w = 2) => String(n).padStart(w, "0");
+    return `${p(d.getHours())}:${p(d.getMinutes())}:${p(d.getSeconds())}.${p(d.getMilliseconds(), 3)}`;
+  }
+  function collectKeys(val, path, out, depth){
+    if (depth > 4 || val === null || typeof val !== "object") return;
+    if (Array.isArray(val)) { val.forEach(v => collectKeys(v, path + "[]", out, depth + 1)); return; }
+    for (const [k, v] of Object.entries(val)) {
+      const p = path ? path + "." + k : k;
+      const type = v === null ? "null" : Array.isArray(v) ? "array" : typeof v;
+      out.add(p + " : " + type);
+      collectKeys(v, p, out, depth + 1);
+    }
+  }
+
+  // ---------- recording ----------
+  function record(conn, dir, text, extra){
+    const ev = { t: Date.now(), conn, dir, text, ...(extra || {}) };
+    session.push(ev);
+    if (dir === "in") {
+      const pfx = prefixOf(text);
+      ev.prefix = pfx;
+      const s = stats.get(pfx) || { A: 0, B: 0 };
+      s[conn]++;
+      stats.set(pfx, s);
+      if (conn === "A") analyse(pfx, text);
+    }
+    appendLine(ev);
+    scheduleRender();
+  }
+
+  function analyse(pfx, text){
+    if (!JSON_PREFIXES.has(pfx)) return;
+    let raw = payloadOf(text).trim();
+    if (!raw) return;
+    if (pfx === "Frequencies") raw = raw.replace(/,\s*]$/, "]");
+    let data;
+    try { data = JSON.parse(raw); }
+    catch (e) { record("A", "sys", `⚠ Invalid JSON for ${pfx}: ${e.message}`); return; }
+    const set = shapes.get(pfx) || new Set();
+    collectKeys(data, "", set, 0);
+    shapes.set(pfx, set);
+    if (pfx === "Frequencies") analyseFrequencies(data);
+  }
+
+  function analyseFrequencies(arr){
+    if (!Array.isArray(arr)) { $("freqAnalysis").textContent = "Not an array: " + typeof arr; return; }
+    const byType = {}, keys = new Set();
+    let withName = 0, withoutName = 0;
+    arr.forEach(f => {
+      if (!f || typeof f !== "object") return;
+      Object.keys(f).forEach(k => keys.add(k));
+      byType[f.type] = (byType[f.type] || 0) + 1;
+      if (typeof f.name === "string" && f.name !== "") withName++; else withoutName++;
+    });
+    const lines = [];
+    lines.push(`Items: ${arr.length}`);
+    lines.push(`Keys seen: ${[...keys].sort().join(", ")}`);
+    lines.push(`With a non-empty 'name' field: ${withName} · without: ${withoutName}`);
+    if (withoutName > 0) lines.push(`→ Exemple 2 would silently drop ${withoutName} frequency(ies) (it requires 'name').`);
+    lines.push("By type: " + Object.entries(byType).map(([k, v]) => `${k}=${v}`).join(", "));
+    lines.push("");
+    lines.push("Sample (first 3):");
+    lines.push(JSON.stringify(arr.slice(0, 3), null, 2));
+    $("freqAnalysis").textContent = lines.join("\n");
+  }
+
+  // ---------- rendering ----------
+  const logEl = $("log");
+  function lineVisible(ev){
+    if ($("optHidePing").checked) {
+      if (ev.dir === "out" && ev.text === "ping") return false;
+      if (ev.dir === "in" && ev.prefix === "Pong") return false;
+    }
+    if (filterPrefix && ev.prefix !== filterPrefix) return false;
+    return true;
+  }
+  function appendLine(ev){
+    if (!lineVisible(ev)) return;
+    const div = document.createElement("div");
+    const unknown = ev.dir === "in" && !KNOWN.has(ev.prefix);
+    div.className = "ln " + ev.dir + (unknown ? " unk" : "");
+    const t = document.createElement("span"); t.className = "t"; t.textContent = ts(ev.t);
+    const d = document.createElement("span"); d.className = "d";
+    const c = document.createElement("span"); c.className = "conn"; c.textContent = ev.conn + " ";
+    d.appendChild(c);
+    d.appendChild(document.createTextNode(ev.dir === "in" ? "↓" : ev.dir === "out" ? "↑" : "•"));
+    const m = document.createElement("span"); m.className = "m";
+    let txt = ev.text;
+    if (ev.multiLine) txt = "[frame with " + ev.multiLine + " lines] " + txt;
+    m.textContent = txt;
+    div.append(t, d, m);
+    logEl.appendChild(div);
+    while (logEl.childElementCount > MAX_DOM_LINES) logEl.firstElementChild.remove();
+    if ($("optAutoscroll").checked) logEl.scrollTop = logEl.scrollHeight;
+  }
+  function rebuildLog(){
+    logEl.textContent = "";
+    session.slice(-MAX_DOM_LINES * 2).forEach(appendLine);
+    $("filterLbl").textContent = filterPrefix ? `· filter: ${filterPrefix} (tap again to clear)` : "";
+  }
+  function scheduleRender(){
+    if (pendingRender) return;
+    pendingRender = true;
+    requestAnimationFrame(() => { pendingRender = false; renderStats(); renderShapes(); renderCompare(); });
+  }
+  function renderStats(){
+    const tb = $("stats");
+    tb.textContent = "";
+    let totA = 0, totB = 0;
+    [...stats.entries()].sort((a, b) => a[0].localeCompare(b[0])).forEach(([pfx, s]) => {
+      totA += s.A; totB += s.B;
+      const tr = document.createElement("tr");
+      tr.className = "clickable" + (KNOWN.has(pfx) ? "" : " unknown") + (pfx === filterPrefix ? " active" : "");
+      const td1 = document.createElement("td"); td1.textContent = pfx;
+      const td2 = document.createElement("td"); td2.className = "num"; td2.textContent = s.A;
+      const td3 = document.createElement("td"); td3.className = "num"; td3.textContent = s.B;
+      tr.append(td1, td2, td3);
+      tr.addEventListener("click", () => { filterPrefix = filterPrefix === pfx ? null : pfx; rebuildLog(); renderStats(); });
+      tb.appendChild(tr);
+    });
+    const dur = Math.round((Date.now() - t0) / 1000);
+    $("totals").textContent = `· A=${totA} B=${totB} · ${dur}s`;
+  }
+  function renderShapes(){
+    if (shapes.size === 0) return;
+    const out = [];
+    [...shapes.keys()].sort().forEach(p => {
+      out.push(p + ":");
+      [...shapes.get(p)].sort().forEach(k => out.push("  " + k));
+    });
+    $("shapes").textContent = out.join("\n");
+  }
+  function renderCompare(){
+    if (!conns.B.everOpened) { $("cmpAB").textContent = ""; return; }
+    const inA = session.filter(e => e.conn === "A" && e.dir === "in" && e.t >= conns.B.openedAt && e.prefix !== "Pong").length;
+    const inB = session.filter(e => e.conn === "B" && e.dir === "in").length;
+    $("cmpAB").textContent = `Since B opened: A received ${inA}, B received ${inB} (excluding Pong)`;
+  }
+
+  // ---------- connections ----------
+  function makeConn(name, badgeId, opts){
+    return {
+      name, badgeId, opts, ws: null, url: "", manualClose: false, retry: 0,
+      retryTimer: null, pingTimer: null, everOpened: false, openedAt: 0,
+      setBadge(state){
+        const el = $(this.badgeId);
+        el.className = "badge " + (state === "ON" ? "st-on" : state === "OFF" ? "st-off" : "st-wait");
+        el.textContent = this.name + ": " + state;
+      },
+      open(url){
+        this.close(true);
+        this.manualClose = false;
+        this.url = url;
+        this.setBadge("…");
+        record(this.name, "sys", "Connecting to " + url);
+        let ws;
+        try { ws = new WebSocket(url); }
+        catch (e) { record(this.name, "sys", "Failed to create WebSocket: " + e.message); this.scheduleRetry(); return; }
+        this.ws = ws;
+        const watchdog = setTimeout(() => { if (ws.readyState === 0) { record(this.name, "sys", "Timed out after 8 s"); try { ws.close(); } catch {} } }, 8000);
+        ws.onopen = () => {
+          if (this.ws !== ws) return;
+          clearTimeout(watchdog);
+          this.retry = 0; this.everOpened = true; this.openedAt = Date.now();
+          this.setBadge("ON");
+          record(this.name, "sys", "Connected ✔");
+          if (this.opts.bootstrap && $("optBootstrap").checked) ["atc_log", "settings", "frequencies", "datis"].forEach(c => this.send(c));
+          clearInterval(this.pingTimer);
+          if (this.opts.ping) this.pingTimer = setInterval(() => { if ($("optPing").checked) this.send("ping"); }, 20000);
+          updateButtons();
+        };
+        ws.onmessage = ev => {
+          if (this.ws !== ws) return;
+          const data = typeof ev.data === "string" ? ev.data : "[binary frame " + (ev.data && (ev.data.size || ev.data.byteLength)) + " bytes]";
+          const parts = data.split(/\r?\n/).filter(l => l.length > 0);
+          if (parts.length > 1) {
+            record(this.name, "sys", `Frame containing ${parts.length} lines (split below)`);
+            parts.forEach(p => record(this.name, "in", p, { multiLine: parts.length }));
+          } else {
+            record(this.name, "in", data);
+          }
+        };
+        ws.onerror = () => { if (this.ws === ws) record(this.name, "sys", "WebSocket error (unreachable host, port closed, or firewall)"); };
+        ws.onclose = ev => {
+          if (this.ws !== ws) return;
+          clearTimeout(watchdog); clearInterval(this.pingTimer);
+          this.ws = null;
+          this.setBadge("OFF");
+          record(this.name, "sys", `Closed (code ${ev.code}${ev.reason ? ", " + ev.reason : ""})`);
+          updateButtons();
+          if (!this.manualClose) this.scheduleRetry();
+        };
+      },
+      scheduleRetry(){
+        const delays = [1000, 2000, 4000, 8000, 15000];
+        const d = delays[Math.min(this.retry, delays.length - 1)];
+        this.retry++;
+        clearTimeout(this.retryTimer);
+        this.setBadge("…");
+        record(this.name, "sys", `New attempt in ${d / 1000} s`);
+        this.retryTimer = setTimeout(() => this.open(this.url), d);
+      },
+      send(cmd){
+        if (!this.ws || this.ws.readyState !== 1) { record(this.name, "sys", "Not connected — not sent: " + cmd); return; }
+        this.ws.send(cmd);
+        record(this.name, "out", cmd);
+      },
+      close(silent){
+        this.manualClose = true;
+        clearTimeout(this.retryTimer); clearInterval(this.pingTimer);
+        if (this.ws) { const w = this.ws; this.ws = null; try { w.close(); } catch {} if (!silent) record(this.name, "sys", "Disconnected by user"); }
+        this.setBadge("OFF");
+      },
+      get isActive(){ return !!this.ws || !!this.retryTimer && !this.manualClose; }
+    };
+  }
+  const conns = {
+    A: makeConn("A", "stA", { bootstrap: true, ping: true }),
+    B: makeConn("B", "stB", { bootstrap: false, ping: false })
+  };
+
+  function updateButtons(){
+    const aOpen = !!conns.A.ws;
+    $("btnDisconnect").disabled = !aOpen && conns.A.manualClose;
+    $("btnB").textContent = conns.B.ws ? "Close connection B" : "Open a 2nd connection (B)";
+  }
+
+  // ---------- UI events ----------
+  $("btnConnect").addEventListener("click", () => {
+    const url = normalizeUrl($("host").value);
+    store.set("batcSniffer.host", $("host").value.trim());
+    conns.A.open(url);
+    $("btnDisconnect").disabled = false;
+  });
+  $("host").addEventListener("keydown", e => { if (e.key === "Enter") $("btnConnect").click(); });
+  $("btnDisconnect").addEventListener("click", () => { conns.A.close(); conns.B.close(); updateButtons(); $("btnDisconnect").disabled = true; });
+  document.querySelectorAll("[data-cmd]").forEach(b => b.addEventListener("click", () => conns.A.send(b.dataset.cmd)));
+  $("btnSendFree").addEventListener("click", () => {
+    const v = $("freeCmd").value.trim();
+    if (!v) return;
+    conns.A.send(v);
+    $("freeCmd").value = "";
+  });
+  $("freeCmd").addEventListener("keydown", e => { if (e.key === "Enter") $("btnSendFree").click(); });
+  $("btnB").addEventListener("click", () => {
+    if (conns.B.ws) { conns.B.close(); updateButtons(); return; }
+    conns.B.open(normalizeUrl($("host").value));
+    updateButtons();
+  });
+  $("btnClear").addEventListener("click", () => { logEl.textContent = ""; });
+  $("optHidePing").addEventListener("change", rebuildLog);
+
+  // ---------- export ----------
+  function fileStamp(){
+    const d = new Date(), p = n => String(n).padStart(2, "0");
+    return `${d.getFullYear()}${p(d.getMonth() + 1)}${p(d.getDate())}-${p(d.getHours())}${p(d.getMinutes())}${p(d.getSeconds())}`;
+  }
+  function header(){
+    return [
+      "# BATC Sniffer — protocol capture",
+      "# Date: " + new Date().toISOString(),
+      "# Host: " + (conns.A.url || "(none)"),
+      "# User-Agent: " + navigator.userAgent,
+      "# Events: " + session.length,
+      "# Format: time  conn  dir(↓ received, ↑ sent, • system)  message",
+      ""
+    ].join("\n");
+  }
+  function asTxt(){
+    return header() + session.map(e => `${ts(e.t)}  ${e.conn}  ${e.dir === "in" ? "↓" : e.dir === "out" ? "↑" : "•"}  ${e.text}`).join("\n") + "\n";
+  }
+  function asJsonl(){
+    return session.map(e => JSON.stringify({ t: new Date(e.t).toISOString(), conn: e.conn, dir: e.dir, prefix: e.prefix, text: e.text })).join("\n") + "\n";
+  }
+  function download(name, content, type){
+    const blob = new Blob([content], { type });
+    const a = document.createElement("a");
+    a.href = URL.createObjectURL(blob);
+    a.download = name;
+    document.body.appendChild(a);
+    a.click();
+    setTimeout(() => { URL.revokeObjectURL(a.href); a.remove(); }, 1000);
+    $("exportMsg").textContent = "File generated: " + name;
+  }
+  $("btnExportTxt").addEventListener("click", () => download(`batc-capture-${fileStamp()}.txt`, asTxt(), "text/plain;charset=utf-8"));
+  $("btnExportJson").addEventListener("click", () => download(`batc-capture-${fileStamp()}.jsonl`, asJsonl(), "application/x-ndjson;charset=utf-8"));
+  $("btnCopy").addEventListener("click", async () => {
+    const txt = asTxt();
+    try { await navigator.clipboard.writeText(txt); $("exportMsg").textContent = "Copied (" + session.length + " events)"; }
+    catch {
+      const ta = document.createElement("textarea");
+      ta.value = txt; document.body.appendChild(ta); ta.select();
+      try { document.execCommand("copy"); $("exportMsg").textContent = "Copied"; } catch { $("exportMsg").textContent = "Copy impossible — use Export"; }
+      ta.remove();
+    }
+  });
+
+  window.addEventListener("beforeunload", e => { if (session.length > 20) { e.preventDefault(); e.returnValue = ""; } });
+  setInterval(renderStats, 1000);
+
+  if (location.protocol === "https:") {
+    record("A", "sys", "⚠ This page is served over HTTPS: the browser will block ws:// connections. Open it as a local file or over http://");
+  }
+})();
+</script>
+</body>
+</html>

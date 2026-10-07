@@ -1,0 +1,343 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>BATC Remote — Guide de compilation</title>
+<style>
+  :root {
+    --ink: #1b2330; --muted: #5b667a; --line: #e2e7ef; --soft: #f5f7fb;
+    --blue: #3f74bf; --violet: #7c52c2; --code: #eef2f8;
+    --ok: #1f8a5b; --ok-bg: #eaf7f0; --warn: #a86400; --warn-bg: #fff6e6; --info-bg: #eef4fc;
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body { margin: 0; background: #fff; color: var(--ink);
+    font: 16px/1.6 "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; }
+  .hero { background: linear-gradient(120deg, #1d2a44 0%, #2c3f6b 55%, #4b3a7a 100%); color: #fff; }
+  .hero-inner { max-width: 1040px; margin: 0 auto; padding: 56px 32px 44px; }
+  .eyebrow { text-transform: uppercase; letter-spacing: .14em; font-size: 12px; font-weight: 700; color: #b9c9ee; }
+  .hero h1 { margin: 10px 0 8px; font-size: 40px; line-height: 1.15; letter-spacing: -.01em; }
+  .hero p { margin: 0; color: #d6def0; font-size: 18px; max-width: 720px; }
+  .meta { margin-top: 22px; display: flex; flex-wrap: wrap; gap: 8px; }
+  .pill { font-size: 13px; padding: 4px 12px; border-radius: 999px; background: rgba(255,255,255,.12); border: 1px solid rgba(255,255,255,.22); }
+  .layout { max-width: 1040px; margin: 0 auto; padding: 32px; display: grid; grid-template-columns: 220px minmax(0, 1fr); gap: 48px; }
+  nav.toc { position: sticky; top: 24px; align-self: start; font-size: 14px; }
+  nav.toc h3 { font-size: 11px; letter-spacing: .12em; text-transform: uppercase; color: var(--muted); margin: 8px 0 10px; }
+  nav.toc ol { list-style: none; padding: 0; margin: 0; counter-reset: s; }
+  nav.toc li { counter-increment: s; margin: 0; }
+  nav.toc a { display: block; padding: 6px 10px; border-left: 2px solid var(--line); color: var(--muted); text-decoration: none; }
+  nav.toc a span { color: #a0aabb; }
+  nav.toc a:hover { color: var(--blue); border-left-color: var(--blue); background: var(--soft); }
+  main { min-width: 0; counter-reset: h; }
+  main h2 { counter-increment: h; font-size: 26px; margin: 52px 0 12px; padding-top: 8px; letter-spacing: -.01em; }
+  main h2::before { content: "Étape " counter(h); display: block; font-size: 13px; font-weight: 700;
+    letter-spacing: .12em; text-transform: uppercase; color: var(--violet); margin-bottom: 4px; }
+  main h2.plain { counter-increment: none; }
+  main h2.plain::before { content: "\00a0"; }
+  main h2:first-child { margin-top: 0; }
+  main h3 { font-size: 18px; margin: 26px 0 8px; }
+  p { margin: 0 0 14px; }
+  ul, ol { margin: 0 0 16px; padding-left: 22px; }
+  li { margin: 4px 0; }
+  strong { color: #111827; }
+  a { color: var(--blue); }
+  code { font-family: "Cascadia Code", Consolas, "SF Mono", Menlo, monospace; font-size: .86em; background: var(--code);
+    padding: 1px 6px; border-radius: 4px; color: #243b63; }
+  kbd { font-family: inherit; font-size: .85em; padding: 1px 7px; border: 1px solid #c9d1de; border-bottom-width: 2px; border-radius: 5px; background: #fff; }
+  .cmd { position: relative; margin: 8px 0 18px; }
+  .cmd pre { margin: 0; background: #1d2433; color: #dce4f2; padding: 16px 92px 16px 20px; border-radius: 10px; overflow-x: auto;
+    font: 14px/1.6 "Cascadia Code", Consolas, "SF Mono", Menlo, monospace; }
+  .cmd pre .c { color: #8a97ad; }
+  .cmd button { position: absolute; top: 10px; right: 10px; font: 600 12px/1 "Segoe UI", Roboto, Arial, sans-serif; color: #dce4f2;
+    background: rgba(255,255,255,.1); border: 1px solid rgba(255,255,255,.25); border-radius: 6px; padding: 7px 10px; cursor: pointer; }
+  .cmd button:hover { background: rgba(255,255,255,.18); }
+  .out { margin: 6px 0 18px; background: var(--soft); border: 1px solid var(--line); border-radius: 10px; padding: 12px 16px;
+    font: 13.5px/1.6 "Cascadia Code", Consolas, "SF Mono", Menlo, monospace; color: #334055; white-space: pre-wrap; }
+  .callout { border-radius: 10px; padding: 12px 16px; margin: 6px 0 18px; border: 1px solid; }
+  .callout p:last-child, .callout ul:last-child { margin-bottom: 0; }
+  .callout.info { background: var(--info-bg); border-color: #cfdcf2; }
+  .callout.warn { background: var(--warn-bg); border-color: #f1d9a8; }
+  .callout.ok { background: var(--ok-bg); border-color: #bfe5d0; }
+  .callout b.t { display: block; margin-bottom: 2px; }
+  .callout.warn b.t { color: var(--warn); }
+  .callout.ok b.t { color: var(--ok); }
+  .table-wrap { overflow-x: auto; margin: 6px 0 20px; border: 1px solid var(--line); border-radius: 10px; }
+  table { border-collapse: collapse; width: 100%; font-size: 14.5px; }
+  th { text-align: left; background: var(--soft); color: #334055; font-weight: 600; padding: 10px 14px; border-bottom: 1px solid var(--line); }
+  td { padding: 10px 14px; border-bottom: 1px solid var(--line); vertical-align: top; }
+  tr:last-child td { border-bottom: 0; }
+  td:first-child { font-weight: 600; }
+  .tag { display: inline-block; font-size: 12px; font-weight: 700; padding: 1px 8px; border-radius: 999px; white-space: nowrap; }
+  .tag.req { background: #e7eefb; color: #2b5aa0; }
+  .tag.opt { background: #f1ebfa; color: #6a3fb0; }
+  .flow { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 10px; margin: 8px 0 22px; }
+  .flow div { background: var(--soft); border: 1px solid var(--line); border-radius: 10px; padding: 12px; font-size: 14px; }
+  .flow b { display: block; color: var(--violet); font-size: 12px; letter-spacing: .08em; text-transform: uppercase; }
+  footer { max-width: 1040px; margin: 0 auto; padding: 24px 32px 48px; color: var(--muted); font-size: 13px; border-top: 1px solid var(--line); }
+  @media (max-width: 860px) {
+    .layout { grid-template-columns: 1fr; gap: 12px; padding: 20px 16px; }
+    nav.toc { position: static; }
+    .hero-inner { padding: 40px 16px 32px; }
+    .hero h1 { font-size: 30px; }
+    .flow { grid-template-columns: 1fr 1fr; }
+    footer { padding: 20px 16px 40px; }
+  }
+  @media print {
+    .hero { background: #1d2a44 !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    nav.toc, .cmd button { display: none; }
+    .layout { grid-template-columns: 1fr; padding: 16px 0; }
+    .cmd pre { white-space: pre-wrap; }
+    h2 { break-after: avoid; }
+    .cmd, .table-wrap, .callout { break-inside: avoid; }
+  }
+</style>
+</head>
+<body>
+<header class="hero">
+  <div class="hero-inner">
+    <div class="eyebrow">Guide de compilation</div>
+    <h1>Compiler BATC Remote vous-même</h1>
+    <p>Un guide pas à pas pour transformer le code source publié sur GitHub en <code style="background:rgba(255,255,255,.15);color:#fff">BatcRemote.exe</code> et en app Android, même si vous n'avez jamais rien compilé.</p>
+    <div class="meta">
+      <span class="pill">Windows 10 / 11</span>
+      <span class="pill">Environ 30 à 60 minutes la première fois</span>
+      <span class="pill">Version 0.6.0</span>
+      <a class="pill" style="color:inherit" href="Build-Guide.html" lang="en">English</a>
+    </div>
+  </div>
+</header>
+<div class="layout">
+  <nav class="toc" aria-label="Sommaire">
+    <h3>Sommaire</h3>
+    <ol>
+      <li><a href="#overview">Avant de commencer</a></li>
+      <li><a href="#open-powershell"><span>1.</span> Ouvrir PowerShell</a></li>
+      <li><a href="#install"><span>2.</span> Installer les outils</a></li>
+      <li><a href="#android-studio"><span>3.</span> Préparer Android Studio</a></li>
+      <li><a href="#check"><span>4.</span> Vérifier les outils</a></li>
+      <li><a href="#download"><span>5.</span> Télécharger le code source</a></li>
+      <li><a href="#build"><span>6.</span> Compiler</a></li>
+      <li><a href="#use"><span>7.</span> Utiliser le résultat</a></li>
+      <li><a href="#signing"><span>8.</span> Facultatif : signer l'app Android</a></li>
+      <li><a href="#update"><span>9.</span> Compiler une nouvelle version</a></li>
+      <li><a href="#troubleshooting">Dépannage</a></li>
+    </ol>
+  </nav>
+  <main>
+
+<h2 id="overview" class="plain">Avant de commencer</h2>
+<p>La plupart des utilisateurs n'ont pas besoin de ce guide : des fichiers prêts à l'emploi sont disponibles sur la <a href="https://github.com/Proxi64/BATC-Remote/releases">page Releases</a> du projet. Compilez BATC Remote vous-même si vous voulez vérifier exactement ce que vous lancez, essayer les dernières modifications, ou modifier l'app.</p>
+<p>À la fin de ce guide, vous aurez dans un dossier nommé <code>dist</code> :</p>
+<ul>
+  <li><strong><code>BatcRemote.exe</code></strong>, le petit programme Windows qui sert l'app à votre téléphone ;</li>
+  <li><strong><code>BatcRemote-debug.apk</code></strong>, l'app Android (seulement si vous installez Android Studio, voir plus bas).</li>
+</ul>
+<div class="flow">
+  <div><b>Étapes 1 à 4</b>Installer les outils (une seule fois)</div>
+  <div><b>Étape 5</b>Télécharger le code source</div>
+  <div><b>Étape 6</b>Lancer une commande</div>
+  <div><b>Étape 7</b>Utiliser les fichiers de <code>dist</code></div>
+</div>
+<p><strong>Ce qu'il vous faut :</strong></p>
+<ul>
+  <li>un PC sous <strong>Windows 10 ou 11</strong> (64 bits) ;</li>
+  <li>une <strong>connexion Internet</strong> (les outils et la première compilation téléchargent plusieurs centaines de mégaoctets) ;</li>
+  <li>de l'<strong>espace disque libre</strong> : environ 2 Go pour le programme Windows seul, et environ 10 Go de plus pour l'app Android ;</li>
+  <li>un compte qui a le droit d'installer des logiciels sur le PC.</li>
+</ul>
+<div class="callout info">
+  <b class="t">Comment lire ce guide</b>
+  <p>Les commandes sont présentées dans des cadres sombres. Cliquez sur <strong>Copier</strong>, puis collez-les dans PowerShell avec un clic droit (ou <kbd>Ctrl</kbd>+<kbd>V</kbd>) et appuyez sur <kbd>Entrée</kbd>. Les lignes qui commencent par <code>#</code> sont des commentaires : elles sont ignorées.</p>
+</div>
+
+<h2 id="open-powershell">Ouvrir PowerShell</h2>
+<p>PowerShell est la fenêtre de Windows dans laquelle on tape des commandes. Il est déjà installé.</p>
+<ol>
+  <li>Cliquez sur le bouton <strong>Démarrer</strong> (ou appuyez sur la touche <kbd>⊞ Win</kbd>).</li>
+  <li>Tapez <strong>PowerShell</strong>.</li>
+  <li>Cliquez sur <strong>Windows PowerShell</strong> (ou <strong>Terminal</strong>). Une fenêtre avec un curseur clignotant s'ouvre.</li>
+</ol>
+<p>Inutile de le lancer en tant qu'administrateur : les programmes d'installation demanderont eux-mêmes l'autorisation quand c'est nécessaire.</p>
+
+<h2 id="install">Installer les outils</h2>
+<p>BATC Remote se compile avec quatre outils gratuits. Le tableau indique ceux dont vous avez besoin.</p>
+<div class="table-wrap"><table>
+<thead><tr><th>Outil</th><th>À quoi il sert</th><th>Nécessaire pour</th><th>Taille</th></tr></thead>
+<tbody>
+<tr><td>Git</td><td>Télécharge le code source depuis GitHub et le tient à jour</td><td><span class="tag req">Obligatoire</span> (ou téléchargement ZIP à l'étape 5)</td><td>~ 350 Mo</td></tr>
+<tr><td>Node.js (version LTS, 22 ou plus récente)</td><td>Compile et teste l'app web, la partie affichée sur le téléphone</td><td><span class="tag req">Obligatoire</span></td><td>~ 100 Mo</td></tr>
+<tr><td>SDK .NET 8</td><td>Compile <code>BatcRemote.exe</code> (il contient aussi les runtimes nécessaires pour le lancer)</td><td><span class="tag req">Obligatoire</span></td><td>~ 1 Go</td></tr>
+<tr><td>Android Studio</td><td>Compile l'app Android (il apporte le SDK Android et Java)</td><td><span class="tag opt">App Android seulement</span></td><td>~ 3 Go + 3 à 6 Go de téléchargements</td></tr>
+</tbody>
+</table></div>
+
+<h3>Solution 1 (la plus simple) : installer avec winget</h3>
+<p><strong>winget</strong> est le gestionnaire d'installation intégré à Windows 10 et 11. Copiez ces commandes dans PowerShell. Chacune télécharge et installe un outil ; acceptez les demandes de Windows (« Voulez-vous autoriser cette application à apporter des modifications à votre appareil ? ») quand elles apparaissent.</p>
+<div class="cmd"><pre><span class="c"># Obligatoires</span>
+winget install -e --id Git.Git
+winget install -e --id OpenJS.NodeJS.LTS
+winget install -e --id Microsoft.DotNet.SDK.8
+
+<span class="c"># Seulement si vous voulez l'app Android</span>
+winget install -e --id Google.AndroidStudio</pre><button type="button">Copier</button></div>
+<p>La première fois, winget peut vous demander d'accepter les conditions de ses sources : tapez <kbd>Y</kbd> puis appuyez sur <kbd>Entrée</kbd>.</p>
+
+<h3>Solution 2 : installer depuis les sites officiels</h3>
+<p>Si winget n'est pas disponible, téléchargez chaque programme d'installation et lancez-le en gardant les options par défaut :</p>
+<ul>
+  <li>Git : <a href="https://git-scm.com/download/win">git-scm.com/download/win</a></li>
+  <li>Node.js : <a href="https://nodejs.org/">nodejs.org</a> — choisissez la version <strong>LTS</strong></li>
+  <li>SDK .NET 8 : <a href="https://dotnet.microsoft.com/download/dotnet/8.0">dotnet.microsoft.com/download/dotnet/8.0</a> — choisissez <strong>SDK</strong>, <strong>Windows x64</strong></li>
+  <li>Android Studio : <a href="https://developer.android.com/studio">developer.android.com/studio</a></li>
+</ul>
+
+<div class="callout warn">
+  <b class="t">Important : fermez puis rouvrez PowerShell</b>
+  <p>Une fois tout installé, <strong>fermez la fenêtre PowerShell et ouvrez-en une nouvelle</strong> (étape 1). Une fenêtre déjà ouverte ne voit pas les outils qui viennent d'être installés.</p>
+</div>
+
+<h2 id="android-studio">Préparer Android Studio</h2>
+<p><em>Passez cette étape si vous ne voulez pas l'app Android.</em> Android Studio doit être ouvert une première fois pour qu'il télécharge le SDK Android. Son interface est en anglais.</p>
+<ol>
+  <li>Ouvrez <strong>Android Studio</strong> depuis le menu Démarrer.</li>
+  <li>S'il propose d'importer des réglages, choisissez <strong>Do not import settings</strong>.</li>
+  <li>Dans l'assistant de configuration, cliquez sur <strong>Next</strong>, choisissez le type d'installation <strong>Standard</strong>, puis <strong>Next</strong>.</li>
+  <li>Sur l'écran des licences, sélectionnez chaque licence à gauche et cliquez sur <strong>Accept</strong>, puis sur <strong>Finish</strong>.</li>
+  <li>Attendez la fin des téléchargements (cela peut prendre un moment), puis fermez Android Studio. Inutile de créer ou d'ouvrir un projet.</li>
+</ol>
+<p>Gardez les emplacements par défaut : le script de compilation trouve tout seul le SDK Android dans <code>%LOCALAPPDATA%\Android\Sdk</code> et Java dans le dossier d'Android Studio.</p>
+
+<h2 id="check">Vérifier les outils</h2>
+<p>Dans une <strong>nouvelle</strong> fenêtre PowerShell, lancez :</p>
+<div class="cmd"><pre>git --version
+node --version
+npm --version
+dotnet --list-sdks</pre><button type="button">Copier</button></div>
+<p>Vous devez voir quelque chose comme ceci (vos numéros peuvent être plus élevés) :</p>
+<div class="out">git version 2.51.0.windows.1
+v24.19.0
+11.6.0
+8.0.425 [C:\Program Files\dotnet\sdk]</div>
+<ul>
+  <li><code>node</code> doit afficher <strong>v22</strong> ou plus.</li>
+  <li><code>dotnet --list-sdks</code> doit lister au moins un SDK qui commence par <strong>8.</strong> ou plus.</li>
+</ul>
+<p>Si l'un d'eux répond « <em>n'est pas reconnu en tant que nom d'applet de commande</em> », voir <a href="#troubleshooting">Dépannage</a>.</p>
+
+<h2 id="download">Télécharger le code source</h2>
+<p>Nous allons placer le code dans <code>C:\Dev\BATC-Remote</code>. Un chemin court et sans espace évite des problèmes, et mieux vaut rester en dehors des dossiers synchronisés par OneDrive.</p>
+<div class="cmd"><pre>mkdir C:\Dev -Force
+cd C:\Dev
+git clone https://github.com/Proxi64/BATC-Remote.git
+cd BATC-Remote</pre><button type="button">Copier</button></div>
+<p>La dernière commande place PowerShell dans le dossier du projet. La ligne de commande se termine maintenant par <code>C:\Dev\BATC-Remote&gt;</code>.</p>
+<div class="callout info">
+  <b class="t">Sans Git</b>
+  <p>Sur la <a href="https://github.com/Proxi64/BATC-Remote">page GitHub</a>, cliquez sur le bouton vert <strong>Code</strong>, puis sur <strong>Download ZIP</strong>. Décompressez le ZIP dans <code>C:\Dev</code> et renommez le dossier obtenu en <code>BATC-Remote</code>. Puis, dans PowerShell : <code>cd C:\Dev\BATC-Remote</code>. Vous ne pourrez pas utiliser <code>git pull</code> plus tard (étape 9) : il faudra retélécharger le ZIP.</p>
+</div>
+
+<h2 id="build">Compiler</h2>
+<p>Tout est fait par un seul script, <code>build.ps1</code>, à la racine du projet. Lancez-le depuis le dossier du projet :</p>
+<div class="cmd"><pre>powershell -ExecutionPolicy Bypass -File .\build.ps1</pre><button type="button">Copier</button></div>
+<p><code>-ExecutionPolicy Bypass</code> autorise Windows à lancer ce script une fois, sans modifier aucun réglage de sécurité de votre PC.</p>
+<p>Le script enchaîne ces étapes ; les titres en couleur indiquent où il en est :</p>
+<ol>
+  <li><strong>Web app</strong> : télécharge les bibliothèques nécessaires, vérifie le code, lance les 63 tests automatiques, puis compile l'app. Vous devez voir <code>Tests 63 passed (63)</code>.</li>
+  <li><strong>.NET host</strong> : compile <code>BatcRemote.exe</code>, avec l'app web à l'intérieur.</li>
+  <li><strong>Android</strong> (seulement si Android Studio est prêt) : copie l'app web dans le projet Android et compile l'APK. La première fois, cela télécharge les outils de compilation Android et peut prendre 10 minutes ou plus.</li>
+</ol>
+<p>Quand tout s'est bien passé, les dernières lignes ressemblent à ceci :</p>
+<div class="out">OK -> C:\Dev\BATC-Remote\dist\BatcRemote-debug.apk (debug: no android\keystore.properties, not for distribution)
+
+OK -> C:\Dev\BATC-Remote\dist\BatcRemote.exe</div>
+<p>Sans Android Studio, vous verrez <code>(Android SDK not found … APK skipped)</code> à la place de la première ligne : c'est normal, le programme Windows est compilé quand même.</p>
+<div class="callout warn">
+  <b class="t">Si le script s'arrête avec du texte rouge</b>
+  <p>Il s'arrête au premier problème. Lisez les dernières lignes en rouge et cherchez-les dans <a href="#troubleshooting">Dépannage</a>. Une fois le problème réglé, relancez simplement la même commande.</p>
+</div>
+
+<h2 id="use">Utiliser le résultat</h2>
+<p>Ouvrez le dossier du résultat :</p>
+<div class="cmd"><pre>explorer dist</pre><button type="button">Copier</button></div>
+<ul>
+  <li><strong><code>BatcRemote.exe</code></strong> : un fichier unique, que vous pouvez copier où vous voulez. Double-cliquez dessus ; une icône apparaît près de l'horloge. La première fois, Windows demande l'accès au réseau : cochez <strong>Réseaux privés</strong>. Le <a href="https://github.com/Proxi64/BATC-Remote/blob/main/README-FR.md">README</a> explique comment l'utiliser avec votre téléphone.</li>
+  <li><strong><code>BatcRemote-debug.apk</code></strong> : copiez-le sur votre téléphone Android (câble USB, stockage en ligne…) et ouvrez-le sur le téléphone. Autorisez l'installation d'applications depuis cette source quand Android le demande.</li>
+</ul>
+<div class="callout warn">
+  <b class="t">L'app officielle est déjà sur votre téléphone ?</b>
+  <p>Android refuse d'installer une app par-dessus une autre signée avec une clé différente. Votre version et la version officielle sont signées avec des clés différentes : désinstallez l'une avant d'installer l'autre.</p>
+</div>
+
+<h2 id="signing">Facultatif : signer l'app Android</h2>
+<p>L'APK <code>-debug</code> convient parfaitement pour votre propre usage. Si vous voulez partager votre version avec d'autres personnes, signez-la avec votre propre clé. À faire une seule fois :</p>
+<ol>
+  <li>Créez une clé, <strong>en dehors du dossier du projet</strong> (ici <code>C:\Keys</code>). L'outil demande un mot de passe et quelques informations ; votre nom ou votre pseudo suffit.
+<div class="cmd"><pre>mkdir C:\Keys -Force
+&amp; "$env:ProgramFiles\Android\Android Studio\jbr\bin\keytool.exe" -genkeypair -v -keystore C:\Keys\batc-remote-release.jks -alias batcremote -keyalg RSA -keysize 2048 -validity 10000</pre><button type="button">Copier</button></div></li>
+  <li>Créez le fichier de réglages à partir de son modèle, puis ouvrez-le dans le Bloc-notes :
+<div class="cmd"><pre>Copy-Item src\web\android\keystore.properties.example src\web\android\keystore.properties
+notepad src\web\android\keystore.properties</pre><button type="button">Copier</button></div>
+  Dans le Bloc-notes, indiquez <code>storeFile=C:/Keys/batc-remote-release.jks</code> (avec des barres obliques <code>/</code>) et remplacez les deux <code>change-me</code> par votre mot de passe. Enregistrez et fermez.</li>
+  <li>Relancez la compilation (étape 6). L'APK s'appelle maintenant <code>dist\BatcRemote.apk</code>, et le script affiche <code>(signed)</code>.</li>
+</ol>
+<div class="callout warn">
+  <b class="t">Gardez votre clé en lieu sûr, et ne la partagez jamais</b>
+  <ul>
+    <li>Faites une sauvegarde de <code>C:\Keys\batc-remote-release.jks</code> et de son mot de passe : chaque nouvelle version devra être signée avec la même clé, sinon les téléphones refuseront la mise à jour.</li>
+    <li><code>keystore.properties</code> et la clé sont ignorés par Git : ils ne sont jamais envoyés sur GitHub.</li>
+  </ul>
+</div>
+
+<h2 id="update">Compiler une nouvelle version</h2>
+<p>Pour récupérer les dernières modifications et recompiler, ouvrez PowerShell et lancez :</p>
+<div class="cmd"><pre>cd C:\Dev\BATC-Remote
+git pull
+powershell -ExecutionPolicy Bypass -File .\build.ps1</pre><button type="button">Copier</button></div>
+<p>Les compilations suivantes sont beaucoup plus rapides : les téléchargements restent sur votre PC.</p>
+
+<h2 id="troubleshooting" class="plain">Dépannage</h2>
+<div class="table-wrap"><table>
+<thead><tr><th>Ce que vous voyez</th><th>Que faire</th></tr></thead>
+<tbody>
+<tr><td><code>git</code>, <code>node</code>, <code>npm</code> ou <code>dotnet</code> « n'est pas reconnu en tant que nom d'applet de commande »</td><td>Fermez PowerShell et ouvrez une nouvelle fenêtre. Si l'erreur persiste, l'outil n'est pas installé : réinstallez-le (étape 2), puis redémarrez le PC.</td></tr>
+<tr><td>« winget n'est pas reconnu… »</td><td>Installez <strong>Programme d'installation d'application</strong> (App Installer) depuis le Microsoft Store, ou passez par les sites officiels (étape 2, solution 2).</td></tr>
+<tr><td>« Impossible de charger le fichier build.ps1, car l'exécution de scripts est désactivée sur ce système »</td><td>Vous avez lancé <code>.\build.ps1</code> directement. Utilisez la commande complète de l'étape 6, avec <code>-ExecutionPolicy Bypass</code>.</td></tr>
+<tr><td>« Impossible de trouver le chemin d'accès … build.ps1 »</td><td>PowerShell n'est pas dans le dossier du projet. Lancez d'abord <code>cd C:\Dev\BATC-Remote</code>.</td></tr>
+<tr><td>Erreurs <code>npm</code> comme <code>ETIMEDOUT</code>, <code>ECONNRESET</code> ou <code>EPERM</code></td><td>Vérifiez votre connexion Internet et relancez la compilation. <code>EPERM</code> signifie en général qu'un antivirus ou OneDrive bloque des fichiers : gardez le projet dans <code>C:\Dev</code>, en dehors de OneDrive.</td></tr>
+<tr><td>Un test échoue (<code>Tests … failed</code>)</td><td>Le code téléchargé est peut-être incomplet ou modifié. Retéléchargez-le (étape 5) dans un nouveau dossier vide.</td></tr>
+<tr><td>Erreur <code>NETSDK1045</code> (le SDK .NET actuel ne prend pas en charge .NET 8.0)</td><td>Installez le SDK .NET 8 (étape 2), puis ouvrez une nouvelle fenêtre PowerShell.</td></tr>
+<tr><td>« Android SDK not found … APK skipped »</td><td>Normal si vous ne voulez pas l'app Android. Sinon, ouvrez Android Studio et faites l'étape 3.</td></tr>
+<tr><td>« JAVA_HOME is not set » ou « No Java runtime »</td><td>Android Studio est installé ailleurs. Indiquez son dossier Java pour cette fenêtre, puis relancez la compilation :<br><code>$env:JAVA_HOME = "D:\Chemin\Vers\Android Studio\jbr"</code></td></tr>
+<tr><td>« You have not accepted the license agreements » (Android)</td><td>Ouvrez Android Studio, puis <strong>Tools → SDK Manager</strong>, et installez les éléments proposés : il vous demandera d'accepter les licences. Relancez la compilation.</td></tr>
+<tr><td>« Keystore file … not found » ou mot de passe incorrect (version signée)</td><td>Vérifiez le chemin (avec des <code>/</code>) et les mots de passe dans <code>src\web\android\keystore.properties</code>. Pour revenir à l'APK de test, supprimez ce fichier.</td></tr>
+<tr><td>Le téléphone n'arrive pas à ouvrir la page servie par <code>BatcRemote.exe</code></td><td>La compilation n'y est pour rien : voir la partie Dépannage du <a href="https://github.com/Proxi64/BATC-Remote/blob/main/README-FR.md">README</a> (même Wi-Fi, pare-feu Windows sur <em>Réseaux privés</em>).</td></tr>
+</tbody>
+</table></div>
+<p>Toujours bloqué ? Ouvrez un ticket sur la <a href="https://github.com/Proxi64/BATC-Remote/issues">page Issues</a> du projet et collez-y les dernières lignes affichées par le script.</p>
+
+  </main>
+</div>
+<footer>BATC Remote est un outil communautaire indépendant et non commercial. Il n'est pas supporté et n'est pas un outil officiel BeyondATC ; il n'est ni affilié à BeyondATC, ni approuvé par BeyondATC. Merci de ne pas contacter le support de BeyondATC à son sujet. BeyondATC et Microsoft Flight Simulator sont des marques de leurs propriétaires respectifs.</footer>
+<script>
+  // Boutons « Copier » : copient la commande sans ses lignes de commentaire.
+  document.querySelectorAll(".cmd button").forEach(function (btn) {
+    btn.addEventListener("click", function () {
+      var pre = btn.parentElement.querySelector("pre");
+      var text = pre.innerText.split("\n").filter(function (l) { return !/^\s*#/.test(l); }).join("\n").replace(/\n{3,}/g, "\n\n").trim();
+      var done = function () { btn.textContent = "Copié"; setTimeout(function () { btn.textContent = "Copier"; }, 1500); };
+      if (navigator.clipboard && window.isSecureContext) {
+        navigator.clipboard.writeText(text).then(done, function () { fallback(text); done(); });
+      } else { fallback(text); done(); }
+    });
+  });
+  function fallback(text) {
+    var ta = document.createElement("textarea");
+    ta.value = text; ta.style.position = "fixed"; ta.style.opacity = "0";
+    document.body.appendChild(ta); ta.select();
+    try { document.execCommand("copy"); } catch (e) { /* ignore */ }
+    document.body.removeChild(ta);
+  }
+</script>
+</body>
+</html>

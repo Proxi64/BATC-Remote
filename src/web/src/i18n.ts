@@ -1,0 +1,171 @@
+import { signal } from "@preact/signals";
+
+/** All user-facing texts of the app (English only). */
+const en = {
+  appName: "BATC Remote",
+  tabActions: "Actions",
+  tabLog: "Log",
+  tabFreq: "Frequencies",
+  settings: "Settings",
+  fullscreen: "Fullscreen",
+  close: "Close",
+  back: "Back",
+  yes: "Yes",
+  no: "No",
+  cancel: "Cancel",
+  confirm: "Confirm",
+  ok: "OK",
+
+  // connection
+  connecting: "Connecting to BeyondATC…",
+  reconnecting: "Reconnecting…",
+  retryIn: (s: number) => `Retrying in ${s}s`,
+  attempt: (n: number) => `Attempt ${n}`,
+  retryNow: "Retry now",
+  changeAddress: "Change address",
+  notConnectedTitle: "BeyondATC unreachable",
+  checklist: [
+    "BeyondATC is running on the PC",
+    "The phone is on the same Wi-Fi as the PC",
+    "Windows Firewall allows BeyondATC",
+    "The BeyondATC address and port are correct (Settings → Connection)"
+  ],
+  noHostTitle: "PC address",
+  noHostText: "Enter the local IP address of the PC running BeyondATC.",
+  hostPlaceholder: "e.g. 192.168.1.20",
+  connect: "Connect",
+  target: "Target",
+  status: { open: "connected", connecting: "connecting…", waiting: "retrying…", idle: "stopped" } as Record<string, string>,
+
+  // radio
+  com1: "COM1",
+  com2: "COM2",
+  muted: "Muted",
+  monitor: "Monitor",
+  noStation: "No station",
+
+  // radio exchange
+  comms: {
+    queued: "Queued",
+    awaiting: "Awaiting response",
+    speaking: "Transmitting",
+    processing: "Processing…",
+    request: "Request in progress"
+  } as Record<string, string>,
+  sent: "Sent…",
+
+  // actions
+  noActions: "No actions available",
+  autoRespond: "Auto respond",
+  autoTune: "Auto tune",
+  copilot: "Co-pilot",
+  turnaroundTitle: "Turnaround available",
+  turnaroundText: "Start the return flight from this airport.",
+  turnaroundBtn: "Start turnaround",
+
+  // log
+  logEmpty: "No transmissions yet",
+  showTraffic: "Traffic",
+  showCpdlc: "CPDLC",
+  newMessages: "New messages",
+  sources: {
+    atc: "ATC", atcTraffic: "ATC → traffic", player: "You", traffic: "Traffic", cpdlcAtc: "CPDLC ATC", cpdlcPilot: "CPDLC Pilot"
+  } as Record<string, string>,
+
+  // frequencies
+  freqEmpty: "No frequencies",
+  tuneCom1: "Tune COM1",
+  tuneCom2: "COM2",
+  refresh: "Refresh",
+  center: "Center",
+  vfr: "VFR services",
+  departure: "Departure",
+  destination: "Arrival",
+  tuned: (f: string, com: string) => `${com} ← ${f}`,
+
+  // lifecycle
+  menuTitle: "Start a flight",
+  menuLogin: "Log into BeyondATC on the PC to start a flight.",
+  startIfr: "IFR — SimBrief plan",
+  startVfrSimbrief: "VFR — SimBrief plan",
+  startVfrMsfs: "VFR — MSFS world map",
+  loading: "Loading flight…",
+  errorTitle: "Error",
+  warningTitle: "Warning",
+  quit: "Quit to main menu",
+  quitConfirm: "Quit the current flight and return to the BeyondATC menu?",
+
+  // settings
+  secConnection: "Connection",
+  secDisplay: "Display",
+  secAudio: "Audio",
+  secCopilotVoice: "Co-pilot voice",
+  secVoiceQuality: "Voice quality",
+  secTraffic: "AI traffic",
+  secTaxi: "Taxi arrows",
+  secFlight: "Flight",
+  secAbout: "About",
+  disclaimer: "BATC Remote is an independent community tool. It is unsupported and is not an official BeyondATC tool. Please do not contact BeyondATC support about it.",
+  secNotifications: "Notifications",
+  notifySound: "Sound when ATC calls you",
+  notifySoundHint: "A short chime on this device for each ATC message addressed to your aircraft.",
+  notifyCpdlc: "Include CPDLC messages",
+  notifyVolume: "Chime volume",
+  testSound: "Test sound",
+  hostLabel: "BeyondATC IP address",
+  portLabel: "Port",
+  hostHint: "Leave empty to use the PC settings (BatcRemote.exe).",
+  hostHintApp: "IP address of the PC running BeyondATC (port 41716 by default).",
+  scanQr: "Scan the QR code",
+  scanShort: "Scan",
+  scanHint: "Click the BATC Remote icon near the PC clock to show it.",
+  orEnterIp: "or enter the IP address",
+  scanDone: (addr: string) => `BeyondATC found · ${addr}`,
+  scanNoPcConfig: (addr: string) => `BeyondATC · ${addr} (default port)`,
+  scanInvalid: "Not a BATC Remote QR code",
+  scanUnavailable: "Scanner unavailable, enter the IP",
+  modeAuto: "Auto",
+  modeManual: "Manual",
+  invalidHost: "Invalid address (e.g. 192.168.1.20)",
+  invalidPort: "Invalid port (1 to 65535)",
+  resetAuto: "Automatic",
+  apply: "Apply",
+  textSize: "Text size",
+  haptics: "Haptic feedback",
+  keepScreenOn: "Keep the screen on during a flight",
+  dimWhenIdle: "Dim after 30 s without touch",
+  dimWhenIdleHint: "A touch or an ATC call brings the normal brightness back.",
+  wakeOnMotion: "Wake when the phone is moved",
+  wakeOnMotionHint: "Picking up or moving the phone also brings the normal brightness back.",
+  motionSensitivity: "Motion sensitivity",
+  sensitivityLow: "Low",
+  sensitivityHigh: "High",
+  voiceVolume: "Voice volume",
+  uiSounds: "UI sounds",
+  dynamicVoice: "Dynamic auto respond voice",
+  dynamicGender: "Dynamic voice gender",
+  manualVoice: "Auto respond voice",
+  premiumChars: "Premium characters",
+  controllerVoice: "Controller voice",
+  trafficVoice: "Traffic voice",
+  trafficOn: "Traffic on",
+  parked: "Parked density",
+  departures: "Departures density",
+  arrivals: "Arrivals density",
+  enroute: "Enroute density",
+  liveTraffic: "Navigraph live traffic",
+  liveTrafficLocked: "Requires a linked Navigraph Ultimate subscription",
+  taxiArrows: "Show taxi arrows",
+  sample: "Play",
+  settingsWaiting: "Waiting for BeyondATC settings…",
+  appVersion: "App version",
+  protocol: "BeyondATC protocol",
+  protocolMismatch: (v: string) => `BeyondATC reports version ${v}: some features may differ.`,
+  unknownMsgs: "Unrecognised messages",
+  none: "None"
+};
+
+export type Dict = typeof en;
+
+/** Kept as a signal so components keep the same `dict.value` access pattern. */
+export const dict = signal<Dict>(en);

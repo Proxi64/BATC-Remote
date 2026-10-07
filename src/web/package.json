@@ -1,0 +1,34 @@
+{
+  "name": "batc-remote-web",
+  "private": true,
+  "version": "0.6.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite --host",
+    "build": "tsc --noEmit && vite build",
+    "preview": "vite preview --host",
+    "test": "vitest run",
+    "typecheck": "tsc --noEmit",
+    "sim": "node dev/batc-simulator.mjs",
+    "android:sync": "npm run build && cap sync android",
+    "android:open": "cap open android",
+    "android:apk": "npm run android:sync && cd android && gradlew assembleDebug",
+    "android:release": "npm run android:sync && cd android && gradlew assembleRelease"
+  },
+  "dependencies": {
+    "@capacitor/core": "^8.5.2",
+    "@preact/signals": "^2.11.2",
+    "preact": "^10.29.8"
+  },
+  "devDependencies": {
+    "@capacitor/android": "^8.5.2",
+    "@capacitor/cli": "^8.5.2",
+    "@preact/preset-vite": "^2.10.6",
+    "@types/node": "^26.6.2",
+    "jsdom": "^30.1.1",
+    "typescript": "^7.0.2",
+    "vite": "^8.3.0",
+    "vitest": "^5.0.1",
+    "ws": "^8.21.3"
+  }
+}

@@ -1,0 +1,945 @@
+{"t":"2026-09-23T11:46:22.036Z","conn":"A","dir":"sys","text":"Connecting to ws://127.0.0.1:41716"}
+{"t":"2026-09-23T11:46:22.050Z","conn":"A","dir":"sys","text":"Connected ✔"}
+{"t":"2026-09-23T11:46:22.057Z","conn":"A","dir":"out","text":"atc_log"}
+{"t":"2026-09-23T11:46:22.057Z","conn":"A","dir":"out","text":"settings"}
+{"t":"2026-09-23T11:46:22.057Z","conn":"A","dir":"out","text":"frequencies"}
+{"t":"2026-09-23T11:46:22.057Z","conn":"A","dir":"out","text":"datis"}
+{"t":"2026-09-23T11:46:22.058Z","conn":"A","dir":"in","prefix":"Facility","text":"Facility: Nothing Tuned"}
+{"t":"2026-09-23T11:46:22.059Z","conn":"A","dir":"in","prefix":"CPDLCCode","text":"CPDLCCode: "}
+{"t":"2026-09-23T11:46:22.059Z","conn":"A","dir":"in","prefix":"AutoTune","text":"AutoTune: true"}
+{"t":"2026-09-23T11:46:22.059Z","conn":"A","dir":"in","prefix":"AutoRespond","text":"AutoRespond: true"}
+{"t":"2026-09-23T11:46:22.059Z","conn":"A","dir":"in","prefix":"Actions","text":"Actions: []"}
+{"t":"2026-09-23T11:46:22.060Z","conn":"A","dir":"in","prefix":"DATIS","text":"DATIS: LFBZ|V|LFBZ ATIS V 1145Z 30004KT 260V010 CAVOK 24/14 Q1023 RWY 27 IN USE TRANSITION-LEVEL FL050 BIRD ACTIVITY REPORTED ACKNOWLEDGE RECEIPT OF INFORMATION V AND ADVISE AIRCRAFT TYPE ON FIRST CONTACT "}
+{"t":"2026-09-23T11:46:22.060Z","conn":"A","dir":"in","prefix":"DATIS","text":"DATIS: LFBO|W|LFBO ATIS W 1146Z VRB03KT CAVOK 27/08 Q1023 ARR RWY 32 LEFT DEP RWY 32 RIGHT 32 LEFT TRANSITION-LEVEL FL050 ACKNOWLEDGE RECEIPT OF INFORMATION W AND ADVISE AIRCRAFT TYPE ON FIRST CONTACT "}
+{"t":"2026-09-23T11:46:22.060Z","conn":"A","dir":"in","prefix":"DATIS_END","text":"DATIS_END:"}
+{"t":"2026-09-23T11:46:22.061Z","conn":"A","dir":"in","prefix":"QueuedAction","text":"QueuedAction: "}
+{"t":"2026-09-23T11:46:22.061Z","conn":"A","dir":"in","prefix":"InfoBoxes","text":"InfoBoxes: []"}
+{"t":"2026-09-23T11:46:22.061Z","conn":"A","dir":"in","prefix":"Com2","text":"Com2: {\"label\":\"124.850\",\"frequency\":\"124.850\",\"monitor\":false}"}
+{"t":"2026-09-23T11:46:22.063Z","conn":"A","dir":"in","prefix":"RadioMute","text":"RadioMute: {\"com1\":false,\"com2\":false}"}
+{"t":"2026-09-23T11:46:22.063Z","conn":"A","dir":"in","prefix":"Progress","text":"Progress: {\"from\":\"LFBZ\",\"to\":\"LFBO\",\"pct\":0.0}"}
+{"t":"2026-09-23T11:46:22.063Z","conn":"A","dir":"in","prefix":"LoadState","text":"LoadState: {\"stage\":\"ready\",\"text\":\"\",\"pct\":-1,\"vfr\":false,\"loggedIn\":true}"}
+{"t":"2026-09-23T11:46:22.063Z","conn":"A","dir":"in","prefix":"Callsign","text":"Callsign: {\"full\":\"Airbus\",\"shortForm\":\"A-us\"}"}
+{"t":"2026-09-23T11:46:22.063Z","conn":"A","dir":"in","prefix":"ToolbarVersion","text":"ToolbarVersion: 3.1"}
+{"t":"2026-09-23T11:46:22.063Z","conn":"A","dir":"in","prefix":"Settings","text":"Settings: {\"voiceVolume\":70,\"uiSounds\":true,\"controllerVoice\":\"Local\",\"trafficVoice\":\"Local\",\"trafficOn\":true,\"parkedDensity\":5,\"departuresDensity\":5,\"arrivalsDensity\":5,\"enrouteDensity\":5,\"navigraphLiveTraffic\":false,\"navigraphLinked\":true,\"navigraphUltimate\":true,\"taxiArrowsShown\":false,\"simIs2024\":true,\"dynamicVoiceOn\":false,\"dynamicVoiceGender\":0,\"autoRespondVoice\":0,\"autoRespondVoiceOptions\":[\"US Male\",\"US Female\",\"UK Male\",\"UK Female\",\"AU Male\",\"Jeff Favignano (Premium Only)\",\"CivRyan (Premium Only)\",\"Squirrel (Premium Only)\",\"EasyJetSimPilot (Premium Only)\",\"British Avgeek (Premium Only)\",\"Overkill (Premium Only)\",\"FlyBy Simulations (Premium Only)\",\"V1-Simulations (Premium Only)\",\"FSFO English1 (Premium Only)\",\"FS2Crew US Stephanie (Premium Only)\"],\"voiceQualityOptions\":[{\"value\":\"Off\",\"label\":\"Off (No Cost)\"},{\"value\":\"Local\",\"label\":\"Local (No Cost)\"},{\"value\":\"Premium\",\"label\":\"Premium (Higher Cost)\"}],\"voiceGenderOptions\":[{\"value\":\"0\",\"label\":\"Any\"},{\"value\":\"1\",\"label\":\"Female\"},{\"value\":\"2\",\"label\":\"Male\"}],\"premiumUnits\":49185,\"premiumUnitsMax\":50000}"}
+{"t":"2026-09-23T11:46:22.064Z","conn":"A","dir":"in","prefix":"DATIS","text":"DATIS: LFBZ|V|LFBZ ATIS V 1145Z 30004KT 260V010 CAVOK 24/14 Q1023 RWY 27 IN USE TRANSITION-LEVEL FL050 BIRD ACTIVITY REPORTED ACKNOWLEDGE RECEIPT OF INFORMATION V AND ADVISE AIRCRAFT TYPE ON FIRST CONTACT "}
+{"t":"2026-09-23T11:46:22.064Z","conn":"A","dir":"in","prefix":"DATIS","text":"DATIS: LFBO|W|LFBO ATIS W 1146Z VRB03KT CAVOK 27/08 Q1023 ARR RWY 32 LEFT DEP RWY 32 RIGHT 32 LEFT TRANSITION-LEVEL FL050 ACKNOWLEDGE RECEIPT OF INFORMATION W AND ADVISE AIRCRAFT TYPE ON FIRST CONTACT "}
+{"t":"2026-09-23T11:46:22.064Z","conn":"A","dir":"in","prefix":"DATIS_END","text":"DATIS_END:"}
+{"t":"2026-09-23T11:46:22.089Z","conn":"A","dir":"in","prefix":"Frequencies","text":"Frequencies: [{\"airport\":\"LFBZ\",\"airportName\":\"Bayonne-Anglet\",\"frequency\":\"119.180\",\"name\":\"BIARRITZ INFORMATION\",\"type\":\"UNICOM\",\"stationType\":\"\",\"runways\":\"\"},{\"airport\":\"LFBZ\",\"airportName\":\"Bayonne-Anglet\",\"frequency\":\"125.605\",\"name\":\"BIARRITZ\",\"type\":\"ApproachDeparture\",\"stationType\":\"\",\"runways\":\"\"},{\"airport\":\"LFBZ\",\"airportName\":\"Bayonne-Anglet\",\"frequency\":\"118.705\",\"name\":\"BIARRITZ\",\"type\":\"Tower\",\"stationType\":\"\",\"runways\":\"\"},{\"airport\":\"LFBZ\",\"airportName\":\"Bayonne-Anglet\",\"frequency\":\"121.955\",\"name\":\"BIARRITZ\",\"type\":\"Ground\",\"stationType\":\"\",\"runways\":\"\"},{\"airport\":\"LFBZ\",\"airportName\":\"Bayonne-Anglet\",\"frequency\":\"128.230\",\"name\":\"LFBZ\",\"type\":\"ATIS\",\"stationType\":\"\",\"runways\":\"\"},{\"airport\":\"LFBO\",\"airportName\":\"Blagnac\",\"frequency\":\"123.930\",\"name\":\"TOULOUSE INFORMATION\",\"type\":\"UNICOM\",\"stationType\":\"\",\"runways\":\"\"},{\"airport\":\"LFBO\",\"airportName\":\"Blagnac\",\"frequency\":\"121.830\",\"name\":\"ST MARTIN INFORMATION\",\"type\":\"UNICOM\",\"stationType\":\"\",\"runways\":\"\"},{\"airport\":\"LFBO\",\"airportName\":\"Blagnac\",\"frequency\":\"121.250\",\"name\":\"TOULOUSE INFORMATION\",\"type\":\"UNICOM\",\"stationType\":\"\",\"runways\":\"\"},{\"airport\":\"LFBO\",\"airportName\":\"Blagnac\",\"frequency\":\"120.355\",\"name\":\"TOULOUSE APPROACH\",\"type\":\"Approach\",\"stationType\":\"\",\"runways\":\"32L\"},{\"airport\":\"LFBO\",\"airportName\":\"Blagnac\",\"frequency\":\"123.850\",\"name\":\"TOULOUSE DEPARTURE\",\"type\":\"Departure\",\"stationType\":\"\",\"runways\":\"32L 32R\"},{\"airport\":\"LFBO\",\"airportName\":\"Blagnac\",\"frequency\":\"118.100\",\"name\":\"BLAGNAC TOWER\",\"type\":\"Tower\",\"stationType\":\"\",\"runways\":\"32L 32R\"},{\"airport\":\"LFBO\",\"airportName\":\"Blagnac\",\"frequency\":\"121.900\",\"name\":\"BLAGNAC GROUND\",\"type\":\"Ground\",\"stationType\":\"\",\"runways\":\"32L 32R\"},{\"airport\":\"LFBO\",\"airportName\":\"Blagnac\",\"frequency\":\"121.705\",\"name\":\"BLAGNAC\",\"type\":\"Clearance\",\"stationType\":\"\",\"runways\":\"\"},{\"airport\":\"LFBO\",\"airportName\":\"Blagnac\",\"frequency\":\"123.130\",\"name\":\"LFBO\",\"type\":\"ATIS\",\"stationType\":\"\",\"runways\":\"\"},{\"airport\":\"\",\"airportName\":\"\",\"frequency\":\"125.105\",\"name\":\"Bordeaux Control\",\"type\":\"Center\",\"cpdlcLogonCode\":\"LFBB\"}]"}
+{"t":"2026-09-23T11:46:22.311Z","conn":"A","dir":"in","prefix":"Settings","text":"Settings: {\"voiceVolume\":70,\"uiSounds\":true,\"controllerVoice\":\"Local\",\"trafficVoice\":\"Local\",\"trafficOn\":true,\"parkedDensity\":5,\"departuresDensity\":5,\"arrivalsDensity\":5,\"enrouteDensity\":5,\"navigraphLiveTraffic\":false,\"navigraphLinked\":true,\"navigraphUltimate\":true,\"taxiArrowsShown\":false,\"simIs2024\":true,\"dynamicVoiceOn\":false,\"dynamicVoiceGender\":0,\"autoRespondVoice\":0,\"autoRespondVoiceOptions\":[\"US Male\",\"US Female\",\"UK Male\",\"UK Female\",\"AU Male\",\"Jeff Favignano (Premium Only)\",\"CivRyan (Premium Only)\",\"Squirrel (Premium Only)\",\"EasyJetSimPilot (Premium Only)\",\"British Avgeek (Premium Only)\",\"Overkill (Premium Only)\",\"FlyBy Simulations (Premium Only)\",\"V1-Simulations (Premium Only)\",\"FSFO English1 (Premium Only)\",\"FS2Crew US Stephanie (Premium Only)\"],\"voiceQualityOptions\":[{\"value\":\"Off\",\"label\":\"Off (No Cost)\"},{\"value\":\"Local\",\"label\":\"Local (No Cost)\"},{\"value\":\"Premium\",\"label\":\"Premium (Higher Cost)\"}],\"voiceGenderOptions\":[{\"value\":\"0\",\"label\":\"Any\"},{\"value\":\"1\",\"label\":\"Female\"},{\"value\":\"2\",\"label\":\"Male\"}],\"premiumUnits\":49185,\"premiumUnitsMax\":50000}"}
+{"t":"2026-09-23T11:46:42.073Z","conn":"A","dir":"out","text":"ping"}
+{"t":"2026-09-23T11:46:42.074Z","conn":"A","dir":"in","prefix":"Pong","text":"Pong:"}
+{"t":"2026-09-23T11:47:02.073Z","conn":"A","dir":"out","text":"ping"}
+{"t":"2026-09-23T11:47:02.074Z","conn":"A","dir":"in","prefix":"Pong","text":"Pong:"}
+{"t":"2026-09-23T11:47:20.333Z","conn":"A","dir":"in","prefix":"Facility","text":"Facility: Nothing Tuned"}
+{"t":"2026-09-23T11:47:20.335Z","conn":"A","dir":"in","prefix":"CPDLCCode","text":"CPDLCCode: "}
+{"t":"2026-09-23T11:47:20.336Z","conn":"A","dir":"in","prefix":"AutoTune","text":"AutoTune: true"}
+{"t":"2026-09-23T11:47:20.336Z","conn":"A","dir":"in","prefix":"AutoRespond","text":"AutoRespond: true"}
+{"t":"2026-09-23T11:47:20.336Z","conn":"A","dir":"in","prefix":"Actions","text":"Actions: []"}
+{"t":"2026-09-23T11:47:20.336Z","conn":"A","dir":"in","prefix":"DATIS","text":"DATIS: LFBZ|V|LFBZ ATIS V 1145Z 30004KT 260V010 CAVOK 24/14 Q1023 RWY 27 IN USE TRANSITION-LEVEL FL050 BIRD ACTIVITY REPORTED ACKNOWLEDGE RECEIPT OF INFORMATION V AND ADVISE AIRCRAFT TYPE ON FIRST CONTACT "}
+{"t":"2026-09-23T11:47:20.336Z","conn":"A","dir":"in","prefix":"DATIS","text":"DATIS: LFBO|W|LFBO ATIS W 1146Z VRB03KT CAVOK 27/08 Q1023 ARR RWY 32 LEFT DEP RWY 32 RIGHT 32 LEFT TRANSITION-LEVEL FL050 ACKNOWLEDGE RECEIPT OF INFORMATION W AND ADVISE AIRCRAFT TYPE ON FIRST CONTACT "}
+{"t":"2026-09-23T11:47:20.336Z","conn":"A","dir":"in","prefix":"DATIS_END","text":"DATIS_END:"}
+{"t":"2026-09-23T11:47:20.336Z","conn":"A","dir":"in","prefix":"QueuedAction","text":"QueuedAction: "}
+{"t":"2026-09-23T11:47:20.336Z","conn":"A","dir":"in","prefix":"InfoBoxes","text":"InfoBoxes: []"}
+{"t":"2026-09-23T11:47:20.336Z","conn":"A","dir":"in","prefix":"Com2","text":"Com2: {\"label\":\"124.850\",\"frequency\":\"124.850\",\"monitor\":false}"}
+{"t":"2026-09-23T11:47:20.337Z","conn":"A","dir":"in","prefix":"RadioMute","text":"RadioMute: {\"com1\":false,\"com2\":false}"}
+{"t":"2026-09-23T11:47:20.337Z","conn":"A","dir":"in","prefix":"Progress","text":"Progress: {\"from\":\"LFBZ\",\"to\":\"LFBO\",\"pct\":0.0}"}
+{"t":"2026-09-23T11:47:20.337Z","conn":"A","dir":"in","prefix":"LoadState","text":"LoadState: {\"stage\":\"ready\",\"text\":\"\",\"pct\":-1,\"vfr\":false,\"loggedIn\":true}"}
+{"t":"2026-09-23T11:47:20.337Z","conn":"A","dir":"in","prefix":"Callsign","text":"Callsign: {\"full\":\"Airbus\",\"shortForm\":\"A-us\"}"}
+{"t":"2026-09-23T11:47:20.337Z","conn":"A","dir":"in","prefix":"ToolbarVersion","text":"ToolbarVersion: 3.1"}
+{"t":"2026-09-23T11:47:20.338Z","conn":"A","dir":"in","prefix":"Settings","text":"Settings: {\"voiceVolume\":70,\"uiSounds\":true,\"controllerVoice\":\"Local\",\"trafficVoice\":\"Local\",\"trafficOn\":true,\"parkedDensity\":5,\"departuresDensity\":5,\"arrivalsDensity\":5,\"enrouteDensity\":5,\"navigraphLiveTraffic\":false,\"navigraphLinked\":true,\"navigraphUltimate\":true,\"taxiArrowsShown\":false,\"simIs2024\":true,\"dynamicVoiceOn\":false,\"dynamicVoiceGender\":0,\"autoRespondVoice\":0,\"autoRespondVoiceOptions\":[\"US Male\",\"US Female\",\"UK Male\",\"UK Female\",\"AU Male\",\"Jeff Favignano (Premium Only)\",\"CivRyan (Premium Only)\",\"Squirrel (Premium Only)\",\"EasyJetSimPilot (Premium Only)\",\"British Avgeek (Premium Only)\",\"Overkill (Premium Only)\",\"FlyBy Simulations (Premium Only)\",\"V1-Simulations (Premium Only)\",\"FSFO English1 (Premium Only)\",\"FS2Crew US Stephanie (Premium Only)\"],\"voiceQualityOptions\":[{\"value\":\"Off\",\"label\":\"Off (No Cost)\"},{\"value\":\"Local\",\"label\":\"Local (No Cost)\"},{\"value\":\"Premium\",\"label\":\"Premium (Higher Cost)\"}],\"voiceGenderOptions\":[{\"value\":\"0\",\"label\":\"Any\"},{\"value\":\"1\",\"label\":\"Female\"},{\"value\":\"2\",\"label\":\"Male\"}],\"premiumUnits\":49185,\"premiumUnitsMax\":50000}"}
+{"t":"2026-09-23T11:47:20.340Z","conn":"A","dir":"in","prefix":"DATIS","text":"DATIS: LFBZ|V|LFBZ ATIS V 1145Z 30004KT 260V010 CAVOK 24/14 Q1023 RWY 27 IN USE TRANSITION-LEVEL FL050 BIRD ACTIVITY REPORTED ACKNOWLEDGE RECEIPT OF INFORMATION V AND ADVISE AIRCRAFT TYPE ON FIRST CONTACT "}
+{"t":"2026-09-23T11:47:20.340Z","conn":"A","dir":"in","prefix":"DATIS","text":"DATIS: LFBO|W|LFBO ATIS W 1146Z VRB03KT CAVOK 27/08 Q1023 ARR RWY 32 LEFT DEP RWY 32 RIGHT 32 LEFT TRANSITION-LEVEL FL050 ACKNOWLEDGE RECEIPT OF INFORMATION W AND ADVISE AIRCRAFT TYPE ON FIRST CONTACT "}
+{"t":"2026-09-23T11:47:20.340Z","conn":"A","dir":"in","prefix":"DATIS_END","text":"DATIS_END:"}
+{"t":"2026-09-23T11:47:20.585Z","conn":"A","dir":"in","prefix":"Settings","text":"Settings: {\"voiceVolume\":70,\"uiSounds\":true,\"controllerVoice\":\"Local\",\"trafficVoice\":\"Local\",\"trafficOn\":true,\"parkedDensity\":5,\"departuresDensity\":5,\"arrivalsDensity\":5,\"enrouteDensity\":5,\"navigraphLiveTraffic\":false,\"navigraphLinked\":true,\"navigraphUltimate\":true,\"taxiArrowsShown\":false,\"simIs2024\":true,\"dynamicVoiceOn\":false,\"dynamicVoiceGender\":0,\"autoRespondVoice\":0,\"autoRespondVoiceOptions\":[\"US Male\",\"US Female\",\"UK Male\",\"UK Female\",\"AU Male\",\"Jeff Favignano (Premium Only)\",\"CivRyan (Premium Only)\",\"Squirrel (Premium Only)\",\"EasyJetSimPilot (Premium Only)\",\"British Avgeek (Premium Only)\",\"Overkill (Premium Only)\",\"FlyBy Simulations (Premium Only)\",\"V1-Simulations (Premium Only)\",\"FSFO English1 (Premium Only)\",\"FS2Crew US Stephanie (Premium Only)\"],\"voiceQualityOptions\":[{\"value\":\"Off\",\"label\":\"Off (No Cost)\"},{\"value\":\"Local\",\"label\":\"Local (No Cost)\"},{\"value\":\"Premium\",\"label\":\"Premium (Higher Cost)\"}],\"voiceGenderOptions\":[{\"value\":\"0\",\"label\":\"Any\"},{\"value\":\"1\",\"label\":\"Female\"},{\"value\":\"2\",\"label\":\"Male\"}],\"premiumUnits\":49185,\"premiumUnitsMax\":50000}"}
+{"t":"2026-09-23T11:47:22.081Z","conn":"A","dir":"out","text":"ping"}
+{"t":"2026-09-23T11:47:22.082Z","conn":"A","dir":"in","prefix":"Pong","text":"Pong:"}
+{"t":"2026-09-23T11:47:42.091Z","conn":"A","dir":"out","text":"ping"}
+{"t":"2026-09-23T11:47:42.092Z","conn":"A","dir":"in","prefix":"Pong","text":"Pong:"}
+{"t":"2026-09-23T11:47:54.073Z","conn":"A","dir":"in","prefix":"Facility","text":"Facility: El Prat Automated Terminal Information Service|118.650"}
+{"t":"2026-09-23T11:47:54.086Z","conn":"A","dir":"in","prefix":"Actions","text":"Actions: []"}
+{"t":"2026-09-23T11:47:54.112Z","conn":"A","dir":"in","prefix":"CommsState","text":"CommsState: {\"mode\":\"traffic\",\"text\":\"ATIS Generating\"}"}
+{"t":"2026-09-23T11:47:56.438Z","conn":"A","dir":"in","prefix":"CommsState","text":"CommsState: {\"mode\":\"ready\",\"text\":\"\"}"}
+{"t":"2026-09-23T11:47:56.535Z","conn":"A","dir":"in","prefix":"CommsState","text":"CommsState: {\"mode\":\"traffic\",\"text\":\"ATIS Transmitting\"}"}
+{"t":"2026-09-23T11:48:02.178Z","conn":"A","dir":"out","text":"ping"}
+{"t":"2026-09-23T11:48:02.179Z","conn":"A","dir":"in","prefix":"Pong","text":"Pong:"}
+{"t":"2026-09-23T11:48:22.191Z","conn":"A","dir":"out","text":"ping"}
+{"t":"2026-09-23T11:48:22.192Z","conn":"A","dir":"in","prefix":"Pong","text":"Pong:"}
+{"t":"2026-09-23T11:48:37.037Z","conn":"A","dir":"in","prefix":"Settings","text":"Settings: {\"voiceVolume\":70,\"uiSounds\":true,\"controllerVoice\":\"Local\",\"trafficVoice\":\"Local\",\"trafficOn\":true,\"parkedDensity\":5,\"departuresDensity\":5,\"arrivalsDensity\":5,\"enrouteDensity\":5,\"navigraphLiveTraffic\":false,\"navigraphLinked\":true,\"navigraphUltimate\":true,\"taxiArrowsShown\":false,\"simIs2024\":true,\"dynamicVoiceOn\":false,\"dynamicVoiceGender\":0,\"autoRespondVoice\":0,\"autoRespondVoiceOptions\":[\"US Male\",\"US Female\",\"UK Male\",\"UK Female\",\"AU Male\",\"Jeff Favignano (Premium Only)\",\"CivRyan (Premium Only)\",\"Squirrel (Premium Only)\",\"EasyJetSimPilot (Premium Only)\",\"British Avgeek (Premium Only)\",\"Overkill (Premium Only)\",\"FlyBy Simulations (Premium Only)\",\"V1-Simulations (Premium Only)\",\"FSFO English1 (Premium Only)\",\"FS2Crew US Stephanie (Premium Only)\"],\"voiceQualityOptions\":[{\"value\":\"Off\",\"label\":\"Off (No Cost)\"},{\"value\":\"Local\",\"label\":\"Local (No Cost)\"},{\"value\":\"Premium\",\"label\":\"Premium (Higher Cost)\"}],\"voiceGenderOptions\":[{\"value\":\"0\",\"label\":\"Any\"},{\"value\":\"1\",\"label\":\"Female\"},{\"value\":\"2\",\"label\":\"Male\"}],\"premiumUnits\":49185,\"premiumUnitsMax\":50000}"}
+{"t":"2026-09-23T11:48:42.198Z","conn":"A","dir":"out","text":"ping"}
+{"t":"2026-09-23T11:48:42.200Z","conn":"A","dir":"in","prefix":"Pong","text":"Pong:"}
+{"t":"2026-09-23T11:48:54.564Z","conn":"A","dir":"in","prefix":"Facility","text":"Facility: Biarritz Ground|121.955"}
+{"t":"2026-09-23T11:48:54.565Z","conn":"A","dir":"in","prefix":"Actions","text":"Actions: []"}
+{"t":"2026-09-23T11:48:54.578Z","conn":"A","dir":"in","prefix":"Actions","text":"Actions: [Request IFR Clearance¬Request Push and Start¬Request Startup Only¬Request Taxi to Runway¬Request Departure Runway Change¬Wind Check¬Radio Check¬]"}
+{"t":"2026-09-23T11:48:54.582Z","conn":"A","dir":"in","prefix":"CommsState","text":"CommsState: {\"mode\":\"ready\",\"text\":\"\"}"}
+{"t":"2026-09-23T11:48:56.112Z","conn":"A","dir":"in","prefix":"QueuedAction","text":"QueuedAction: "}
+{"t":"2026-09-23T11:48:56.113Z","conn":"A","dir":"in","prefix":"CommsState","text":"CommsState: {\"mode\":\"queued\",\"text\":\"Request Queued\"}"}
+{"t":"2026-09-23T11:48:56.128Z","conn":"A","dir":"in","prefix":"QueuedAction","text":"QueuedAction: "}
+{"t":"2026-09-23T11:48:56.129Z","conn":"A","dir":"in","prefix":"CommsState","text":"CommsState: {\"mode\":\"ready\",\"text\":\"\"}"}
+{"t":"2026-09-23T11:48:56.129Z","conn":"A","dir":"in","prefix":"CommsState","text":"CommsState: {\"mode\":\"awaiting\",\"text\":\"Awaiting Response\"}"}
+{"t":"2026-09-23T11:48:56.539Z","conn":"A","dir":"in","prefix":"Player","text":"Player: Airbus, request IFR clearance to Blagnac airport."}
+{"t":"2026-09-23T11:48:56.568Z","conn":"A","dir":"in","prefix":"CommsState","text":"CommsState: {\"mode\":\"speaking\",\"text\":\"Speaking\"}"}
+{"t":"2026-09-23T11:49:01.236Z","conn":"A","dir":"in","prefix":"CommsState","text":"CommsState: {\"mode\":\"request\",\"text\":\"Request IFR Clearance\"}"}
+{"t":"2026-09-23T11:49:01.239Z","conn":"A","dir":"in","prefix":"Actions","text":"Actions: [Request IFR Clearance¬Request Push and Start¬Request Startup Only¬Request Taxi to Runway¬Request Departure Runway Change¬Wind Check¬Radio Check¬]"}
+{"t":"2026-09-23T11:49:02.238Z","conn":"A","dir":"out","text":"ping"}
+{"t":"2026-09-23T11:49:02.239Z","conn":"A","dir":"in","prefix":"Pong","text":"Pong:"}
+{"t":"2026-09-23T11:49:03.187Z","conn":"A","dir":"in","prefix":"CommsState","text":"CommsState: {\"mode\":\"ready\",\"text\":\"\"}"}
+{"t":"2026-09-23T11:49:03.236Z","conn":"A","dir":"in","prefix":"CommsState","text":"CommsState: {\"mode\":\"awaiting\",\"text\":\"Awaiting Response\"}"}
+{"t":"2026-09-23T11:49:04.363Z","conn":"A","dir":"in","prefix":"ATC","text":"ATC: Airbus, Biarritz Ground, information V current, cleared to Blagnac airport via SOVO3F departure, runway 27, climb via SID to FL070, squawk 1000."}
+{"t":"2026-09-23T11:49:04.397Z","conn":"A","dir":"in","prefix":"CommsState","text":"CommsState: {\"mode\":\"speaking\",\"text\":\"Speaking\"}"}
+{"t":"2026-09-23T11:49:16.612Z","conn":"A","dir":"in","prefix":"CommsState","text":"CommsState: {\"mode\":\"ready\",\"text\":\"\"}"}
+{"t":"2026-09-23T11:49:16.613Z","conn":"A","dir":"in","prefix":"InfoBoxes","text":"InfoBoxes: [{\"title\":\"Taxi to Runway\",\"info\":\"27\"},{\"title\":\"SID\",\"info\":\"SOVO3F\"},{\"title\":\"Altitude Clearance\",\"info\":\"FL070\"},{\"title\":\"Squawk\",\"info\":\"1000\"}]"}
+{"t":"2026-09-23T11:49:16.638Z","conn":"A","dir":"in","prefix":"CommsState","text":"CommsState: {\"mode\":\"awaiting\",\"text\":\"Awaiting Response\"}"}
+{"t":"2026-09-23T11:49:17.638Z","conn":"A","dir":"in","prefix":"Player","text":"Player: Cleared to Blagnac airport via SOVO3F departure, runway 27, climb via SID to FL070, squawk 1000, Airbus."}
+{"t":"2026-09-23T11:49:17.661Z","conn":"A","dir":"in","prefix":"CommsState","text":"CommsState: {\"mode\":\"speaking\",\"text\":\"Speaking\"}"}
+{"t":"2026-09-23T11:49:22.239Z","conn":"A","dir":"out","text":"ping"}
+{"t":"2026-09-23T11:49:22.240Z","conn":"A","dir":"in","prefix":"Pong","text":"Pong:"}
+{"t":"2026-09-23T11:49:29.486Z","conn":"A","dir":"in","prefix":"CommsState","text":"CommsState: {\"mode\":\"ready\",\"text\":\"\"}"}
+{"t":"2026-09-23T11:49:29.512Z","conn":"A","dir":"in","prefix":"CommsState","text":"CommsState: {\"mode\":\"awaiting\",\"text\":\"Awaiting Response\"}"}
+{"t":"2026-09-23T11:49:30.013Z","conn":"A","dir":"in","prefix":"ATC","text":"ATC: Airbus, readback correct. Call me back when ready for start or taxi."}
+{"t":"2026-09-23T11:49:30.036Z","conn":"A","dir":"in","prefix":"CommsState","text":"CommsState: {\"mode\":\"speaking\",\"text\":\"Speaking\"}"}
+{"t":"2026-09-23T11:49:36.191Z","conn":"A","dir":"in","prefix":"CommsState","text":"CommsState: {\"mode\":\"ready\",\"text\":\"\"}"}
+{"t":"2026-09-23T11:49:36.216Z","conn":"A","dir":"in","prefix":"CommsState","text":"CommsState: {\"mode\":\"awaiting\",\"text\":\"Awaiting Response\"}"}
+{"t":"2026-09-23T11:49:36.467Z","conn":"A","dir":"in","prefix":"Player","text":"Player: Wilco, Airbus."}
+{"t":"2026-09-23T11:49:36.491Z","conn":"A","dir":"in","prefix":"CommsState","text":"CommsState: {\"mode\":\"speaking\",\"text\":\"Speaking\"}"}
+{"t":"2026-09-23T11:49:39.366Z","conn":"A","dir":"in","prefix":"CommsState","text":"CommsState: {\"mode\":\"ready\",\"text\":\"\"}"}
+{"t":"2026-09-23T11:49:39.393Z","conn":"A","dir":"in","prefix":"Actions","text":"Actions: [Request IFR Clearance¬Request Push and Start¬Request Startup Only¬Request Taxi to Runway¬Request Departure Runway Change¬Wind Check¬Radio Check¬]"}
+{"t":"2026-09-23T11:49:39.394Z","conn":"A","dir":"in","prefix":"Actions","text":"Actions: []"}
+{"t":"2026-09-23T11:49:39.394Z","conn":"A","dir":"in","prefix":"Actions","text":"Actions: [Request Push and Start¬Request Startup Only¬Request Taxi to Runway¬Request Departure Runway Change¬Wind Check¬Radio Check¬]"}
+{"t":"2026-09-23T11:49:42.248Z","conn":"A","dir":"out","text":"ping"}
+{"t":"2026-09-23T11:49:42.248Z","conn":"A","dir":"in","prefix":"Pong","text":"Pong:"}
+{"t":"2026-09-23T11:49:43.111Z","conn":"A","dir":"in","prefix":"QueuedAction","text":"QueuedAction: Request IFR Clearance"}
+{"t":"2026-09-23T11:49:43.111Z","conn":"A","dir":"in","prefix":"CommsState","text":"CommsState: {\"mode\":\"queued\",\"text\":\"Request IFR Clearance\"}"}
+{"t":"2026-09-23T11:49:43.115Z","conn":"A","dir":"in","prefix":"QueuedAction","text":"QueuedAction: "}
+{"t":"2026-09-23T11:49:43.115Z","conn":"A","dir":"in","prefix":"CommsState","text":"CommsState: {\"mode\":\"ready\",\"text\":\"\"}"}
+{"t":"2026-09-23T11:49:43.116Z","conn":"A","dir":"in","prefix":"CommsState","text":"CommsState: {\"mode\":\"awaiting\",\"text\":\"Awaiting Response\"}"}
+{"t":"2026-09-23T11:49:43.462Z","conn":"A","dir":"in","prefix":"Player","text":"Player: Airbus, request taxi to the active."}
+{"t":"2026-09-23T11:49:43.487Z","conn":"A","dir":"in","prefix":"CommsState","text":"CommsState: {\"mode\":\"speaking\",\"text\":\"Speaking\"}"}
+{"t":"2026-09-23T11:49:47.391Z","conn":"A","dir":"in","prefix":"CommsState","text":"CommsState: {\"mode\":\"request\",\"text\":\"Request Taxi to Runway\"}"}
+{"t":"2026-09-23T11:49:47.393Z","conn":"A","dir":"in","prefix":"Actions","text":"Actions: [Request Push and Start¬Request Startup Only¬Request Taxi to Runway¬Request Departure Runway Change¬Wind Check¬Radio Check¬]"}
+{"t":"2026-09-23T11:49:49.116Z","conn":"A","dir":"in","prefix":"CommsState","text":"CommsState: {\"mode\":\"ready\",\"text\":\"\"}"}
+{"t":"2026-09-23T11:49:49.141Z","conn":"A","dir":"in","prefix":"CommsState","text":"CommsState: {\"mode\":\"awaiting\",\"text\":\"Awaiting Response\"}"}
+{"t":"2026-09-23T11:49:49.616Z","conn":"A","dir":"in","prefix":"ATC","text":"ATC: Airbus, taxi holding point runway 27 at pilot's discretion."}
+{"t":"2026-09-23T11:49:49.641Z","conn":"A","dir":"in","prefix":"CommsState","text":"CommsState: {\"mode\":\"speaking\",\"text\":\"Speaking\"}"}
+{"t":"2026-09-23T11:49:55.466Z","conn":"A","dir":"in","prefix":"CommsState","text":"CommsState: {\"mode\":\"ready\",\"text\":\"\"}"}
+{"t":"2026-09-23T11:49:55.467Z","conn":"A","dir":"in","prefix":"InfoBoxes","text":"InfoBoxes: [{\"title\":\"Taxi to Runway\",\"info\":\"27\"}]"}
+{"t":"2026-09-23T11:49:55.491Z","conn":"A","dir":"in","prefix":"CommsState","text":"CommsState: {\"mode\":\"awaiting\",\"text\":\"Awaiting Response\"}"}
+{"t":"2026-09-23T11:49:55.917Z","conn":"A","dir":"in","prefix":"Player","text":"Player: Taxi holding point runway 27, my discretion, Airbus."}
+{"t":"2026-09-23T11:49:55.941Z","conn":"A","dir":"in","prefix":"CommsState","text":"CommsState: {\"mode\":\"speaking\",\"text\":\"Speaking\"}"}
+{"t":"2026-09-23T11:50:00.966Z","conn":"A","dir":"in","prefix":"CommsState","text":"CommsState: {\"mode\":\"ready\",\"text\":\"\"}"}
+{"t":"2026-09-23T11:50:00.993Z","conn":"A","dir":"in","prefix":"Actions","text":"Actions: [Request Push and Start¬Request Startup Only¬Request Taxi to Runway¬Request Departure Runway Change¬Wind Check¬Radio Check¬]"}
+{"t":"2026-09-23T11:50:00.993Z","conn":"A","dir":"in","prefix":"Actions","text":"Actions: []"}
+{"t":"2026-09-23T11:50:00.993Z","conn":"A","dir":"in","prefix":"Actions","text":"Actions: [Request Departure Runway Change¬Wind Check¬Radio Check¬]"}
+{"t":"2026-09-23T11:50:02.255Z","conn":"A","dir":"out","text":"ping"}
+{"t":"2026-09-23T11:50:02.257Z","conn":"A","dir":"in","prefix":"Pong","text":"Pong:"}
+{"t":"2026-09-23T11:50:22.258Z","conn":"A","dir":"out","text":"ping"}
+{"t":"2026-09-23T11:50:22.260Z","conn":"A","dir":"in","prefix":"Pong","text":"Pong:"}
+{"t":"2026-09-23T11:50:42.273Z","conn":"A","dir":"out","text":"ping"}
+{"t":"2026-09-23T11:50:42.273Z","conn":"A","dir":"in","prefix":"Pong","text":"Pong:"}
+{"t":"2026-09-23T11:51:02.279Z","conn":"A","dir":"out","text":"ping"}
+{"t":"2026-09-23T11:51:02.281Z","conn":"A","dir":"in","prefix":"Pong","text":"Pong:"}
+{"t":"2026-09-23T11:51:22.280Z","conn":"A","dir":"out","text":"ping"}
+{"t":"2026-09-23T11:51:22.281Z","conn":"A","dir":"in","prefix":"Pong","text":"Pong:"}
+{"t":"2026-09-23T11:51:42.295Z","conn":"A","dir":"out","text":"ping"}
+{"t":"2026-09-23T11:51:42.296Z","conn":"A","dir":"in","prefix":"Pong","text":"Pong:"}
+{"t":"2026-09-23T11:52:02.308Z","conn":"A","dir":"out","text":"ping"}
+{"t":"2026-09-23T11:52:02.309Z","conn":"A","dir":"in","prefix":"Pong","text":"Pong:"}
+{"t":"2026-09-23T11:52:22.308Z","conn":"A","dir":"out","text":"ping"}
+{"t":"2026-09-23T11:52:22.309Z","conn":"A","dir":"in","prefix":"Pong","text":"Pong:"}
+{"t":"2026-09-23T11:52:42.314Z","conn":"A","dir":"out","text":"ping"}
+{"t":"2026-09-23T11:52:42.315Z","conn":"A","dir":"in","prefix":"Pong","text":"Pong:"}
+{"t":"2026-09-23T11:53:02.324Z","conn":"A","dir":"out","text":"ping"}
+{"t":"2026-09-23T11:53:02.325Z","conn":"A","dir":"in","prefix":"Pong","text":"Pong:"}
+{"t":"2026-09-23T11:53:27.875Z","conn":"A","dir":"out","text":"ping"}
+{"t":"2026-09-23T11:53:27.877Z","conn":"A","dir":"in","prefix":"Pong","text":"Pong:"}
+{"t":"2026-09-23T11:53:39.368Z","conn":"A","dir":"in","prefix":"Progress","text":"Progress: {\"from\":\"LFBZ\",\"to\":\"LFBO\",\"pct\":0.1}"}
+{"t":"2026-09-23T11:53:47.884Z","conn":"A","dir":"out","text":"ping"}
+{"t":"2026-09-23T11:53:47.886Z","conn":"A","dir":"in","prefix":"Pong","text":"Pong:"}
+{"t":"2026-09-23T11:53:59.418Z","conn":"A","dir":"in","prefix":"Progress","text":"Progress: {\"from\":\"LFBZ\",\"to\":\"LFBO\",\"pct\":0.2}"}
+{"t":"2026-09-23T11:54:05.218Z","conn":"A","dir":"in","prefix":"CommsState","text":"CommsState: {\"mode\":\"awaiting\",\"text\":\"Awaiting Response\"}"}
+{"t":"2026-09-23T11:54:05.721Z","conn":"A","dir":"in","prefix":"ATC","text":"ATC: Airbus, contact Biarritz Tower 118.705."}
+{"t":"2026-09-23T11:54:05.744Z","conn":"A","dir":"in","prefix":"CommsState","text":"CommsState: {\"mode\":\"speaking\",\"text\":\"Speaking\"}"}
+{"t":"2026-09-23T11:54:07.889Z","conn":"A","dir":"out","text":"ping"}
+{"t":"2026-09-23T11:54:07.890Z","conn":"A","dir":"in","prefix":"Pong","text":"Pong:"}
+{"t":"2026-09-23T11:54:11.593Z","conn":"A","dir":"in","prefix":"CommsState","text":"CommsState: {\"mode\":\"ready\",\"text\":\"\"}"}
+{"t":"2026-09-23T11:54:11.594Z","conn":"A","dir":"in","prefix":"InfoBoxes","text":"InfoBoxes: [{\"title\":\"Tower Frequency\",\"info\":\"118.705\"}]"}
+{"t":"2026-09-23T11:54:11.620Z","conn":"A","dir":"in","prefix":"CommsState","text":"CommsState: {\"mode\":\"awaiting\",\"text\":\"Awaiting Response\"}"}
+{"t":"2026-09-23T11:54:12.071Z","conn":"A","dir":"in","prefix":"Player","text":"Player: Over to tower 118.705, Airbus."}
+{"t":"2026-09-23T11:54:12.094Z","conn":"A","dir":"in","prefix":"CommsState","text":"CommsState: {\"mode\":\"speaking\",\"text\":\"Speaking\"}"}
+{"t":"2026-09-23T11:54:17.219Z","conn":"A","dir":"in","prefix":"CommsState","text":"CommsState: {\"mode\":\"ready\",\"text\":\"\"}"}
+{"t":"2026-09-23T11:54:17.245Z","conn":"A","dir":"in","prefix":"Actions","text":"Actions: [Request Departure Runway Change¬Wind Check¬Radio Check¬]"}
+{"t":"2026-09-23T11:54:17.421Z","conn":"A","dir":"in","prefix":"Facility","text":"Facility: Biarritz Tower|118.705"}
+{"t":"2026-09-23T11:54:17.421Z","conn":"A","dir":"in","prefix":"Actions","text":"Actions: []"}
+{"t":"2026-09-23T11:54:17.422Z","conn":"A","dir":"in","prefix":"Actions","text":"Actions: [Request Departure¬Wind Check¬Radio Check¬]"}
+{"t":"2026-09-23T11:54:19.268Z","conn":"A","dir":"in","prefix":"QueuedAction","text":"QueuedAction: Request Taxi to Runway"}
+{"t":"2026-09-23T11:54:19.269Z","conn":"A","dir":"in","prefix":"CommsState","text":"CommsState: {\"mode\":\"queued\",\"text\":\"Request Taxi to Runway\"}"}
+{"t":"2026-09-23T11:54:19.272Z","conn":"A","dir":"in","prefix":"QueuedAction","text":"QueuedAction: "}
+{"t":"2026-09-23T11:54:19.272Z","conn":"A","dir":"in","prefix":"CommsState","text":"CommsState: {\"mode\":\"ready\",\"text\":\"\"}"}
+{"t":"2026-09-23T11:54:19.272Z","conn":"A","dir":"in","prefix":"CommsState","text":"CommsState: {\"mode\":\"awaiting\",\"text\":\"Awaiting Response\"}"}
+{"t":"2026-09-23T11:54:19.469Z","conn":"A","dir":"in","prefix":"Progress","text":"Progress: {\"from\":\"LFBZ\",\"to\":\"LFBO\",\"pct\":0.3}"}
+{"t":"2026-09-23T11:54:19.673Z","conn":"A","dir":"in","prefix":"Player","text":"Player: Airbus, ready for departure, runway 27."}
+{"t":"2026-09-23T11:54:19.694Z","conn":"A","dir":"in","prefix":"CommsState","text":"CommsState: {\"mode\":\"speaking\",\"text\":\"Speaking\"}"}
+{"t":"2026-09-23T11:54:24.169Z","conn":"A","dir":"in","prefix":"CommsState","text":"CommsState: {\"mode\":\"request\",\"text\":\"Request Departure\"}"}
+{"t":"2026-09-23T11:54:24.171Z","conn":"A","dir":"in","prefix":"Actions","text":"Actions: [Request Departure¬Wind Check¬Radio Check¬]"}
+{"t":"2026-09-23T11:54:25.218Z","conn":"A","dir":"in","prefix":"CommsState","text":"CommsState: {\"mode\":\"ready\",\"text\":\"\"}"}
+{"t":"2026-09-23T11:54:25.243Z","conn":"A","dir":"in","prefix":"CommsState","text":"CommsState: {\"mode\":\"awaiting\",\"text\":\"Awaiting Response\"}"}
+{"t":"2026-09-23T11:54:25.945Z","conn":"A","dir":"in","prefix":"ATC","text":"ATC: Airbus, Biarritz Tower, wind 300 degrees, 4 knots, runway 27, cleared for takeoff."}
+{"t":"2026-09-23T11:54:25.980Z","conn":"A","dir":"in","prefix":"CommsState","text":"CommsState: {\"mode\":\"speaking\",\"text\":\"Speaking\"}"}
+{"t":"2026-09-23T11:54:27.889Z","conn":"A","dir":"out","text":"ping"}
+{"t":"2026-09-23T11:54:27.890Z","conn":"A","dir":"in","prefix":"Pong","text":"Pong:"}
+{"t":"2026-09-23T11:54:34.143Z","conn":"A","dir":"in","prefix":"CommsState","text":"CommsState: {\"mode\":\"ready\",\"text\":\"\"}"}
+{"t":"2026-09-23T11:54:34.144Z","conn":"A","dir":"in","prefix":"InfoBoxes","text":"InfoBoxes: [{\"title\":\"Cleared for Takeoff\",\"info\":\"27\"}]"}
+{"t":"2026-09-23T11:54:34.169Z","conn":"A","dir":"in","prefix":"CommsState","text":"CommsState: {\"mode\":\"awaiting\",\"text\":\"Awaiting Response\"}"}
+{"t":"2026-09-23T11:54:34.545Z","conn":"A","dir":"in","prefix":"Player","text":"Player: Runway 27, cleared for takeoff, Airbus."}
+{"t":"2026-09-23T11:54:34.569Z","conn":"A","dir":"in","prefix":"CommsState","text":"CommsState: {\"mode\":\"speaking\",\"text\":\"Speaking\"}"}
+{"t":"2026-09-23T11:54:38.969Z","conn":"A","dir":"in","prefix":"CommsState","text":"CommsState: {\"mode\":\"ready\",\"text\":\"\"}"}
+{"t":"2026-09-23T11:54:38.995Z","conn":"A","dir":"in","prefix":"Actions","text":"Actions: [Request Departure¬Wind Check¬Radio Check¬]"}
+{"t":"2026-09-23T11:54:38.995Z","conn":"A","dir":"in","prefix":"Actions","text":"Actions: []"}
+{"t":"2026-09-23T11:54:38.995Z","conn":"A","dir":"in","prefix":"Actions","text":"Actions: [Wind Check¬Radio Check¬]"}
+{"t":"2026-09-23T11:54:47.895Z","conn":"A","dir":"out","text":"ping"}
+{"t":"2026-09-23T11:54:47.896Z","conn":"A","dir":"in","prefix":"Pong","text":"Pong:"}
+{"t":"2026-09-23T11:55:07.898Z","conn":"A","dir":"out","text":"ping"}
+{"t":"2026-09-23T11:55:07.899Z","conn":"A","dir":"in","prefix":"Pong","text":"Pong:"}
+{"t":"2026-09-23T11:55:33.443Z","conn":"A","dir":"out","text":"ping"}
+{"t":"2026-09-23T11:55:33.444Z","conn":"A","dir":"in","prefix":"Pong","text":"Pong:"}
+{"t":"2026-09-23T11:55:53.458Z","conn":"A","dir":"out","text":"ping"}
+{"t":"2026-09-23T11:55:53.458Z","conn":"A","dir":"in","prefix":"Pong","text":"Pong:"}
+{"t":"2026-09-23T11:56:09.618Z","conn":"A","dir":"in","prefix":"Progress","text":"Progress: {\"from\":\"LFBZ\",\"to\":\"LFBO\",\"pct\":0.2}"}
+{"t":"2026-09-23T11:56:13.465Z","conn":"A","dir":"out","text":"ping"}
+{"t":"2026-09-23T11:56:13.466Z","conn":"A","dir":"in","prefix":"Pong","text":"Pong:"}
+{"t":"2026-09-23T11:56:19.617Z","conn":"A","dir":"in","prefix":"Progress","text":"Progress: {\"from\":\"LFBZ\",\"to\":\"LFBO\",\"pct\":0.1}"}
+{"t":"2026-09-23T11:56:23.068Z","conn":"A","dir":"in","prefix":"Actions","text":"Actions: []"}
+{"t":"2026-09-23T11:56:23.072Z","conn":"A","dir":"in","prefix":"Actions","text":"Actions: [Request Approach Change¬Request Runway Change¬Request Altitude Change¬Request Direct to Fix¬Wind Check¬Radio Check¬]"}
+{"t":"2026-09-23T11:56:24.617Z","conn":"A","dir":"in","prefix":"Progress","text":"Progress: {\"from\":\"LFBZ\",\"to\":\"LFBO\",\"pct\":0.0}"}
+{"t":"2026-09-23T11:56:39.044Z","conn":"A","dir":"out","text":"ping"}
+{"t":"2026-09-23T11:56:39.046Z","conn":"A","dir":"in","prefix":"Pong","text":"Pong:"}
+{"t":"2026-09-23T11:56:45.118Z","conn":"A","dir":"in","prefix":"CommsState","text":"CommsState: {\"mode\":\"awaiting\",\"text\":\"Awaiting Response\"}"}
+{"t":"2026-09-23T11:56:45.644Z","conn":"A","dir":"in","prefix":"ATC","text":"ATC: Airbus, contact Biarritz Departure 125.605."}
+{"t":"2026-09-23T11:56:45.667Z","conn":"A","dir":"in","prefix":"CommsState","text":"CommsState: {\"mode\":\"speaking\",\"text\":\"Speaking\"}"}
+{"t":"2026-09-23T11:56:51.735Z","conn":"A","dir":"in","prefix":"CommsState","text":"CommsState: {\"mode\":\"ready\",\"text\":\"\"}"}
+{"t":"2026-09-23T11:56:51.737Z","conn":"A","dir":"in","prefix":"InfoBoxes","text":"InfoBoxes: [{\"title\":\"Departure Frequency\",\"info\":\"125.605\"}]"}
+{"t":"2026-09-23T11:56:51.760Z","conn":"A","dir":"in","prefix":"CommsState","text":"CommsState: {\"mode\":\"awaiting\",\"text\":\"Awaiting Response\"}"}
+{"t":"2026-09-23T11:56:52.262Z","conn":"A","dir":"in","prefix":"Player","text":"Player: Contact Biarritz Departure 125.605, Airbus."}
+{"t":"2026-09-23T11:56:52.285Z","conn":"A","dir":"in","prefix":"CommsState","text":"CommsState: {\"mode\":\"speaking\",\"text\":\"Speaking\"}"}
+{"t":"2026-09-23T11:56:58.110Z","conn":"A","dir":"in","prefix":"CommsState","text":"CommsState: {\"mode\":\"ready\",\"text\":\"\"}"}
+{"t":"2026-09-23T11:56:58.138Z","conn":"A","dir":"in","prefix":"Actions","text":"Actions: [Request Approach Change¬Request Runway Change¬Request Altitude Change¬Request Direct to Fix¬Wind Check¬Radio Check¬]"}
+{"t":"2026-09-23T11:56:58.285Z","conn":"A","dir":"in","prefix":"Facility","text":"Facility: Biarritz Terminal Radar Approach Control|125.605"}
+{"t":"2026-09-23T11:56:58.285Z","conn":"A","dir":"in","prefix":"Actions","text":"Actions: []"}
+{"t":"2026-09-23T11:56:58.286Z","conn":"A","dir":"in","prefix":"Actions","text":"Actions: [Announce On Frequency¬Wind Check¬Radio Check¬]"}
+{"t":"2026-09-23T11:56:59.111Z","conn":"A","dir":"out","text":"ping"}
+{"t":"2026-09-23T11:56:59.113Z","conn":"A","dir":"in","prefix":"Pong","text":"Pong:"}
+{"t":"2026-09-23T11:56:59.335Z","conn":"A","dir":"in","prefix":"CommsState","text":"CommsState: {\"mode\":\"awaiting\",\"text\":\"Awaiting Response\"}"}
+{"t":"2026-09-23T11:56:59.936Z","conn":"A","dir":"in","prefix":"Player","text":"Player: Biarritz Approach, Airbus, passing 700 climbing to FL070."}
+{"t":"2026-09-23T11:56:59.961Z","conn":"A","dir":"in","prefix":"CommsState","text":"CommsState: {\"mode\":\"speaking\",\"text\":\"Speaking\"}"}
+{"t":"2026-09-23T11:57:06.886Z","conn":"A","dir":"in","prefix":"CommsState","text":"CommsState: {\"mode\":\"request\",\"text\":\"Announce On Frequency\"}"}
+{"t":"2026-09-23T11:57:06.888Z","conn":"A","dir":"in","prefix":"Actions","text":"Actions: [Announce On Frequency¬Wind Check¬Radio Check¬]"}
+{"t":"2026-09-23T11:57:08.536Z","conn":"A","dir":"in","prefix":"Actions","text":"Actions: [Say Callsign¬Say Again¬]"}
+{"t":"2026-09-23T11:57:08.560Z","conn":"A","dir":"in","prefix":"CommsState","text":"CommsState: {\"mode\":\"awaiting\",\"text\":\"Awaiting Response\"}"}
+{"t":"2026-09-23T11:57:09.137Z","conn":"A","dir":"in","prefix":"ATC","text":"ATC: Airbus, Biarritz Departure, identified, climb FL090."}
+{"t":"2026-09-23T11:57:09.159Z","conn":"A","dir":"in","prefix":"CommsState","text":"CommsState: {\"mode\":\"speaking\",\"text\":\"Speaking\"}"}
+{"t":"2026-09-23T11:57:16.235Z","conn":"A","dir":"in","prefix":"CommsState","text":"CommsState: {\"mode\":\"ready\",\"text\":\"\"}"}
+{"t":"2026-09-23T11:57:16.237Z","conn":"A","dir":"in","prefix":"InfoBoxes","text":"InfoBoxes: [{\"title\":\"climb\",\"info\":\"FL090\"}]"}
+{"t":"2026-09-23T11:57:16.259Z","conn":"A","dir":"in","prefix":"CommsState","text":"CommsState: {\"mode\":\"awaiting\",\"text\":\"Awaiting Response\"}"}
+{"t":"2026-09-23T11:57:16.636Z","conn":"A","dir":"in","prefix":"Player","text":"Player: Climb FL090, Airbus."}
+{"t":"2026-09-23T11:57:16.660Z","conn":"A","dir":"in","prefix":"CommsState","text":"CommsState: {\"mode\":\"speaking\",\"text\":\"Speaking\"}"}
+{"t":"2026-09-23T11:57:19.124Z","conn":"A","dir":"out","text":"ping"}
+{"t":"2026-09-23T11:57:19.125Z","conn":"A","dir":"in","prefix":"Pong","text":"Pong:"}
+{"t":"2026-09-23T11:57:21.010Z","conn":"A","dir":"in","prefix":"CommsState","text":"CommsState: {\"mode\":\"ready\",\"text\":\"\"}"}
+{"t":"2026-09-23T11:57:21.036Z","conn":"A","dir":"in","prefix":"Actions","text":"Actions: [Announce On Frequency¬Wind Check¬Radio Check¬]"}
+{"t":"2026-09-23T11:57:21.036Z","conn":"A","dir":"in","prefix":"Actions","text":"Actions: []"}
+{"t":"2026-09-23T11:57:21.037Z","conn":"A","dir":"in","prefix":"Actions","text":"Actions: [Request Approach Change¬Request Runway Change¬Request Altitude Change¬Request Direct to Fix¬Wind Check¬Radio Check¬]"}
+{"t":"2026-09-23T11:57:44.626Z","conn":"A","dir":"out","text":"ping"}
+{"t":"2026-09-23T11:57:44.627Z","conn":"A","dir":"in","prefix":"Pong","text":"Pong:"}
+{"t":"2026-09-23T11:58:04.631Z","conn":"A","dir":"out","text":"ping"}
+{"t":"2026-09-23T11:58:04.633Z","conn":"A","dir":"in","prefix":"Pong","text":"Pong:"}
+{"t":"2026-09-23T11:58:24.635Z","conn":"A","dir":"out","text":"ping"}
+{"t":"2026-09-23T11:58:24.636Z","conn":"A","dir":"in","prefix":"Pong","text":"Pong:"}
+{"t":"2026-09-23T11:58:44.645Z","conn":"A","dir":"out","text":"ping"}
+{"t":"2026-09-23T11:58:44.647Z","conn":"A","dir":"in","prefix":"Pong","text":"Pong:"}
+{"t":"2026-09-23T11:59:04.656Z","conn":"A","dir":"out","text":"ping"}
+{"t":"2026-09-23T11:59:04.658Z","conn":"A","dir":"in","prefix":"Pong","text":"Pong:"}
+{"t":"2026-09-23T11:59:24.657Z","conn":"A","dir":"out","text":"ping"}
+{"t":"2026-09-23T11:59:24.658Z","conn":"A","dir":"in","prefix":"Pong","text":"Pong:"}
+{"t":"2026-09-23T11:59:44.757Z","conn":"A","dir":"out","text":"ping"}
+{"t":"2026-09-23T11:59:44.759Z","conn":"A","dir":"in","prefix":"Pong","text":"Pong:"}
+{"t":"2026-09-23T12:00:04.760Z","conn":"A","dir":"out","text":"ping"}
+{"t":"2026-09-23T12:00:04.762Z","conn":"A","dir":"in","prefix":"Pong","text":"Pong:"}
+{"t":"2026-09-23T12:00:24.768Z","conn":"A","dir":"out","text":"ping"}
+{"t":"2026-09-23T12:00:24.769Z","conn":"A","dir":"in","prefix":"Pong","text":"Pong:"}
+{"t":"2026-09-23T12:00:50.361Z","conn":"A","dir":"out","text":"ping"}
+{"t":"2026-09-23T12:00:50.361Z","conn":"A","dir":"in","prefix":"Pong","text":"Pong:"}
+{"t":"2026-09-23T12:01:10.363Z","conn":"A","dir":"out","text":"ping"}
+{"t":"2026-09-23T12:01:10.365Z","conn":"A","dir":"in","prefix":"Pong","text":"Pong:"}
+{"t":"2026-09-23T12:01:30.372Z","conn":"A","dir":"out","text":"ping"}
+{"t":"2026-09-23T12:01:30.374Z","conn":"A","dir":"in","prefix":"Pong","text":"Pong:"}
+{"t":"2026-09-23T12:01:55.975Z","conn":"A","dir":"out","text":"ping"}
+{"t":"2026-09-23T12:01:55.977Z","conn":"A","dir":"in","prefix":"Pong","text":"Pong:"}
+{"t":"2026-09-23T12:02:15.981Z","conn":"A","dir":"out","text":"ping"}
+{"t":"2026-09-23T12:02:15.982Z","conn":"A","dir":"in","prefix":"Pong","text":"Pong:"}
+{"t":"2026-09-23T12:02:25.362Z","conn":"A","dir":"in","prefix":"Progress","text":"Progress: {\"from\":\"LFBZ\",\"to\":\"LFBO\",\"pct\":0.1}"}
+{"t":"2026-09-23T12:02:30.384Z","conn":"A","dir":"in","prefix":"Progress","text":"Progress: {\"from\":\"LFBZ\",\"to\":\"LFBO\",\"pct\":0.3}"}
+{"t":"2026-09-23T12:02:35.408Z","conn":"A","dir":"in","prefix":"Progress","text":"Progress: {\"from\":\"LFBZ\",\"to\":\"LFBO\",\"pct\":0.4}"}
+{"t":"2026-09-23T12:02:35.994Z","conn":"A","dir":"out","text":"ping"}
+{"t":"2026-09-23T12:02:35.995Z","conn":"A","dir":"in","prefix":"Pong","text":"Pong:"}
+{"t":"2026-09-23T12:02:40.409Z","conn":"A","dir":"in","prefix":"Progress","text":"Progress: {\"from\":\"LFBZ\",\"to\":\"LFBO\",\"pct\":0.5}"}
+{"t":"2026-09-23T12:02:45.434Z","conn":"A","dir":"in","prefix":"Progress","text":"Progress: {\"from\":\"LFBZ\",\"to\":\"LFBO\",\"pct\":0.7}"}
+{"t":"2026-09-23T12:02:50.435Z","conn":"A","dir":"in","prefix":"Progress","text":"Progress: {\"from\":\"LFBZ\",\"to\":\"LFBO\",\"pct\":0.8}"}
+{"t":"2026-09-23T12:02:55.458Z","conn":"A","dir":"in","prefix":"Progress","text":"Progress: {\"from\":\"LFBZ\",\"to\":\"LFBO\",\"pct\":0.9}"}
+{"t":"2026-09-23T12:02:56.003Z","conn":"A","dir":"out","text":"ping"}
+{"t":"2026-09-23T12:02:56.006Z","conn":"A","dir":"in","prefix":"Pong","text":"Pong:"}
+{"t":"2026-09-23T12:03:00.458Z","conn":"A","dir":"in","prefix":"Progress","text":"Progress: {\"from\":\"LFBZ\",\"to\":\"LFBO\",\"pct\":1.0}"}
+{"t":"2026-09-23T12:03:05.458Z","conn":"A","dir":"in","prefix":"Progress","text":"Progress: {\"from\":\"LFBZ\",\"to\":\"LFBO\",\"pct\":1.2}"}
+{"t":"2026-09-23T12:03:10.459Z","conn":"A","dir":"in","prefix":"Progress","text":"Progress: {\"from\":\"LFBZ\",\"to\":\"LFBO\",\"pct\":1.3}"}
+{"t":"2026-09-23T12:03:15.482Z","conn":"A","dir":"in","prefix":"Progress","text":"Progress: {\"from\":\"LFBZ\",\"to\":\"LFBO\",\"pct\":1.4}"}
+{"t":"2026-09-23T12:03:16.004Z","conn":"A","dir":"out","text":"ping"}
+{"t":"2026-09-23T12:03:16.005Z","conn":"A","dir":"in","prefix":"Pong","text":"Pong:"}
+{"t":"2026-09-23T12:03:20.483Z","conn":"A","dir":"in","prefix":"Progress","text":"Progress: {\"from\":\"LFBZ\",\"to\":\"LFBO\",\"pct\":1.5}"}
+{"t":"2026-09-23T12:03:25.507Z","conn":"A","dir":"in","prefix":"Progress","text":"Progress: {\"from\":\"LFBZ\",\"to\":\"LFBO\",\"pct\":1.7}"}
+{"t":"2026-09-23T12:03:30.507Z","conn":"A","dir":"in","prefix":"Progress","text":"Progress: {\"from\":\"LFBZ\",\"to\":\"LFBO\",\"pct\":1.8}"}
+{"t":"2026-09-23T12:03:35.532Z","conn":"A","dir":"in","prefix":"Progress","text":"Progress: {\"from\":\"LFBZ\",\"to\":\"LFBO\",\"pct\":1.9}"}
+{"t":"2026-09-23T12:03:36.017Z","conn":"A","dir":"out","text":"ping"}
+{"t":"2026-09-23T12:03:36.018Z","conn":"A","dir":"in","prefix":"Pong","text":"Pong:"}
+{"t":"2026-09-23T12:03:40.532Z","conn":"A","dir":"in","prefix":"Progress","text":"Progress: {\"from\":\"LFBZ\",\"to\":\"LFBO\",\"pct\":2.1}"}
+{"t":"2026-09-23T12:03:45.533Z","conn":"A","dir":"in","prefix":"Progress","text":"Progress: {\"from\":\"LFBZ\",\"to\":\"LFBO\",\"pct\":2.2}"}
+{"t":"2026-09-23T12:03:50.533Z","conn":"A","dir":"in","prefix":"Progress","text":"Progress: {\"from\":\"LFBZ\",\"to\":\"LFBO\",\"pct\":2.3}"}
+{"t":"2026-09-23T12:03:55.558Z","conn":"A","dir":"in","prefix":"Progress","text":"Progress: {\"from\":\"LFBZ\",\"to\":\"LFBO\",\"pct\":2.4}"}
+{"t":"2026-09-23T12:03:56.029Z","conn":"A","dir":"out","text":"ping"}
+{"t":"2026-09-23T12:03:56.030Z","conn":"A","dir":"in","prefix":"Pong","text":"Pong:"}
+{"t":"2026-09-23T12:04:00.558Z","conn":"A","dir":"in","prefix":"Progress","text":"Progress: {\"from\":\"LFBZ\",\"to\":\"LFBO\",\"pct\":2.6}"}
+{"t":"2026-09-23T12:04:05.558Z","conn":"A","dir":"in","prefix":"Progress","text":"Progress: {\"from\":\"LFBZ\",\"to\":\"LFBO\",\"pct\":2.7}"}
+{"t":"2026-09-23T12:04:10.583Z","conn":"A","dir":"in","prefix":"Progress","text":"Progress: {\"from\":\"LFBZ\",\"to\":\"LFBO\",\"pct\":2.9}"}
+{"t":"2026-09-23T12:04:13.183Z","conn":"A","dir":"in","prefix":"CommsState","text":"CommsState: {\"mode\":\"awaiting\",\"text\":\"Awaiting Response\"}"}
+{"t":"2026-09-23T12:04:13.735Z","conn":"A","dir":"in","prefix":"ATC","text":"ATC: Airbus, contact Bordeaux Control 125.105, have a good afternoon."}
+{"t":"2026-09-23T12:04:13.758Z","conn":"A","dir":"in","prefix":"CommsState","text":"CommsState: {\"mode\":\"speaking\",\"text\":\"Speaking\"}"}
+{"t":"2026-09-23T12:04:15.583Z","conn":"A","dir":"in","prefix":"Progress","text":"Progress: {\"from\":\"LFBZ\",\"to\":\"LFBO\",\"pct\":3.0}"}
+{"t":"2026-09-23T12:04:16.038Z","conn":"A","dir":"out","text":"ping"}
+{"t":"2026-09-23T12:04:16.039Z","conn":"A","dir":"in","prefix":"Pong","text":"Pong:"}
+{"t":"2026-09-23T12:04:20.584Z","conn":"A","dir":"in","prefix":"Progress","text":"Progress: {\"from\":\"LFBZ\",\"to\":\"LFBO\",\"pct\":3.2}"}
+{"t":"2026-09-23T12:04:20.683Z","conn":"A","dir":"in","prefix":"CommsState","text":"CommsState: {\"mode\":\"ready\",\"text\":\"\"}"}
+{"t":"2026-09-23T12:04:20.684Z","conn":"A","dir":"in","prefix":"InfoBoxes","text":"InfoBoxes: [{\"title\":\"Center Frequency\",\"info\":\"125.105\"}]"}
+{"t":"2026-09-23T12:04:20.708Z","conn":"A","dir":"in","prefix":"CommsState","text":"CommsState: {\"mode\":\"awaiting\",\"text\":\"Awaiting Response\"}"}
+{"t":"2026-09-23T12:04:21.084Z","conn":"A","dir":"in","prefix":"Player","text":"Player: Center on 125.105, Airbus."}
+{"t":"2026-09-23T12:04:21.108Z","conn":"A","dir":"in","prefix":"CommsState","text":"CommsState: {\"mode\":\"speaking\",\"text\":\"Speaking\"}"}
+{"t":"2026-09-23T12:04:25.609Z","conn":"A","dir":"in","prefix":"Progress","text":"Progress: {\"from\":\"LFBZ\",\"to\":\"LFBO\",\"pct\":3.3}"}
+{"t":"2026-09-23T12:04:25.658Z","conn":"A","dir":"in","prefix":"CommsState","text":"CommsState: {\"mode\":\"ready\",\"text\":\"\"}"}
+{"t":"2026-09-23T12:04:25.684Z","conn":"A","dir":"in","prefix":"Actions","text":"Actions: [Request Approach Change¬Request Runway Change¬Request Altitude Change¬Request Direct to Fix¬Wind Check¬Radio Check¬]"}
+{"t":"2026-09-23T12:04:25.907Z","conn":"A","dir":"in","prefix":"Facility","text":"Facility: Bordeaux Control|125.105"}
+{"t":"2026-09-23T12:04:25.907Z","conn":"A","dir":"in","prefix":"Actions","text":"Actions: []"}
+{"t":"2026-09-23T12:04:25.908Z","conn":"A","dir":"in","prefix":"Actions","text":"Actions: [Announce On Frequency¬Radio Check¬]"}
+{"t":"2026-09-23T12:04:26.957Z","conn":"A","dir":"in","prefix":"CommsState","text":"CommsState: {\"mode\":\"awaiting\",\"text\":\"Awaiting Response\"}"}
+{"t":"2026-09-23T12:04:27.609Z","conn":"A","dir":"in","prefix":"Player","text":"Player: Bordeaux Control, Airbus, passing FL062 climbing to FL090 direct SOVOS."}
+{"t":"2026-09-23T12:04:27.632Z","conn":"A","dir":"in","prefix":"CommsState","text":"CommsState: {\"mode\":\"speaking\",\"text\":\"Speaking\"}"}
+{"t":"2026-09-23T12:04:30.633Z","conn":"A","dir":"in","prefix":"Progress","text":"Progress: {\"from\":\"LFBZ\",\"to\":\"LFBO\",\"pct\":3.5}"}
+{"t":"2026-09-23T12:04:35.483Z","conn":"A","dir":"in","prefix":"CommsState","text":"CommsState: {\"mode\":\"request\",\"text\":\"Announce On Frequency\"}"}
+{"t":"2026-09-23T12:04:35.485Z","conn":"A","dir":"in","prefix":"Actions","text":"Actions: [Announce On Frequency¬Radio Check¬]"}
+{"t":"2026-09-23T12:04:35.633Z","conn":"A","dir":"in","prefix":"Progress","text":"Progress: {\"from\":\"LFBZ\",\"to\":\"LFBO\",\"pct\":3.6}"}
+{"t":"2026-09-23T12:04:36.043Z","conn":"A","dir":"out","text":"ping"}
+{"t":"2026-09-23T12:04:36.044Z","conn":"A","dir":"in","prefix":"Pong","text":"Pong:"}
+{"t":"2026-09-23T12:04:37.059Z","conn":"A","dir":"in","prefix":"Actions","text":"Actions: [Say Callsign/Altitude¬Say Again¬]"}
+{"t":"2026-09-23T12:04:37.082Z","conn":"A","dir":"in","prefix":"CommsState","text":"CommsState: {\"mode\":\"ready\",\"text\":\"\"}"}
+{"t":"2026-09-23T12:04:37.083Z","conn":"A","dir":"in","prefix":"Actions","text":"Actions: [Announce On Frequency¬Radio Check¬]"}
+{"t":"2026-09-23T12:04:37.085Z","conn":"A","dir":"in","prefix":"Actions","text":"Actions: []"}
+{"t":"2026-09-23T12:04:37.085Z","conn":"A","dir":"in","prefix":"Actions","text":"Actions: [Radio Check¬]"}
+{"t":"2026-09-23T12:04:38.207Z","conn":"A","dir":"in","prefix":"CommsState","text":"CommsState: {\"mode\":\"awaiting\",\"text\":\"Awaiting Response\"}"}
+{"t":"2026-09-23T12:04:38.808Z","conn":"A","dir":"in","prefix":"ATC","text":"ATC: Airbus, Bordeaux Control, identified, continue climb to FL090."}
+{"t":"2026-09-23T12:04:38.833Z","conn":"A","dir":"in","prefix":"CommsState","text":"CommsState: {\"mode\":\"speaking\",\"text\":\"Speaking\"}"}
+{"t":"2026-09-23T12:04:40.658Z","conn":"A","dir":"in","prefix":"Progress","text":"Progress: {\"from\":\"LFBZ\",\"to\":\"LFBO\",\"pct\":3.8}"}
+{"t":"2026-09-23T12:04:45.682Z","conn":"A","dir":"in","prefix":"Progress","text":"Progress: {\"from\":\"LFBZ\",\"to\":\"LFBO\",\"pct\":4.0}"}
+{"t":"2026-09-23T12:04:46.333Z","conn":"A","dir":"in","prefix":"CommsState","text":"CommsState: {\"mode\":\"ready\",\"text\":\"\"}"}
+{"t":"2026-09-23T12:04:46.334Z","conn":"A","dir":"in","prefix":"InfoBoxes","text":"InfoBoxes: [{\"title\":\"Continue Climb To\",\"info\":\"FL090\"}]"}
+{"t":"2026-09-23T12:04:46.357Z","conn":"A","dir":"in","prefix":"CommsState","text":"CommsState: {\"mode\":\"awaiting\",\"text\":\"Awaiting Response\"}"}
+{"t":"2026-09-23T12:04:46.759Z","conn":"A","dir":"in","prefix":"Player","text":"Player: Continue climb to FL090, Airbus."}
+{"t":"2026-09-23T12:04:46.782Z","conn":"A","dir":"in","prefix":"CommsState","text":"CommsState: {\"mode\":\"speaking\",\"text\":\"Speaking\"}"}
+{"t":"2026-09-23T12:04:50.685Z","conn":"A","dir":"in","prefix":"Progress","text":"Progress: {\"from\":\"LFBZ\",\"to\":\"LFBO\",\"pct\":4.1}"}
+{"t":"2026-09-23T12:04:51.759Z","conn":"A","dir":"in","prefix":"CommsState","text":"CommsState: {\"mode\":\"ready\",\"text\":\"\"}"}
+{"t":"2026-09-23T12:04:51.784Z","conn":"A","dir":"in","prefix":"Actions","text":"Actions: [Radio Check¬]"}
+{"t":"2026-09-23T12:04:51.786Z","conn":"A","dir":"in","prefix":"Actions","text":"Actions: []"}
+{"t":"2026-09-23T12:04:51.786Z","conn":"A","dir":"in","prefix":"Actions","text":"Actions: [Call Ready for Descent¬Request Approach Change¬Request Runway Change¬Request Altitude Change¬Request Direct to Fix¬Submit Turbulence Pirep¬Submit Icing Pirep¬Radio Check¬]"}
+{"t":"2026-09-23T12:04:55.684Z","conn":"A","dir":"in","prefix":"Progress","text":"Progress: {\"from\":\"LFBZ\",\"to\":\"LFBO\",\"pct\":4.3}"}
+{"t":"2026-09-23T12:04:56.046Z","conn":"A","dir":"out","text":"ping"}
+{"t":"2026-09-23T12:04:56.047Z","conn":"A","dir":"in","prefix":"Pong","text":"Pong:"}
+{"t":"2026-09-23T12:05:00.709Z","conn":"A","dir":"in","prefix":"Progress","text":"Progress: {\"from\":\"LFBZ\",\"to\":\"LFBO\",\"pct\":4.4}"}
+{"t":"2026-09-23T12:05:05.710Z","conn":"A","dir":"in","prefix":"Progress","text":"Progress: {\"from\":\"LFBZ\",\"to\":\"LFBO\",\"pct\":4.6}"}
+{"t":"2026-09-23T12:05:10.710Z","conn":"A","dir":"in","prefix":"Progress","text":"Progress: {\"from\":\"LFBZ\",\"to\":\"LFBO\",\"pct\":4.8}"}
+{"t":"2026-09-23T12:05:15.710Z","conn":"A","dir":"in","prefix":"Progress","text":"Progress: {\"from\":\"LFBZ\",\"to\":\"LFBO\",\"pct\":4.9}"}
+{"t":"2026-09-23T12:05:16.047Z","conn":"A","dir":"out","text":"ping"}
+{"t":"2026-09-23T12:05:16.049Z","conn":"A","dir":"in","prefix":"Pong","text":"Pong:"}
+{"t":"2026-09-23T12:05:20.736Z","conn":"A","dir":"in","prefix":"Progress","text":"Progress: {\"from\":\"LFBZ\",\"to\":\"LFBO\",\"pct\":5.1}"}
+{"t":"2026-09-23T12:05:25.735Z","conn":"A","dir":"in","prefix":"Progress","text":"Progress: {\"from\":\"LFBZ\",\"to\":\"LFBO\",\"pct\":5.2}"}
+{"t":"2026-09-23T12:05:30.735Z","conn":"A","dir":"in","prefix":"Progress","text":"Progress: {\"from\":\"LFBZ\",\"to\":\"LFBO\",\"pct\":5.4}"}
+{"t":"2026-09-23T12:05:35.736Z","conn":"A","dir":"in","prefix":"Progress","text":"Progress: {\"from\":\"LFBZ\",\"to\":\"LFBO\",\"pct\":5.6}"}
+{"t":"2026-09-23T12:05:36.048Z","conn":"A","dir":"out","text":"ping"}
+{"t":"2026-09-23T12:05:36.049Z","conn":"A","dir":"in","prefix":"Pong","text":"Pong:"}
+{"t":"2026-09-23T12:05:40.736Z","conn":"A","dir":"in","prefix":"Progress","text":"Progress: {\"from\":\"LFBZ\",\"to\":\"LFBO\",\"pct\":5.7}"}
+{"t":"2026-09-23T12:05:45.735Z","conn":"A","dir":"in","prefix":"Progress","text":"Progress: {\"from\":\"LFBZ\",\"to\":\"LFBO\",\"pct\":5.9}"}
+{"t":"2026-09-23T12:05:50.736Z","conn":"A","dir":"in","prefix":"Progress","text":"Progress: {\"from\":\"LFBZ\",\"to\":\"LFBO\",\"pct\":6.0}"}
+{"t":"2026-09-23T12:05:55.743Z","conn":"A","dir":"in","prefix":"Progress","text":"Progress: {\"from\":\"LFBZ\",\"to\":\"LFBO\",\"pct\":6.2}"}
+{"t":"2026-09-23T12:05:56.055Z","conn":"A","dir":"out","text":"ping"}
+{"t":"2026-09-23T12:05:56.056Z","conn":"A","dir":"in","prefix":"Pong","text":"Pong:"}
+{"t":"2026-09-23T12:06:00.743Z","conn":"A","dir":"in","prefix":"Progress","text":"Progress: {\"from\":\"LFBZ\",\"to\":\"LFBO\",\"pct\":6.4}"}
+{"t":"2026-09-23T12:06:05.744Z","conn":"A","dir":"in","prefix":"Progress","text":"Progress: {\"from\":\"LFBZ\",\"to\":\"LFBO\",\"pct\":6.5}"}
+{"t":"2026-09-23T12:06:10.744Z","conn":"A","dir":"in","prefix":"Progress","text":"Progress: {\"from\":\"LFBZ\",\"to\":\"LFBO\",\"pct\":6.7}"}
+{"t":"2026-09-23T12:06:15.744Z","conn":"A","dir":"in","prefix":"Progress","text":"Progress: {\"from\":\"LFBZ\",\"to\":\"LFBO\",\"pct\":6.8}"}
+{"t":"2026-09-23T12:06:16.055Z","conn":"A","dir":"out","text":"ping"}
+{"t":"2026-09-23T12:06:16.055Z","conn":"A","dir":"in","prefix":"Pong","text":"Pong:"}
+{"t":"2026-09-23T12:06:20.743Z","conn":"A","dir":"in","prefix":"Progress","text":"Progress: {\"from\":\"LFBZ\",\"to\":\"LFBO\",\"pct\":7.0}"}
+{"t":"2026-09-23T12:06:25.744Z","conn":"A","dir":"in","prefix":"Progress","text":"Progress: {\"from\":\"LFBZ\",\"to\":\"LFBO\",\"pct\":7.2}"}
+{"t":"2026-09-23T12:06:30.769Z","conn":"A","dir":"in","prefix":"Progress","text":"Progress: {\"from\":\"LFBZ\",\"to\":\"LFBO\",\"pct\":7.3}"}
+{"t":"2026-09-23T12:06:35.794Z","conn":"A","dir":"in","prefix":"Progress","text":"Progress: {\"from\":\"LFBZ\",\"to\":\"LFBO\",\"pct\":7.5}"}
+{"t":"2026-09-23T12:06:36.063Z","conn":"A","dir":"out","text":"ping"}
+{"t":"2026-09-23T12:06:36.064Z","conn":"A","dir":"in","prefix":"Pong","text":"Pong:"}
+{"t":"2026-09-23T12:06:40.796Z","conn":"A","dir":"in","prefix":"Progress","text":"Progress: {\"from\":\"LFBZ\",\"to\":\"LFBO\",\"pct\":7.6}"}
+{"t":"2026-09-23T12:06:45.797Z","conn":"A","dir":"in","prefix":"Progress","text":"Progress: {\"from\":\"LFBZ\",\"to\":\"LFBO\",\"pct\":7.8}"}
+{"t":"2026-09-23T12:06:50.822Z","conn":"A","dir":"in","prefix":"Progress","text":"Progress: {\"from\":\"LFBZ\",\"to\":\"LFBO\",\"pct\":8.0}"}
+{"t":"2026-09-23T12:06:55.822Z","conn":"A","dir":"in","prefix":"Progress","text":"Progress: {\"from\":\"LFBZ\",\"to\":\"LFBO\",\"pct\":8.1}"}
+{"t":"2026-09-23T12:06:56.076Z","conn":"A","dir":"out","text":"ping"}
+{"t":"2026-09-23T12:06:56.077Z","conn":"A","dir":"in","prefix":"Pong","text":"Pong:"}
+{"t":"2026-09-23T12:07:00.843Z","conn":"A","dir":"in","prefix":"Progress","text":"Progress: {\"from\":\"LFBZ\",\"to\":\"LFBO\",\"pct\":8.3}"}
+{"t":"2026-09-23T12:07:05.844Z","conn":"A","dir":"in","prefix":"Progress","text":"Progress: {\"from\":\"LFBZ\",\"to\":\"LFBO\",\"pct\":8.5}"}
+{"t":"2026-09-23T12:07:10.845Z","conn":"A","dir":"in","prefix":"Progress","text":"Progress: {\"from\":\"LFBZ\",\"to\":\"LFBO\",\"pct\":8.6}"}
+{"t":"2026-09-23T12:07:15.844Z","conn":"A","dir":"in","prefix":"Progress","text":"Progress: {\"from\":\"LFBZ\",\"to\":\"LFBO\",\"pct\":8.8}"}
+{"t":"2026-09-23T12:07:16.088Z","conn":"A","dir":"out","text":"ping"}
+{"t":"2026-09-23T12:07:16.089Z","conn":"A","dir":"in","prefix":"Pong","text":"Pong:"}
+{"t":"2026-09-23T12:07:20.844Z","conn":"A","dir":"in","prefix":"Progress","text":"Progress: {\"from\":\"LFBZ\",\"to\":\"LFBO\",\"pct\":8.9}"}
+{"t":"2026-09-23T12:07:25.844Z","conn":"A","dir":"in","prefix":"Progress","text":"Progress: {\"from\":\"LFBZ\",\"to\":\"LFBO\",\"pct\":9.1}"}
+{"t":"2026-09-23T12:07:30.845Z","conn":"A","dir":"in","prefix":"Progress","text":"Progress: {\"from\":\"LFBZ\",\"to\":\"LFBO\",\"pct\":9.3}"}
+{"t":"2026-09-23T12:07:35.844Z","conn":"A","dir":"in","prefix":"Progress","text":"Progress: {\"from\":\"LFBZ\",\"to\":\"LFBO\",\"pct\":9.4}"}
+{"t":"2026-09-23T12:07:36.096Z","conn":"A","dir":"out","text":"ping"}
+{"t":"2026-09-23T12:07:36.097Z","conn":"A","dir":"in","prefix":"Pong","text":"Pong:"}
+{"t":"2026-09-23T12:07:40.844Z","conn":"A","dir":"in","prefix":"Progress","text":"Progress: {\"from\":\"LFBZ\",\"to\":\"LFBO\",\"pct\":9.6}"}
+{"t":"2026-09-23T12:07:45.844Z","conn":"A","dir":"in","prefix":"Progress","text":"Progress: {\"from\":\"LFBZ\",\"to\":\"LFBO\",\"pct\":9.8}"}
+{"t":"2026-09-23T12:07:50.848Z","conn":"A","dir":"in","prefix":"Progress","text":"Progress: {\"from\":\"LFBZ\",\"to\":\"LFBO\",\"pct\":9.9}"}
+{"t":"2026-09-23T12:07:55.844Z","conn":"A","dir":"in","prefix":"Progress","text":"Progress: {\"from\":\"LFBZ\",\"to\":\"LFBO\",\"pct\":10.1}"}
+{"t":"2026-09-23T12:07:56.104Z","conn":"A","dir":"out","text":"ping"}
+{"t":"2026-09-23T12:07:56.106Z","conn":"A","dir":"in","prefix":"Pong","text":"Pong:"}
+{"t":"2026-09-23T12:08:00.870Z","conn":"A","dir":"in","prefix":"Progress","text":"Progress: {\"from\":\"LFBZ\",\"to\":\"LFBO\",\"pct\":10.3}"}
+{"t":"2026-09-23T12:08:05.869Z","conn":"A","dir":"in","prefix":"Progress","text":"Progress: {\"from\":\"LFBZ\",\"to\":\"LFBO\",\"pct\":10.4}"}
+{"t":"2026-09-23T12:08:10.875Z","conn":"A","dir":"in","prefix":"Progress","text":"Progress: {\"from\":\"LFBZ\",\"to\":\"LFBO\",\"pct\":10.6}"}
+{"t":"2026-09-23T12:08:15.876Z","conn":"A","dir":"in","prefix":"Progress","text":"Progress: {\"from\":\"LFBZ\",\"to\":\"LFBO\",\"pct\":10.8}"}
+{"t":"2026-09-23T12:08:16.117Z","conn":"A","dir":"out","text":"ping"}
+{"t":"2026-09-23T12:08:16.119Z","conn":"A","dir":"in","prefix":"Pong","text":"Pong:"}
+{"t":"2026-09-23T12:08:20.875Z","conn":"A","dir":"in","prefix":"Progress","text":"Progress: {\"from\":\"LFBZ\",\"to\":\"LFBO\",\"pct\":10.9}"}
+{"t":"2026-09-23T12:08:25.875Z","conn":"A","dir":"in","prefix":"Progress","text":"Progress: {\"from\":\"LFBZ\",\"to\":\"LFBO\",\"pct\":11.1}"}
+{"t":"2026-09-23T12:08:30.875Z","conn":"A","dir":"in","prefix":"Progress","text":"Progress: {\"from\":\"LFBZ\",\"to\":\"LFBO\",\"pct\":11.3}"}
+{"t":"2026-09-23T12:08:35.875Z","conn":"A","dir":"in","prefix":"Progress","text":"Progress: {\"from\":\"LFBZ\",\"to\":\"LFBO\",\"pct\":11.4}"}
+{"t":"2026-09-23T12:08:36.119Z","conn":"A","dir":"out","text":"ping"}
+{"t":"2026-09-23T12:08:36.119Z","conn":"A","dir":"in","prefix":"Pong","text":"Pong:"}
+{"t":"2026-09-23T12:08:40.875Z","conn":"A","dir":"in","prefix":"Progress","text":"Progress: {\"from\":\"LFBZ\",\"to\":\"LFBO\",\"pct\":11.6}"}
+{"t":"2026-09-23T12:08:45.875Z","conn":"A","dir":"in","prefix":"Progress","text":"Progress: {\"from\":\"LFBZ\",\"to\":\"LFBO\",\"pct\":11.7}"}
+{"t":"2026-09-23T12:08:49.101Z","conn":"A","dir":"in","prefix":"CommsState","text":"CommsState: {\"mode\":\"traffic\",\"text\":\"ATC Generating\"}"}
+{"t":"2026-09-23T12:08:49.576Z","conn":"A","dir":"in","prefix":"ATCTraffic","text":"ATCTraffic: Taxi Morel OCH68, after passing EXT, proceed direct Air Base 709 Cognac."}
+{"t":"2026-09-23T12:08:49.600Z","conn":"A","dir":"in","prefix":"CommsState","text":"CommsState: {\"mode\":\"traffic\",\"text\":\"ATC Transmitting\"}"}
+{"t":"2026-09-23T12:08:50.875Z","conn":"A","dir":"in","prefix":"Progress","text":"Progress: {\"from\":\"LFBZ\",\"to\":\"LFBO\",\"pct\":11.9}"}
+{"t":"2026-09-23T12:08:55.750Z","conn":"A","dir":"in","prefix":"CommsState","text":"CommsState: {\"mode\":\"ready\",\"text\":\"\"}"}
+{"t":"2026-09-23T12:08:55.775Z","conn":"A","dir":"in","prefix":"CommsState","text":"CommsState: {\"mode\":\"traffic\",\"text\":\"Traffic Generating\"}"}
+{"t":"2026-09-23T12:08:55.875Z","conn":"A","dir":"in","prefix":"Progress","text":"Progress: {\"from\":\"LFBZ\",\"to\":\"LFBO\",\"pct\":12.1}"}
+{"t":"2026-09-23T12:08:56.119Z","conn":"A","dir":"out","text":"ping"}
+{"t":"2026-09-23T12:08:56.119Z","conn":"A","dir":"in","prefix":"Pong","text":"Pong:"}
+{"t":"2026-09-23T12:08:56.251Z","conn":"A","dir":"in","prefix":"Traffic","text":"Traffic: After passing EXT, proceed direct Air Base 709 Cognac, Taxi Morel OCH68."}
+{"t":"2026-09-23T12:08:56.290Z","conn":"A","dir":"in","prefix":"CommsState","text":"CommsState: {\"mode\":\"traffic\",\"text\":\"Traffic Transmitting\"}"}
+{"t":"2026-09-23T12:09:00.876Z","conn":"A","dir":"in","prefix":"Progress","text":"Progress: {\"from\":\"LFBZ\",\"to\":\"LFBO\",\"pct\":12.3}"}
+{"t":"2026-09-23T12:09:02.025Z","conn":"A","dir":"in","prefix":"CommsState","text":"CommsState: {\"mode\":\"ready\",\"text\":\"\"}"}
+{"t":"2026-09-23T12:09:04.200Z","conn":"A","dir":"in","prefix":"CommsState","text":"CommsState: {\"mode\":\"traffic\",\"text\":\"ATC Generating\"}"}
+{"t":"2026-09-23T12:09:04.577Z","conn":"A","dir":"in","prefix":"ATCTraffic","text":"ATCTraffic: Taxi Morel OCH68, contact Cognac Approach 132.45."}
+{"t":"2026-09-23T12:09:04.600Z","conn":"A","dir":"in","prefix":"CommsState","text":"CommsState: {\"mode\":\"traffic\",\"text\":\"ATC Transmitting\"}"}
+{"t":"2026-09-23T12:09:05.876Z","conn":"A","dir":"in","prefix":"Progress","text":"Progress: {\"from\":\"LFBZ\",\"to\":\"LFBO\",\"pct\":12.5}"}
+{"t":"2026-09-23T12:09:09.600Z","conn":"A","dir":"in","prefix":"CommsState","text":"CommsState: {\"mode\":\"ready\",\"text\":\"\"}"}
+{"t":"2026-09-23T12:09:09.626Z","conn":"A","dir":"in","prefix":"CommsState","text":"CommsState: {\"mode\":\"traffic\",\"text\":\"Traffic Generating\"}"}
+{"t":"2026-09-23T12:09:10.027Z","conn":"A","dir":"in","prefix":"Traffic","text":"Traffic: Contact Cognac Approach 132.45, Taxi Morel OCH68."}
+{"t":"2026-09-23T12:09:10.050Z","conn":"A","dir":"in","prefix":"CommsState","text":"CommsState: {\"mode\":\"traffic\",\"text\":\"Traffic Transmitting\"}"}
+{"t":"2026-09-23T12:09:10.875Z","conn":"A","dir":"in","prefix":"Progress","text":"Progress: {\"from\":\"LFBZ\",\"to\":\"LFBO\",\"pct\":12.6}"}
+{"t":"2026-09-23T12:09:15.225Z","conn":"A","dir":"in","prefix":"CommsState","text":"CommsState: {\"mode\":\"ready\",\"text\":\"\"}"}
+{"t":"2026-09-23T12:09:15.876Z","conn":"A","dir":"in","prefix":"Progress","text":"Progress: {\"from\":\"LFBZ\",\"to\":\"LFBO\",\"pct\":12.8}"}
+{"t":"2026-09-23T12:09:16.132Z","conn":"A","dir":"out","text":"ping"}
+{"t":"2026-09-23T12:09:16.133Z","conn":"A","dir":"in","prefix":"Pong","text":"Pong:"}
+{"t":"2026-09-23T12:09:20.875Z","conn":"A","dir":"in","prefix":"Progress","text":"Progress: {\"from\":\"LFBZ\",\"to\":\"LFBO\",\"pct\":13.0}"}
+{"t":"2026-09-23T12:09:25.901Z","conn":"A","dir":"in","prefix":"Progress","text":"Progress: {\"from\":\"LFBZ\",\"to\":\"LFBO\",\"pct\":13.2}"}
+{"t":"2026-09-23T12:09:30.900Z","conn":"A","dir":"in","prefix":"Progress","text":"Progress: {\"from\":\"LFBZ\",\"to\":\"LFBO\",\"pct\":13.4}"}
+{"t":"2026-09-23T12:09:35.900Z","conn":"A","dir":"in","prefix":"Progress","text":"Progress: {\"from\":\"LFBZ\",\"to\":\"LFBO\",\"pct\":13.6}"}
+{"t":"2026-09-23T12:09:36.134Z","conn":"A","dir":"out","text":"ping"}
+{"t":"2026-09-23T12:09:36.135Z","conn":"A","dir":"in","prefix":"Pong","text":"Pong:"}
+{"t":"2026-09-23T12:09:40.901Z","conn":"A","dir":"in","prefix":"Progress","text":"Progress: {\"from\":\"LFBZ\",\"to\":\"LFBO\",\"pct\":13.8}"}
+{"t":"2026-09-23T12:09:45.926Z","conn":"A","dir":"in","prefix":"Progress","text":"Progress: {\"from\":\"LFBZ\",\"to\":\"LFBO\",\"pct\":13.9}"}
+{"t":"2026-09-23T12:09:50.155Z","conn":"A","dir":"in","prefix":"CommsState","text":"CommsState: {\"mode\":\"traffic\",\"text\":\"Traffic Generating\"}"}
+{"t":"2026-09-23T12:09:50.727Z","conn":"A","dir":"in","prefix":"Traffic","text":"Traffic: Bordeaux Control, Ryanair 32KG, passing FL150 climbing to FL180."}
+{"t":"2026-09-23T12:09:50.756Z","conn":"A","dir":"in","prefix":"CommsState","text":"CommsState: {\"mode\":\"traffic\",\"text\":\"Traffic Transmitting\"}"}
+{"t":"2026-09-23T12:09:50.951Z","conn":"A","dir":"in","prefix":"Progress","text":"Progress: {\"from\":\"LFBZ\",\"to\":\"LFBO\",\"pct\":14.1}"}
+{"t":"2026-09-23T12:09:55.950Z","conn":"A","dir":"in","prefix":"Progress","text":"Progress: {\"from\":\"LFBZ\",\"to\":\"LFBO\",\"pct\":14.3}"}
+{"t":"2026-09-23T12:09:56.143Z","conn":"A","dir":"out","text":"ping"}
+{"t":"2026-09-23T12:09:56.144Z","conn":"A","dir":"in","prefix":"Pong","text":"Pong:"}
+{"t":"2026-09-23T12:09:57.400Z","conn":"A","dir":"in","prefix":"CommsState","text":"CommsState: {\"mode\":\"ready\",\"text\":\"\"}"}
+{"t":"2026-09-23T12:09:58.751Z","conn":"A","dir":"in","prefix":"CommsState","text":"CommsState: {\"mode\":\"traffic\",\"text\":\"ATC Generating\"}"}
+{"t":"2026-09-23T12:09:59.177Z","conn":"A","dir":"in","prefix":"ATCTraffic","text":"ATCTraffic: Ryanair 32KG, Bordeaux Control, identified, climb FL370."}
+{"t":"2026-09-23T12:09:59.200Z","conn":"A","dir":"in","prefix":"CommsState","text":"CommsState: {\"mode\":\"traffic\",\"text\":\"ATC Transmitting\"}"}
+{"t":"2026-09-23T12:10:00.976Z","conn":"A","dir":"in","prefix":"Progress","text":"Progress: {\"from\":\"LFBZ\",\"to\":\"LFBO\",\"pct\":14.5}"}
+{"t":"2026-09-23T12:10:04.576Z","conn":"A","dir":"in","prefix":"CommsState","text":"CommsState: {\"mode\":\"ready\",\"text\":\"\"}"}
+{"t":"2026-09-23T12:10:04.600Z","conn":"A","dir":"in","prefix":"CommsState","text":"CommsState: {\"mode\":\"traffic\",\"text\":\"Traffic Generating\"}"}
+{"t":"2026-09-23T12:10:04.926Z","conn":"A","dir":"in","prefix":"Traffic","text":"Traffic: Climb FL370, Ryanair 32KG."}
+{"t":"2026-09-23T12:10:04.950Z","conn":"A","dir":"in","prefix":"CommsState","text":"CommsState: {\"mode\":\"traffic\",\"text\":\"Traffic Transmitting\"}"}
+{"t":"2026-09-23T12:10:05.976Z","conn":"A","dir":"in","prefix":"Progress","text":"Progress: {\"from\":\"LFBZ\",\"to\":\"LFBO\",\"pct\":14.7}"}
+{"t":"2026-09-23T12:10:08.851Z","conn":"A","dir":"in","prefix":"CommsState","text":"CommsState: {\"mode\":\"ready\",\"text\":\"\"}"}
+{"t":"2026-09-23T12:10:10.975Z","conn":"A","dir":"in","prefix":"Progress","text":"Progress: {\"from\":\"LFBZ\",\"to\":\"LFBO\",\"pct\":14.9}"}
+{"t":"2026-09-23T12:10:15.976Z","conn":"A","dir":"in","prefix":"Progress","text":"Progress: {\"from\":\"LFBZ\",\"to\":\"LFBO\",\"pct\":15.1}"}
+{"t":"2026-09-23T12:10:16.153Z","conn":"A","dir":"out","text":"ping"}
+{"t":"2026-09-23T12:10:16.153Z","conn":"A","dir":"in","prefix":"Pong","text":"Pong:"}
+{"t":"2026-09-23T12:10:20.976Z","conn":"A","dir":"in","prefix":"Progress","text":"Progress: {\"from\":\"LFBZ\",\"to\":\"LFBO\",\"pct\":15.3}"}
+{"t":"2026-09-23T12:10:25.976Z","conn":"A","dir":"in","prefix":"Progress","text":"Progress: {\"from\":\"LFBZ\",\"to\":\"LFBO\",\"pct\":15.5}"}
+{"t":"2026-09-23T12:10:30.975Z","conn":"A","dir":"in","prefix":"Progress","text":"Progress: {\"from\":\"LFBZ\",\"to\":\"LFBO\",\"pct\":15.6}"}
+{"t":"2026-09-23T12:10:35.976Z","conn":"A","dir":"in","prefix":"Progress","text":"Progress: {\"from\":\"LFBZ\",\"to\":\"LFBO\",\"pct\":15.8}"}
+{"t":"2026-09-23T12:10:36.160Z","conn":"A","dir":"out","text":"ping"}
+{"t":"2026-09-23T12:10:36.160Z","conn":"A","dir":"in","prefix":"Pong","text":"Pong:"}
+{"t":"2026-09-23T12:10:40.975Z","conn":"A","dir":"in","prefix":"Progress","text":"Progress: {\"from\":\"LFBZ\",\"to\":\"LFBO\",\"pct\":16.0}"}
+{"t":"2026-09-23T12:10:45.975Z","conn":"A","dir":"in","prefix":"Progress","text":"Progress: {\"from\":\"LFBZ\",\"to\":\"LFBO\",\"pct\":16.2}"}
+{"t":"2026-09-23T12:10:51.001Z","conn":"A","dir":"in","prefix":"Progress","text":"Progress: {\"from\":\"LFBZ\",\"to\":\"LFBO\",\"pct\":16.4}"}
+{"t":"2026-09-23T12:10:56.000Z","conn":"A","dir":"in","prefix":"Progress","text":"Progress: {\"from\":\"LFBZ\",\"to\":\"LFBO\",\"pct\":16.6}"}
+{"t":"2026-09-23T12:10:56.166Z","conn":"A","dir":"out","text":"ping"}
+{"t":"2026-09-23T12:10:56.167Z","conn":"A","dir":"in","prefix":"Pong","text":"Pong:"}
+{"t":"2026-09-23T12:11:01.001Z","conn":"A","dir":"in","prefix":"Progress","text":"Progress: {\"from\":\"LFBZ\",\"to\":\"LFBO\",\"pct\":16.8}"}
+{"t":"2026-09-23T12:11:06.000Z","conn":"A","dir":"in","prefix":"Progress","text":"Progress: {\"from\":\"LFBZ\",\"to\":\"LFBO\",\"pct\":17.0}"}
+{"t":"2026-09-23T12:11:11.000Z","conn":"A","dir":"in","prefix":"Progress","text":"Progress: {\"from\":\"LFBZ\",\"to\":\"LFBO\",\"pct\":17.1}"}
+{"t":"2026-09-23T12:11:16.025Z","conn":"A","dir":"in","prefix":"Progress","text":"Progress: {\"from\":\"LFBZ\",\"to\":\"LFBO\",\"pct\":17.3}"}
+{"t":"2026-09-23T12:11:16.171Z","conn":"A","dir":"out","text":"ping"}
+{"t":"2026-09-23T12:11:16.172Z","conn":"A","dir":"in","prefix":"Pong","text":"Pong:"}
+{"t":"2026-09-23T12:11:21.025Z","conn":"A","dir":"in","prefix":"Progress","text":"Progress: {\"from\":\"LFBZ\",\"to\":\"LFBO\",\"pct\":17.5}"}
+{"t":"2026-09-23T12:11:26.050Z","conn":"A","dir":"in","prefix":"Progress","text":"Progress: {\"from\":\"LFBZ\",\"to\":\"LFBO\",\"pct\":17.7}"}
+{"t":"2026-09-23T12:11:31.076Z","conn":"A","dir":"in","prefix":"Progress","text":"Progress: {\"from\":\"LFBZ\",\"to\":\"LFBO\",\"pct\":17.9}"}
+{"t":"2026-09-23T12:11:36.100Z","conn":"A","dir":"in","prefix":"Progress","text":"Progress: {\"from\":\"LFBZ\",\"to\":\"LFBO\",\"pct\":18.1}"}
+{"t":"2026-09-23T12:11:36.177Z","conn":"A","dir":"out","text":"ping"}
+{"t":"2026-09-23T12:11:36.177Z","conn":"A","dir":"in","prefix":"Pong","text":"Pong:"}
+{"t":"2026-09-23T12:11:41.100Z","conn":"A","dir":"in","prefix":"Progress","text":"Progress: {\"from\":\"LFBZ\",\"to\":\"LFBO\",\"pct\":18.3}"}
+{"t":"2026-09-23T12:11:46.101Z","conn":"A","dir":"in","prefix":"Progress","text":"Progress: {\"from\":\"LFBZ\",\"to\":\"LFBO\",\"pct\":18.5}"}
+{"t":"2026-09-23T12:11:51.126Z","conn":"A","dir":"in","prefix":"Progress","text":"Progress: {\"from\":\"LFBZ\",\"to\":\"LFBO\",\"pct\":18.7}"}
+{"t":"2026-09-23T12:11:56.125Z","conn":"A","dir":"in","prefix":"Progress","text":"Progress: {\"from\":\"LFBZ\",\"to\":\"LFBO\",\"pct\":18.8}"}
+{"t":"2026-09-23T12:11:56.179Z","conn":"A","dir":"out","text":"ping"}
+{"t":"2026-09-23T12:11:56.179Z","conn":"A","dir":"in","prefix":"Pong","text":"Pong:"}
+{"t":"2026-09-23T12:12:01.125Z","conn":"A","dir":"in","prefix":"Progress","text":"Progress: {\"from\":\"LFBZ\",\"to\":\"LFBO\",\"pct\":19.0}"}
+{"t":"2026-09-23T12:12:06.126Z","conn":"A","dir":"in","prefix":"Progress","text":"Progress: {\"from\":\"LFBZ\",\"to\":\"LFBO\",\"pct\":19.2}"}
+{"t":"2026-09-23T12:12:11.150Z","conn":"A","dir":"in","prefix":"Progress","text":"Progress: {\"from\":\"LFBZ\",\"to\":\"LFBO\",\"pct\":19.4}"}
+{"t":"2026-09-23T12:12:16.176Z","conn":"A","dir":"in","prefix":"Progress","text":"Progress: {\"from\":\"LFBZ\",\"to\":\"LFBO\",\"pct\":19.6}"}
+{"t":"2026-09-23T12:12:16.181Z","conn":"A","dir":"out","text":"ping"}
+{"t":"2026-09-23T12:12:16.182Z","conn":"A","dir":"in","prefix":"Pong","text":"Pong:"}
+{"t":"2026-09-23T12:12:21.200Z","conn":"A","dir":"in","prefix":"Progress","text":"Progress: {\"from\":\"LFBZ\",\"to\":\"LFBO\",\"pct\":19.8}"}
+{"t":"2026-09-23T12:12:26.201Z","conn":"A","dir":"in","prefix":"Progress","text":"Progress: {\"from\":\"LFBZ\",\"to\":\"LFBO\",\"pct\":20.0}"}
+{"t":"2026-09-23T12:12:31.204Z","conn":"A","dir":"in","prefix":"Progress","text":"Progress: {\"from\":\"LFBZ\",\"to\":\"LFBO\",\"pct\":20.2}"}
+{"t":"2026-09-23T12:12:36.188Z","conn":"A","dir":"out","text":"ping"}
+{"t":"2026-09-23T12:12:36.190Z","conn":"A","dir":"in","prefix":"Pong","text":"Pong:"}
+{"t":"2026-09-23T12:12:36.225Z","conn":"A","dir":"in","prefix":"Progress","text":"Progress: {\"from\":\"LFBZ\",\"to\":\"LFBO\",\"pct\":20.4}"}
+{"t":"2026-09-23T12:12:41.250Z","conn":"A","dir":"in","prefix":"Progress","text":"Progress: {\"from\":\"LFBZ\",\"to\":\"LFBO\",\"pct\":20.6}"}
+{"t":"2026-09-23T12:12:46.250Z","conn":"A","dir":"in","prefix":"Progress","text":"Progress: {\"from\":\"LFBZ\",\"to\":\"LFBO\",\"pct\":20.7}"}
+{"t":"2026-09-23T12:12:51.251Z","conn":"A","dir":"in","prefix":"Progress","text":"Progress: {\"from\":\"LFBZ\",\"to\":\"LFBO\",\"pct\":20.9}"}
+{"t":"2026-09-23T12:12:56.198Z","conn":"A","dir":"out","text":"ping"}
+{"t":"2026-09-23T12:12:56.200Z","conn":"A","dir":"in","prefix":"Pong","text":"Pong:"}
+{"t":"2026-09-23T12:12:56.250Z","conn":"A","dir":"in","prefix":"Progress","text":"Progress: {\"from\":\"LFBZ\",\"to\":\"LFBO\",\"pct\":21.1}"}
+{"t":"2026-09-23T12:13:01.250Z","conn":"A","dir":"in","prefix":"Progress","text":"Progress: {\"from\":\"LFBZ\",\"to\":\"LFBO\",\"pct\":21.3}"}
+{"t":"2026-09-23T12:13:06.252Z","conn":"A","dir":"in","prefix":"Progress","text":"Progress: {\"from\":\"LFBZ\",\"to\":\"LFBO\",\"pct\":21.5}"}
+{"t":"2026-09-23T12:13:11.277Z","conn":"A","dir":"in","prefix":"Progress","text":"Progress: {\"from\":\"LFBZ\",\"to\":\"LFBO\",\"pct\":21.7}"}
+{"t":"2026-09-23T12:13:16.207Z","conn":"A","dir":"out","text":"ping"}
+{"t":"2026-09-23T12:13:16.208Z","conn":"A","dir":"in","prefix":"Pong","text":"Pong:"}
+{"t":"2026-09-23T12:13:16.277Z","conn":"A","dir":"in","prefix":"Progress","text":"Progress: {\"from\":\"LFBZ\",\"to\":\"LFBO\",\"pct\":21.9}"}
+{"t":"2026-09-23T12:13:21.276Z","conn":"A","dir":"in","prefix":"Progress","text":"Progress: {\"from\":\"LFBZ\",\"to\":\"LFBO\",\"pct\":22.0}"}
+{"t":"2026-09-23T12:13:26.277Z","conn":"A","dir":"in","prefix":"Progress","text":"Progress: {\"from\":\"LFBZ\",\"to\":\"LFBO\",\"pct\":22.2}"}
+{"t":"2026-09-23T12:13:31.276Z","conn":"A","dir":"in","prefix":"Progress","text":"Progress: {\"from\":\"LFBZ\",\"to\":\"LFBO\",\"pct\":22.4}"}
+{"t":"2026-09-23T12:13:36.213Z","conn":"A","dir":"out","text":"ping"}
+{"t":"2026-09-23T12:13:36.215Z","conn":"A","dir":"in","prefix":"Pong","text":"Pong:"}
+{"t":"2026-09-23T12:13:36.276Z","conn":"A","dir":"in","prefix":"Progress","text":"Progress: {\"from\":\"LFBZ\",\"to\":\"LFBO\",\"pct\":22.6}"}
+{"t":"2026-09-23T12:13:40.477Z","conn":"A","dir":"in","prefix":"CommsState","text":"CommsState: {\"mode\":\"traffic\",\"text\":\"ATC Generating\"}"}
+{"t":"2026-09-23T12:13:40.854Z","conn":"A","dir":"in","prefix":"ATCTraffic","text":"ATCTraffic: Ryanair 32KG, contact Bordeaux Control 128.765."}
+{"t":"2026-09-23T12:13:40.877Z","conn":"A","dir":"in","prefix":"CommsState","text":"CommsState: {\"mode\":\"traffic\",\"text\":\"ATC Transmitting\"}"}
+{"t":"2026-09-23T12:13:41.277Z","conn":"A","dir":"in","prefix":"Progress","text":"Progress: {\"from\":\"LFBZ\",\"to\":\"LFBO\",\"pct\":22.8}"}
+{"t":"2026-09-23T12:13:45.651Z","conn":"A","dir":"in","prefix":"CommsState","text":"CommsState: {\"mode\":\"ready\",\"text\":\"\"}"}
+{"t":"2026-09-23T12:13:45.677Z","conn":"A","dir":"in","prefix":"CommsState","text":"CommsState: {\"mode\":\"traffic\",\"text\":\"Traffic Generating\"}"}
+{"t":"2026-09-23T12:13:46.027Z","conn":"A","dir":"in","prefix":"Traffic","text":"Traffic: Center on 128.765, Ryanair 32KG."}
+{"t":"2026-09-23T12:13:46.052Z","conn":"A","dir":"in","prefix":"CommsState","text":"CommsState: {\"mode\":\"traffic\",\"text\":\"Traffic Transmitting\"}"}
+{"t":"2026-09-23T12:13:46.277Z","conn":"A","dir":"in","prefix":"Progress","text":"Progress: {\"from\":\"LFBZ\",\"to\":\"LFBO\",\"pct\":23.0}"}
+{"t":"2026-09-23T12:13:50.577Z","conn":"A","dir":"in","prefix":"CommsState","text":"CommsState: {\"mode\":\"ready\",\"text\":\"\"}"}
+{"t":"2026-09-23T12:13:51.277Z","conn":"A","dir":"in","prefix":"Progress","text":"Progress: {\"from\":\"LFBZ\",\"to\":\"LFBO\",\"pct\":23.2}"}
+{"t":"2026-09-23T12:13:52.602Z","conn":"A","dir":"in","prefix":"CommsState","text":"CommsState: {\"mode\":\"traffic\",\"text\":\"ATC Generating\"}"}
+{"t":"2026-09-23T12:13:53.078Z","conn":"A","dir":"in","prefix":"ATCTraffic","text":"ATCTraffic: FGULA, turn right, heading 225, climb FL180."}
+{"t":"2026-09-23T12:13:53.102Z","conn":"A","dir":"in","prefix":"CommsState","text":"CommsState: {\"mode\":\"traffic\",\"text\":\"ATC Transmitting\"}"}
+{"t":"2026-09-23T12:13:56.228Z","conn":"A","dir":"out","text":"ping"}
+{"t":"2026-09-23T12:13:56.230Z","conn":"A","dir":"in","prefix":"Pong","text":"Pong:"}
+{"t":"2026-09-23T12:13:56.277Z","conn":"A","dir":"in","prefix":"Progress","text":"Progress: {\"from\":\"LFBZ\",\"to\":\"LFBO\",\"pct\":23.3}"}
+{"t":"2026-09-23T12:13:59.052Z","conn":"A","dir":"in","prefix":"CommsState","text":"CommsState: {\"mode\":\"ready\",\"text\":\"\"}"}
+{"t":"2026-09-23T12:13:59.076Z","conn":"A","dir":"in","prefix":"CommsState","text":"CommsState: {\"mode\":\"traffic\",\"text\":\"Traffic Generating\"}"}
+{"t":"2026-09-23T12:13:59.527Z","conn":"A","dir":"in","prefix":"Traffic","text":"Traffic: Turn right, heading 225, climb FL180, FGULA."}
+{"t":"2026-09-23T12:13:59.562Z","conn":"A","dir":"in","prefix":"CommsState","text":"CommsState: {\"mode\":\"traffic\",\"text\":\"Traffic Transmitting\"}"}
+{"t":"2026-09-23T12:14:01.277Z","conn":"A","dir":"in","prefix":"Progress","text":"Progress: {\"from\":\"LFBZ\",\"to\":\"LFBO\",\"pct\":23.5}"}
+{"t":"2026-09-23T12:14:05.277Z","conn":"A","dir":"in","prefix":"CommsState","text":"CommsState: {\"mode\":\"ready\",\"text\":\"\"}"}
+{"t":"2026-09-23T12:14:06.277Z","conn":"A","dir":"in","prefix":"Progress","text":"Progress: {\"from\":\"LFBZ\",\"to\":\"LFBO\",\"pct\":23.7}"}
+{"t":"2026-09-23T12:14:10.077Z","conn":"A","dir":"in","prefix":"CommsState","text":"CommsState: {\"mode\":\"traffic\",\"text\":\"ATC Generating\"}"}
+{"t":"2026-09-23T12:14:10.428Z","conn":"A","dir":"in","prefix":"ATCTraffic","text":"ATCTraffic: FGULA, turn left, heading 080."}
+{"t":"2026-09-23T12:14:10.452Z","conn":"A","dir":"in","prefix":"CommsState","text":"CommsState: {\"mode\":\"traffic\",\"text\":\"ATC Transmitting\"}"}
+{"t":"2026-09-23T12:14:11.277Z","conn":"A","dir":"in","prefix":"Progress","text":"Progress: {\"from\":\"LFBZ\",\"to\":\"LFBO\",\"pct\":23.9}"}
+{"t":"2026-09-23T12:14:14.602Z","conn":"A","dir":"in","prefix":"CommsState","text":"CommsState: {\"mode\":\"ready\",\"text\":\"\"}"}
+{"t":"2026-09-23T12:14:14.627Z","conn":"A","dir":"in","prefix":"CommsState","text":"CommsState: {\"mode\":\"traffic\",\"text\":\"Traffic Generating\"}"}
+{"t":"2026-09-23T12:14:14.953Z","conn":"A","dir":"in","prefix":"Traffic","text":"Traffic: Turn left, heading 080, FGULA."}
+{"t":"2026-09-23T12:14:14.976Z","conn":"A","dir":"in","prefix":"CommsState","text":"CommsState: {\"mode\":\"traffic\",\"text\":\"Traffic Transmitting\"}"}
+{"t":"2026-09-23T12:14:16.229Z","conn":"A","dir":"out","text":"ping"}
+{"t":"2026-09-23T12:14:16.230Z","conn":"A","dir":"in","prefix":"Pong","text":"Pong:"}
+{"t":"2026-09-23T12:14:16.277Z","conn":"A","dir":"in","prefix":"Progress","text":"Progress: {\"from\":\"LFBZ\",\"to\":\"LFBO\",\"pct\":24.1}"}
+{"t":"2026-09-23T12:14:19.052Z","conn":"A","dir":"in","prefix":"CommsState","text":"CommsState: {\"mode\":\"ready\",\"text\":\"\"}"}
+{"t":"2026-09-23T12:14:21.276Z","conn":"A","dir":"in","prefix":"Progress","text":"Progress: {\"from\":\"LFBZ\",\"to\":\"LFBO\",\"pct\":24.2}"}
+{"t":"2026-09-23T12:14:26.277Z","conn":"A","dir":"in","prefix":"Progress","text":"Progress: {\"from\":\"LFBZ\",\"to\":\"LFBO\",\"pct\":24.4}"}
+{"t":"2026-09-23T12:14:31.301Z","conn":"A","dir":"in","prefix":"Progress","text":"Progress: {\"from\":\"LFBZ\",\"to\":\"LFBO\",\"pct\":24.6}"}
+{"t":"2026-09-23T12:14:36.230Z","conn":"A","dir":"out","text":"ping"}
+{"t":"2026-09-23T12:14:36.233Z","conn":"A","dir":"in","prefix":"Pong","text":"Pong:"}
+{"t":"2026-09-23T12:14:36.302Z","conn":"A","dir":"in","prefix":"Progress","text":"Progress: {\"from\":\"LFBZ\",\"to\":\"LFBO\",\"pct\":24.8}"}
+{"t":"2026-09-23T12:14:41.302Z","conn":"A","dir":"in","prefix":"Progress","text":"Progress: {\"from\":\"LFBZ\",\"to\":\"LFBO\",\"pct\":25.0}"}
+{"t":"2026-09-23T12:14:46.302Z","conn":"A","dir":"in","prefix":"Progress","text":"Progress: {\"from\":\"LFBZ\",\"to\":\"LFBO\",\"pct\":25.2}"}
+{"t":"2026-09-23T12:14:51.303Z","conn":"A","dir":"in","prefix":"Progress","text":"Progress: {\"from\":\"LFBZ\",\"to\":\"LFBO\",\"pct\":25.3}"}
+{"t":"2026-09-23T12:14:56.303Z","conn":"A","dir":"in","prefix":"Progress","text":"Progress: {\"from\":\"LFBZ\",\"to\":\"LFBO\",\"pct\":25.5}"}
+{"t":"2026-09-23T12:14:56.552Z","conn":"A","dir":"in","prefix":"QueuedAction","text":"QueuedAction: Announce On Frequency"}
+{"t":"2026-09-23T12:14:56.553Z","conn":"A","dir":"in","prefix":"CommsState","text":"CommsState: {\"mode\":\"queued\",\"text\":\"Announce On Frequency\"}"}
+{"t":"2026-09-23T12:14:56.561Z","conn":"A","dir":"in","prefix":"QueuedAction","text":"QueuedAction: "}
+{"t":"2026-09-23T12:14:56.561Z","conn":"A","dir":"in","prefix":"CommsState","text":"CommsState: {\"mode\":\"ready\",\"text\":\"\"}"}
+{"t":"2026-09-23T12:14:56.562Z","conn":"A","dir":"in","prefix":"CommsState","text":"CommsState: {\"mode\":\"awaiting\",\"text\":\"Awaiting Response\"}"}
+{"t":"2026-09-23T12:14:56.929Z","conn":"A","dir":"in","prefix":"Player","text":"Player: Airbus, request altitude change."}
+{"t":"2026-09-23T12:14:56.953Z","conn":"A","dir":"in","prefix":"CommsState","text":"CommsState: {\"mode\":\"speaking\",\"text\":\"Speaking\"}"}
+{"t":"2026-09-23T12:15:01.003Z","conn":"A","dir":"in","prefix":"CommsState","text":"CommsState: {\"mode\":\"request\",\"text\":\"Request Altitude Change\"}"}
+{"t":"2026-09-23T12:15:01.004Z","conn":"A","dir":"in","prefix":"Actions","text":"Actions: [Call Ready for Descent¬Request Approach Change¬Request Runway Change¬Request Altitude Change¬Request Direct to Fix¬Submit Turbulence Pirep¬Submit Icing Pirep¬Radio Check¬]"}
+{"t":"2026-09-23T12:15:01.303Z","conn":"A","dir":"in","prefix":"Progress","text":"Progress: {\"from\":\"LFBZ\",\"to\":\"LFBO\",\"pct\":25.7}"}
+{"t":"2026-09-23T12:15:01.825Z","conn":"A","dir":"out","text":"ping"}
+{"t":"2026-09-23T12:15:01.826Z","conn":"A","dir":"in","prefix":"Pong","text":"Pong:"}
+{"t":"2026-09-23T12:15:02.728Z","conn":"A","dir":"in","prefix":"CommsState","text":"CommsState: {\"mode\":\"awaiting\",\"text\":\"Awaiting Response\"}"}
+{"t":"2026-09-23T12:15:03.029Z","conn":"A","dir":"in","prefix":"ATC","text":"ATC: Airbus, roger, say new altitude."}
+{"t":"2026-09-23T12:15:03.053Z","conn":"A","dir":"in","prefix":"CommsState","text":"CommsState: {\"mode\":\"speaking\",\"text\":\"Speaking\"}"}
+{"t":"2026-09-23T12:15:06.303Z","conn":"A","dir":"in","prefix":"Progress","text":"Progress: {\"from\":\"LFBZ\",\"to\":\"LFBO\",\"pct\":25.9}"}
+{"t":"2026-09-23T12:15:06.802Z","conn":"A","dir":"in","prefix":"CommsState","text":"CommsState: {\"mode\":\"ready\",\"text\":\"\"}"}
+{"t":"2026-09-23T12:15:06.805Z","conn":"A","dir":"in","prefix":"Actions","text":"Actions: [Cancel Altitude Change¬2000¬4000¬FL060¬FL080¬FL100¬FL120¬FL140¬Say Again¬]"}
+{"t":"2026-09-23T12:15:10.427Z","conn":"A","dir":"in","prefix":"QueuedAction","text":"QueuedAction: Request Altitude Change"}
+{"t":"2026-09-23T12:15:10.429Z","conn":"A","dir":"in","prefix":"CommsState","text":"CommsState: {\"mode\":\"queued\",\"text\":\"Request Altitude Change\"}"}
+{"t":"2026-09-23T12:15:10.430Z","conn":"A","dir":"in","prefix":"QueuedAction","text":"QueuedAction: "}
+{"t":"2026-09-23T12:15:10.430Z","conn":"A","dir":"in","prefix":"CommsState","text":"CommsState: {\"mode\":\"ready\",\"text\":\"\"}"}
+{"t":"2026-09-23T12:15:10.432Z","conn":"A","dir":"in","prefix":"CommsState","text":"CommsState: {\"mode\":\"awaiting\",\"text\":\"Awaiting Response\"}"}
+{"t":"2026-09-23T12:15:10.804Z","conn":"A","dir":"in","prefix":"Player","text":"Player: Request FL120, Airbus."}
+{"t":"2026-09-23T12:15:10.829Z","conn":"A","dir":"in","prefix":"CommsState","text":"CommsState: {\"mode\":\"speaking\",\"text\":\"Speaking\"}"}
+{"t":"2026-09-23T12:15:11.303Z","conn":"A","dir":"in","prefix":"Progress","text":"Progress: {\"from\":\"LFBZ\",\"to\":\"LFBO\",\"pct\":26.1}"}
+{"t":"2026-09-23T12:15:14.977Z","conn":"A","dir":"in","prefix":"CommsState","text":"CommsState: {\"mode\":\"ready\",\"text\":\"\"}"}
+{"t":"2026-09-23T12:15:14.979Z","conn":"A","dir":"in","prefix":"Actions","text":"Actions: [Cancel Altitude Change¬2000¬4000¬FL060¬FL080¬FL100¬FL120¬FL140¬Say Again¬]"}
+{"t":"2026-09-23T12:15:15.052Z","conn":"A","dir":"in","prefix":"CommsState","text":"CommsState: {\"mode\":\"awaiting\",\"text\":\"Awaiting Response\"}"}
+{"t":"2026-09-23T12:15:15.478Z","conn":"A","dir":"in","prefix":"ATC","text":"ATC: Airbus, confirm new altitude FL120?"}
+{"t":"2026-09-23T12:15:15.503Z","conn":"A","dir":"in","prefix":"CommsState","text":"CommsState: {\"mode\":\"speaking\",\"text\":\"Speaking\"}"}
+{"t":"2026-09-23T12:15:16.328Z","conn":"A","dir":"in","prefix":"Progress","text":"Progress: {\"from\":\"LFBZ\",\"to\":\"LFBO\",\"pct\":26.2}"}
+{"t":"2026-09-23T12:15:20.678Z","conn":"A","dir":"in","prefix":"CommsState","text":"CommsState: {\"mode\":\"ready\",\"text\":\"\"}"}
+{"t":"2026-09-23T12:15:20.680Z","conn":"A","dir":"in","prefix":"Actions","text":"Actions: [Affirm¬Negative¬Say Again¬]"}
+{"t":"2026-09-23T12:15:21.353Z","conn":"A","dir":"in","prefix":"Progress","text":"Progress: {\"from\":\"LFBZ\",\"to\":\"LFBO\",\"pct\":26.4}"}
+{"t":"2026-09-23T12:15:21.827Z","conn":"A","dir":"out","text":"ping"}
+{"t":"2026-09-23T12:15:21.828Z","conn":"A","dir":"in","prefix":"Pong","text":"Pong:"}
+{"t":"2026-09-23T12:15:22.303Z","conn":"A","dir":"in","prefix":"QueuedAction","text":"QueuedAction: FL120"}
+{"t":"2026-09-23T12:15:22.304Z","conn":"A","dir":"in","prefix":"CommsState","text":"CommsState: {\"mode\":\"queued\",\"text\":\"FL120\"}"}
+{"t":"2026-09-23T12:15:22.305Z","conn":"A","dir":"in","prefix":"QueuedAction","text":"QueuedAction: "}
+{"t":"2026-09-23T12:15:22.305Z","conn":"A","dir":"in","prefix":"CommsState","text":"CommsState: {\"mode\":\"ready\",\"text\":\"\"}"}
+{"t":"2026-09-23T12:15:22.306Z","conn":"A","dir":"in","prefix":"CommsState","text":"CommsState: {\"mode\":\"awaiting\",\"text\":\"Awaiting Response\"}"}
+{"t":"2026-09-23T12:15:22.580Z","conn":"A","dir":"in","prefix":"Player","text":"Player: Affirm, Airbus."}
+{"t":"2026-09-23T12:15:22.603Z","conn":"A","dir":"in","prefix":"CommsState","text":"CommsState: {\"mode\":\"speaking\",\"text\":\"Speaking\"}"}
+{"t":"2026-09-23T12:15:25.552Z","conn":"A","dir":"in","prefix":"CommsState","text":"CommsState: {\"mode\":\"ready\",\"text\":\"\"}"}
+{"t":"2026-09-23T12:15:25.555Z","conn":"A","dir":"in","prefix":"Actions","text":"Actions: [Affirm¬Negative¬Say Again¬]"}
+{"t":"2026-09-23T12:15:25.603Z","conn":"A","dir":"in","prefix":"CommsState","text":"CommsState: {\"mode\":\"awaiting\",\"text\":\"Awaiting Response\"}"}
+{"t":"2026-09-23T12:15:25.979Z","conn":"A","dir":"in","prefix":"ATC","text":"ATC: Airbus, roger, climb FL120."}
+{"t":"2026-09-23T12:15:26.003Z","conn":"A","dir":"in","prefix":"CommsState","text":"CommsState: {\"mode\":\"speaking\",\"text\":\"Speaking\"}"}
+{"t":"2026-09-23T12:15:26.378Z","conn":"A","dir":"in","prefix":"Progress","text":"Progress: {\"from\":\"LFBZ\",\"to\":\"LFBO\",\"pct\":26.6}"}
+{"t":"2026-09-23T12:15:30.553Z","conn":"A","dir":"in","prefix":"CommsState","text":"CommsState: {\"mode\":\"ready\",\"text\":\"\"}"}
+{"t":"2026-09-23T12:15:30.555Z","conn":"A","dir":"in","prefix":"InfoBoxes","text":"InfoBoxes: [{\"title\":\"Climb\",\"info\":\"FL120\"}]"}
+{"t":"2026-09-23T12:15:30.577Z","conn":"A","dir":"in","prefix":"CommsState","text":"CommsState: {\"mode\":\"awaiting\",\"text\":\"Awaiting Response\"}"}
+{"t":"2026-09-23T12:15:30.929Z","conn":"A","dir":"in","prefix":"Player","text":"Player: Climb FL120, Airbus."}
+{"t":"2026-09-23T12:15:30.952Z","conn":"A","dir":"in","prefix":"CommsState","text":"CommsState: {\"mode\":\"speaking\",\"text\":\"Speaking\"}"}
+{"t":"2026-09-23T12:15:31.377Z","conn":"A","dir":"in","prefix":"Progress","text":"Progress: {\"from\":\"LFBZ\",\"to\":\"LFBO\",\"pct\":26.8}"}
+{"t":"2026-09-23T12:15:32.903Z","conn":"A","dir":"in","prefix":"Facility","text":"Facility: Bordeaux Control|125.105"}
+{"t":"2026-09-23T12:15:35.127Z","conn":"A","dir":"in","prefix":"CommsState","text":"CommsState: {\"mode\":\"ready\",\"text\":\"\"}"}
+{"t":"2026-09-23T12:15:35.154Z","conn":"A","dir":"in","prefix":"Actions","text":"Actions: [Call Ready for Descent¬Request Approach Change¬Request Runway Change¬Request Altitude Change¬Request Direct to Fix¬Submit Turbulence Pirep¬Submit Icing Pirep¬Radio Check¬]"}
+{"t":"2026-09-23T12:15:35.157Z","conn":"A","dir":"in","prefix":"Actions","text":"Actions: []"}
+{"t":"2026-09-23T12:15:35.157Z","conn":"A","dir":"in","prefix":"Actions","text":"Actions: [Call Ready for Descent¬Request Approach Change¬Request Runway Change¬Request Altitude Change¬Request Direct to Fix¬Submit Turbulence Pirep¬Submit Icing Pirep¬Radio Check¬]"}
+{"t":"2026-09-23T12:15:36.378Z","conn":"A","dir":"in","prefix":"Progress","text":"Progress: {\"from\":\"LFBZ\",\"to\":\"LFBO\",\"pct\":27.0}"}
+{"t":"2026-09-23T12:15:41.380Z","conn":"A","dir":"in","prefix":"Progress","text":"Progress: {\"from\":\"LFBZ\",\"to\":\"LFBO\",\"pct\":27.2}"}
+{"t":"2026-09-23T12:15:41.830Z","conn":"A","dir":"out","text":"ping"}
+{"t":"2026-09-23T12:15:41.832Z","conn":"A","dir":"in","prefix":"Pong","text":"Pong:"}
+{"t":"2026-09-23T12:15:41.858Z","conn":"A","dir":"in","prefix":"CommsState","text":"CommsState: {\"mode\":\"traffic\",\"text\":\"Traffic Generating\"}"}
+{"t":"2026-09-23T12:15:42.604Z","conn":"A","dir":"in","prefix":"Traffic","text":"Traffic: Bordeaux Control, Green Spirit 01EZ, passing FL070 climbing to FL100 direct BO323."}
+{"t":"2026-09-23T12:15:42.634Z","conn":"A","dir":"in","prefix":"CommsState","text":"CommsState: {\"mode\":\"traffic\",\"text\":\"Traffic Transmitting\"}"}
+{"t":"2026-09-23T12:15:46.378Z","conn":"A","dir":"in","prefix":"Progress","text":"Progress: {\"from\":\"LFBZ\",\"to\":\"LFBO\",\"pct\":27.3}"}
+{"t":"2026-09-23T12:15:51.278Z","conn":"A","dir":"in","prefix":"CommsState","text":"CommsState: {\"mode\":\"ready\",\"text\":\"\"}"}
+{"t":"2026-09-23T12:15:51.378Z","conn":"A","dir":"in","prefix":"Progress","text":"Progress: {\"from\":\"LFBZ\",\"to\":\"LFBO\",\"pct\":27.5}"}
+{"t":"2026-09-23T12:15:53.228Z","conn":"A","dir":"in","prefix":"CommsState","text":"CommsState: {\"mode\":\"traffic\",\"text\":\"ATC Generating\"}"}
+{"t":"2026-09-23T12:15:53.729Z","conn":"A","dir":"in","prefix":"ATCTraffic","text":"ATCTraffic: Green Spirit 01EZ, Bordeaux Control, identified, climb FL170."}
+{"t":"2026-09-23T12:15:53.753Z","conn":"A","dir":"in","prefix":"CommsState","text":"CommsState: {\"mode\":\"traffic\",\"text\":\"ATC Transmitting\"}"}
+{"t":"2026-09-23T12:15:56.378Z","conn":"A","dir":"in","prefix":"Progress","text":"Progress: {\"from\":\"LFBZ\",\"to\":\"LFBO\",\"pct\":27.7}"}
+{"t":"2026-09-23T12:16:00.103Z","conn":"A","dir":"in","prefix":"CommsState","text":"CommsState: {\"mode\":\"ready\",\"text\":\"\"}"}
+{"t":"2026-09-23T12:16:00.127Z","conn":"A","dir":"in","prefix":"CommsState","text":"CommsState: {\"mode\":\"traffic\",\"text\":\"Traffic Generating\"}"}
+{"t":"2026-09-23T12:16:00.454Z","conn":"A","dir":"in","prefix":"Traffic","text":"Traffic: Climb FL170, Green Spirit 01EZ."}
+{"t":"2026-09-23T12:16:00.478Z","conn":"A","dir":"in","prefix":"CommsState","text":"CommsState: {\"mode\":\"traffic\",\"text\":\"Traffic Transmitting\"}"}
+{"t":"2026-09-23T12:16:01.378Z","conn":"A","dir":"in","prefix":"Progress","text":"Progress: {\"from\":\"LFBZ\",\"to\":\"LFBO\",\"pct\":27.9}"}
+{"t":"2026-09-23T12:16:01.839Z","conn":"A","dir":"out","text":"ping"}
+{"t":"2026-09-23T12:16:01.841Z","conn":"A","dir":"in","prefix":"Pong","text":"Pong:"}
+{"t":"2026-09-23T12:16:04.202Z","conn":"A","dir":"in","prefix":"CommsState","text":"CommsState: {\"mode\":\"ready\",\"text\":\"\"}"}
+{"t":"2026-09-23T12:16:06.378Z","conn":"A","dir":"in","prefix":"Progress","text":"Progress: {\"from\":\"LFBZ\",\"to\":\"LFBO\",\"pct\":28.1}"}
+{"t":"2026-09-23T12:16:11.378Z","conn":"A","dir":"in","prefix":"Progress","text":"Progress: {\"from\":\"LFBZ\",\"to\":\"LFBO\",\"pct\":28.3}"}
+{"t":"2026-09-23T12:16:16.378Z","conn":"A","dir":"in","prefix":"Progress","text":"Progress: {\"from\":\"LFBZ\",\"to\":\"LFBO\",\"pct\":28.5}"}
+{"t":"2026-09-23T12:16:21.378Z","conn":"A","dir":"in","prefix":"Progress","text":"Progress: {\"from\":\"LFBZ\",\"to\":\"LFBO\",\"pct\":28.6}"}
+{"t":"2026-09-23T12:16:21.851Z","conn":"A","dir":"out","text":"ping"}
+{"t":"2026-09-23T12:16:21.852Z","conn":"A","dir":"in","prefix":"Pong","text":"Pong:"}
+{"t":"2026-09-23T12:16:26.378Z","conn":"A","dir":"in","prefix":"Progress","text":"Progress: {\"from\":\"LFBZ\",\"to\":\"LFBO\",\"pct\":28.8}"}
+{"t":"2026-09-23T12:16:31.378Z","conn":"A","dir":"in","prefix":"Progress","text":"Progress: {\"from\":\"LFBZ\",\"to\":\"LFBO\",\"pct\":29.0}"}
+{"t":"2026-09-23T12:16:36.378Z","conn":"A","dir":"in","prefix":"Progress","text":"Progress: {\"from\":\"LFBZ\",\"to\":\"LFBO\",\"pct\":29.2}"}
+{"t":"2026-09-23T12:16:41.378Z","conn":"A","dir":"in","prefix":"Progress","text":"Progress: {\"from\":\"LFBZ\",\"to\":\"LFBO\",\"pct\":29.4}"}
+{"t":"2026-09-23T12:16:41.865Z","conn":"A","dir":"out","text":"ping"}
+{"t":"2026-09-23T12:16:41.866Z","conn":"A","dir":"in","prefix":"Pong","text":"Pong:"}
+{"t":"2026-09-23T12:16:46.378Z","conn":"A","dir":"in","prefix":"Progress","text":"Progress: {\"from\":\"LFBZ\",\"to\":\"LFBO\",\"pct\":29.6}"}
+{"t":"2026-09-23T12:16:51.386Z","conn":"A","dir":"in","prefix":"Progress","text":"Progress: {\"from\":\"LFBZ\",\"to\":\"LFBO\",\"pct\":29.8}"}
+{"t":"2026-09-23T12:16:56.410Z","conn":"A","dir":"in","prefix":"Progress","text":"Progress: {\"from\":\"LFBZ\",\"to\":\"LFBO\",\"pct\":29.9}"}
+{"t":"2026-09-23T12:17:01.409Z","conn":"A","dir":"in","prefix":"Progress","text":"Progress: {\"from\":\"LFBZ\",\"to\":\"LFBO\",\"pct\":30.1}"}
+{"t":"2026-09-23T12:17:01.867Z","conn":"A","dir":"out","text":"ping"}
+{"t":"2026-09-23T12:17:01.868Z","conn":"A","dir":"in","prefix":"Pong","text":"Pong:"}
+{"t":"2026-09-23T12:17:06.428Z","conn":"A","dir":"in","prefix":"Progress","text":"Progress: {\"from\":\"LFBZ\",\"to\":\"LFBO\",\"pct\":30.3}"}
+{"t":"2026-09-23T12:17:11.428Z","conn":"A","dir":"in","prefix":"Progress","text":"Progress: {\"from\":\"LFBZ\",\"to\":\"LFBO\",\"pct\":30.5}"}
+{"t":"2026-09-23T12:17:16.428Z","conn":"A","dir":"in","prefix":"Progress","text":"Progress: {\"from\":\"LFBZ\",\"to\":\"LFBO\",\"pct\":30.7}"}
+{"t":"2026-09-23T12:17:18.653Z","conn":"A","dir":"in","prefix":"CommsState","text":"CommsState: {\"mode\":\"traffic\",\"text\":\"ATC Generating\"}"}
+{"t":"2026-09-23T12:17:18.954Z","conn":"A","dir":"in","prefix":"ATCTraffic","text":"ATCTraffic: FGULA, resume own navigation."}
+{"t":"2026-09-23T12:17:18.978Z","conn":"A","dir":"in","prefix":"CommsState","text":"CommsState: {\"mode\":\"traffic\",\"text\":\"ATC Transmitting\"}"}
+{"t":"2026-09-23T12:17:21.428Z","conn":"A","dir":"in","prefix":"Progress","text":"Progress: {\"from\":\"LFBZ\",\"to\":\"LFBO\",\"pct\":30.9}"}
+{"t":"2026-09-23T12:17:21.878Z","conn":"A","dir":"out","text":"ping"}
+{"t":"2026-09-23T12:17:21.880Z","conn":"A","dir":"in","prefix":"Pong","text":"Pong:"}
+{"t":"2026-09-23T12:17:22.528Z","conn":"A","dir":"in","prefix":"CommsState","text":"CommsState: {\"mode\":\"ready\",\"text\":\"\"}"}
+{"t":"2026-09-23T12:17:22.553Z","conn":"A","dir":"in","prefix":"CommsState","text":"CommsState: {\"mode\":\"traffic\",\"text\":\"Traffic Generating\"}"}
+{"t":"2026-09-23T12:17:22.910Z","conn":"A","dir":"in","prefix":"Traffic","text":"Traffic: Roger, resume own navigation, FGULA."}
+{"t":"2026-09-23T12:17:22.935Z","conn":"A","dir":"in","prefix":"CommsState","text":"CommsState: {\"mode\":\"traffic\",\"text\":\"Traffic Transmitting\"}"}
+{"t":"2026-09-23T12:17:26.434Z","conn":"A","dir":"in","prefix":"Progress","text":"Progress: {\"from\":\"LFBZ\",\"to\":\"LFBO\",\"pct\":31.1}"}
+{"t":"2026-09-23T12:17:27.134Z","conn":"A","dir":"in","prefix":"CommsState","text":"CommsState: {\"mode\":\"ready\",\"text\":\"\"}"}
+{"t":"2026-09-23T12:17:31.454Z","conn":"A","dir":"in","prefix":"Progress","text":"Progress: {\"from\":\"LFBZ\",\"to\":\"LFBO\",\"pct\":31.2}"}
+{"t":"2026-09-23T12:17:36.454Z","conn":"A","dir":"in","prefix":"Progress","text":"Progress: {\"from\":\"LFBZ\",\"to\":\"LFBO\",\"pct\":31.4}"}
+{"t":"2026-09-23T12:17:41.454Z","conn":"A","dir":"in","prefix":"Progress","text":"Progress: {\"from\":\"LFBZ\",\"to\":\"LFBO\",\"pct\":31.6}"}
+{"t":"2026-09-23T12:17:41.879Z","conn":"A","dir":"out","text":"ping"}
+{"t":"2026-09-23T12:17:41.880Z","conn":"A","dir":"in","prefix":"Pong","text":"Pong:"}
+{"t":"2026-09-23T12:17:46.453Z","conn":"A","dir":"in","prefix":"Progress","text":"Progress: {\"from\":\"LFBZ\",\"to\":\"LFBO\",\"pct\":31.8}"}
+{"t":"2026-09-23T12:17:51.454Z","conn":"A","dir":"in","prefix":"Progress","text":"Progress: {\"from\":\"LFBZ\",\"to\":\"LFBO\",\"pct\":32.0}"}
+{"t":"2026-09-23T12:17:56.454Z","conn":"A","dir":"in","prefix":"Progress","text":"Progress: {\"from\":\"LFBZ\",\"to\":\"LFBO\",\"pct\":32.2}"}
+{"t":"2026-09-23T12:18:01.454Z","conn":"A","dir":"in","prefix":"Progress","text":"Progress: {\"from\":\"LFBZ\",\"to\":\"LFBO\",\"pct\":32.4}"}
+{"t":"2026-09-23T12:18:01.880Z","conn":"A","dir":"out","text":"ping"}
+{"t":"2026-09-23T12:18:01.881Z","conn":"A","dir":"in","prefix":"Pong","text":"Pong:"}
+{"t":"2026-09-23T12:18:06.454Z","conn":"A","dir":"in","prefix":"Progress","text":"Progress: {\"from\":\"LFBZ\",\"to\":\"LFBO\",\"pct\":32.5}"}
+{"t":"2026-09-23T12:18:11.454Z","conn":"A","dir":"in","prefix":"Progress","text":"Progress: {\"from\":\"LFBZ\",\"to\":\"LFBO\",\"pct\":32.7}"}
+{"t":"2026-09-23T12:18:16.479Z","conn":"A","dir":"in","prefix":"Progress","text":"Progress: {\"from\":\"LFBZ\",\"to\":\"LFBO\",\"pct\":32.9}"}
+{"t":"2026-09-23T12:18:21.504Z","conn":"A","dir":"in","prefix":"Progress","text":"Progress: {\"from\":\"LFBZ\",\"to\":\"LFBO\",\"pct\":33.1}"}
+{"t":"2026-09-23T12:18:21.890Z","conn":"A","dir":"out","text":"ping"}
+{"t":"2026-09-23T12:18:21.891Z","conn":"A","dir":"in","prefix":"Pong","text":"Pong:"}
+{"t":"2026-09-23T12:18:26.504Z","conn":"A","dir":"in","prefix":"Progress","text":"Progress: {\"from\":\"LFBZ\",\"to\":\"LFBO\",\"pct\":33.3}"}
+{"t":"2026-09-23T12:18:31.504Z","conn":"A","dir":"in","prefix":"Progress","text":"Progress: {\"from\":\"LFBZ\",\"to\":\"LFBO\",\"pct\":33.5}"}
+{"t":"2026-09-23T12:18:36.504Z","conn":"A","dir":"in","prefix":"Progress","text":"Progress: {\"from\":\"LFBZ\",\"to\":\"LFBO\",\"pct\":33.7}"}
+{"t":"2026-09-23T12:18:41.503Z","conn":"A","dir":"in","prefix":"Progress","text":"Progress: {\"from\":\"LFBZ\",\"to\":\"LFBO\",\"pct\":33.8}"}
+{"t":"2026-09-23T12:18:41.891Z","conn":"A","dir":"out","text":"ping"}
+{"t":"2026-09-23T12:18:41.892Z","conn":"A","dir":"in","prefix":"Pong","text":"Pong:"}
+{"t":"2026-09-23T12:18:46.504Z","conn":"A","dir":"in","prefix":"Progress","text":"Progress: {\"from\":\"LFBZ\",\"to\":\"LFBO\",\"pct\":34.0}"}
+{"t":"2026-09-23T12:18:51.504Z","conn":"A","dir":"in","prefix":"Progress","text":"Progress: {\"from\":\"LFBZ\",\"to\":\"LFBO\",\"pct\":34.2}"}
+{"t":"2026-09-23T12:18:56.504Z","conn":"A","dir":"in","prefix":"Progress","text":"Progress: {\"from\":\"LFBZ\",\"to\":\"LFBO\",\"pct\":34.4}"}
+{"t":"2026-09-23T12:19:01.529Z","conn":"A","dir":"in","prefix":"Progress","text":"Progress: {\"from\":\"LFBZ\",\"to\":\"LFBO\",\"pct\":34.6}"}
+{"t":"2026-09-23T12:19:01.892Z","conn":"A","dir":"out","text":"ping"}
+{"t":"2026-09-23T12:19:01.892Z","conn":"A","dir":"in","prefix":"Pong","text":"Pong:"}
+{"t":"2026-09-23T12:19:06.529Z","conn":"A","dir":"in","prefix":"Progress","text":"Progress: {\"from\":\"LFBZ\",\"to\":\"LFBO\",\"pct\":34.8}"}
+{"t":"2026-09-23T12:19:11.529Z","conn":"A","dir":"in","prefix":"Progress","text":"Progress: {\"from\":\"LFBZ\",\"to\":\"LFBO\",\"pct\":35.0}"}
+{"t":"2026-09-23T12:19:16.554Z","conn":"A","dir":"in","prefix":"Progress","text":"Progress: {\"from\":\"LFBZ\",\"to\":\"LFBO\",\"pct\":35.1}"}
+{"t":"2026-09-23T12:19:21.554Z","conn":"A","dir":"in","prefix":"Progress","text":"Progress: {\"from\":\"LFBZ\",\"to\":\"LFBO\",\"pct\":35.3}"}
+{"t":"2026-09-23T12:19:21.896Z","conn":"A","dir":"out","text":"ping"}
+{"t":"2026-09-23T12:19:21.897Z","conn":"A","dir":"in","prefix":"Pong","text":"Pong:"}
+{"t":"2026-09-23T12:19:26.554Z","conn":"A","dir":"in","prefix":"Progress","text":"Progress: {\"from\":\"LFBZ\",\"to\":\"LFBO\",\"pct\":35.5}"}
+{"t":"2026-09-23T12:19:31.554Z","conn":"A","dir":"in","prefix":"Progress","text":"Progress: {\"from\":\"LFBZ\",\"to\":\"LFBO\",\"pct\":35.7}"}
+{"t":"2026-09-23T12:19:36.580Z","conn":"A","dir":"in","prefix":"Progress","text":"Progress: {\"from\":\"LFBZ\",\"to\":\"LFBO\",\"pct\":35.9}"}
+{"t":"2026-09-23T12:19:36.836Z","conn":"A","dir":"in","prefix":"CommsState","text":"CommsState: {\"mode\":\"traffic\",\"text\":\"Traffic Generating\"}"}
+{"t":"2026-09-23T12:19:37.280Z","conn":"A","dir":"in","prefix":"Traffic","text":"Traffic: Bordeaux Control, FJDVN, 3,000."}
+{"t":"2026-09-23T12:19:37.305Z","conn":"A","dir":"in","prefix":"CommsState","text":"CommsState: {\"mode\":\"traffic\",\"text\":\"Traffic Transmitting\"}"}
+{"t":"2026-09-23T12:19:41.579Z","conn":"A","dir":"in","prefix":"Progress","text":"Progress: {\"from\":\"LFBZ\",\"to\":\"LFBO\",\"pct\":36.1}"}
+{"t":"2026-09-23T12:19:41.903Z","conn":"A","dir":"out","text":"ping"}
+{"t":"2026-09-23T12:19:41.904Z","conn":"A","dir":"in","prefix":"Pong","text":"Pong:"}
+{"t":"2026-09-23T12:19:42.104Z","conn":"A","dir":"in","prefix":"CommsState","text":"CommsState: {\"mode\":\"ready\",\"text\":\"\"}"}
+{"t":"2026-09-23T12:19:43.754Z","conn":"A","dir":"in","prefix":"CommsState","text":"CommsState: {\"mode\":\"traffic\",\"text\":\"ATC Generating\"}"}
+{"t":"2026-09-23T12:19:44.105Z","conn":"A","dir":"in","prefix":"ATCTraffic","text":"ATCTraffic: FJDVN, Bordeaux Control, identified."}
+{"t":"2026-09-23T12:19:44.129Z","conn":"A","dir":"in","prefix":"CommsState","text":"CommsState: {\"mode\":\"traffic\",\"text\":\"ATC Transmitting\"}"}
+{"t":"2026-09-23T12:19:46.579Z","conn":"A","dir":"in","prefix":"Progress","text":"Progress: {\"from\":\"LFBZ\",\"to\":\"LFBO\",\"pct\":36.3}"}
+{"t":"2026-09-23T12:19:48.180Z","conn":"A","dir":"in","prefix":"CommsState","text":"CommsState: {\"mode\":\"ready\",\"text\":\"\"}"}
+{"t":"2026-09-23T12:19:51.578Z","conn":"A","dir":"in","prefix":"Progress","text":"Progress: {\"from\":\"LFBZ\",\"to\":\"LFBO\",\"pct\":36.5}"}
+{"t":"2026-09-23T12:19:56.580Z","conn":"A","dir":"in","prefix":"Progress","text":"Progress: {\"from\":\"LFBZ\",\"to\":\"LFBO\",\"pct\":36.6}"}
+{"t":"2026-09-23T12:20:01.579Z","conn":"A","dir":"in","prefix":"Progress","text":"Progress: {\"from\":\"LFBZ\",\"to\":\"LFBO\",\"pct\":36.8}"}
+{"t":"2026-09-23T12:20:01.910Z","conn":"A","dir":"out","text":"ping"}
+{"t":"2026-09-23T12:20:01.911Z","conn":"A","dir":"in","prefix":"Pong","text":"Pong:"}
+{"t":"2026-09-23T12:20:06.579Z","conn":"A","dir":"in","prefix":"Progress","text":"Progress: {\"from\":\"LFBZ\",\"to\":\"LFBO\",\"pct\":37.0}"}
+{"t":"2026-09-23T12:20:11.579Z","conn":"A","dir":"in","prefix":"Progress","text":"Progress: {\"from\":\"LFBZ\",\"to\":\"LFBO\",\"pct\":37.2}"}
+{"t":"2026-09-23T12:20:16.579Z","conn":"A","dir":"in","prefix":"Progress","text":"Progress: {\"from\":\"LFBZ\",\"to\":\"LFBO\",\"pct\":37.4}"}
+{"t":"2026-09-23T12:20:20.984Z","conn":"A","dir":"in","prefix":"Facility","text":"Facility: Bordeaux Control|125.105"}
+{"t":"2026-09-23T12:20:20.986Z","conn":"A","dir":"in","prefix":"CPDLCCode","text":"CPDLCCode: LFBB"}
+{"t":"2026-09-23T12:20:20.987Z","conn":"A","dir":"in","prefix":"AutoTune","text":"AutoTune: true"}
+{"t":"2026-09-23T12:20:20.987Z","conn":"A","dir":"in","prefix":"AutoRespond","text":"AutoRespond: true"}
+{"t":"2026-09-23T12:20:20.987Z","conn":"A","dir":"in","prefix":"Actions","text":"Actions: [Call Ready for Descent¬Request Approach Change¬Request Runway Change¬Request Altitude Change¬Request Direct to Fix¬Submit Turbulence Pirep¬Submit Icing Pirep¬Radio Check¬]"}
+{"t":"2026-09-23T12:20:20.987Z","conn":"A","dir":"in","prefix":"DATIS","text":"DATIS: LFBZ|V|LFBZ ATIS V 1145Z 30004KT 260V010 CAVOK 24/14 Q1023 RWY 27 IN USE TRANSITION-LEVEL FL050 BIRD ACTIVITY REPORTED ACKNOWLEDGE RECEIPT OF INFORMATION V AND ADVISE AIRCRAFT TYPE ON FIRST CONTACT "}
+{"t":"2026-09-23T12:20:20.988Z","conn":"A","dir":"in","prefix":"DATIS","text":"DATIS: LFBO|W|LFBO ATIS W 1146Z VRB03KT CAVOK 27/08 Q1023 ARR RWY 32 LEFT DEP RWY 32 RIGHT 32 LEFT TRANSITION-LEVEL FL050 ACKNOWLEDGE RECEIPT OF INFORMATION W AND ADVISE AIRCRAFT TYPE ON FIRST CONTACT "}
+{"t":"2026-09-23T12:20:20.988Z","conn":"A","dir":"in","prefix":"DATIS_END","text":"DATIS_END:"}
+{"t":"2026-09-23T12:20:20.988Z","conn":"A","dir":"in","prefix":"QueuedAction","text":"QueuedAction: "}
+{"t":"2026-09-23T12:20:20.989Z","conn":"A","dir":"in","prefix":"InfoBoxes","text":"InfoBoxes: [{\"title\":\"Climb\",\"info\":\"FL120\"}]"}
+{"t":"2026-09-23T12:20:20.989Z","conn":"A","dir":"in","prefix":"Com2","text":"Com2: {\"label\":\"124.850\",\"frequency\":\"124.850\",\"monitor\":false}"}
+{"t":"2026-09-23T12:20:20.990Z","conn":"A","dir":"in","prefix":"RadioMute","text":"RadioMute: {\"com1\":false,\"com2\":false}"}
+{"t":"2026-09-23T12:20:20.990Z","conn":"A","dir":"in","prefix":"Progress","text":"Progress: {\"from\":\"LFBZ\",\"to\":\"LFBO\",\"pct\":37.4}"}
+{"t":"2026-09-23T12:20:20.990Z","conn":"A","dir":"in","prefix":"CommsState","text":"CommsState: {\"mode\":\"ready\",\"text\":\"\"}"}
+{"t":"2026-09-23T12:20:20.990Z","conn":"A","dir":"in","prefix":"LoadState","text":"LoadState: {\"stage\":\"ready\",\"text\":\"\",\"pct\":-1,\"vfr\":false,\"loggedIn\":true}"}
+{"t":"2026-09-23T12:20:20.991Z","conn":"A","dir":"in","prefix":"Callsign","text":"Callsign: {\"full\":\"Airbus\",\"shortForm\":\"A-us\"}"}
+{"t":"2026-09-23T12:20:20.993Z","conn":"A","dir":"in","prefix":"ToolbarVersion","text":"ToolbarVersion: 3.1"}
+{"t":"2026-09-23T12:20:20.993Z","conn":"A","dir":"in","prefix":"DATIS","text":"DATIS: LFBZ|V|LFBZ ATIS V 1145Z 30004KT 260V010 CAVOK 24/14 Q1023 RWY 27 IN USE TRANSITION-LEVEL FL050 BIRD ACTIVITY REPORTED ACKNOWLEDGE RECEIPT OF INFORMATION V AND ADVISE AIRCRAFT TYPE ON FIRST CONTACT "}
+{"t":"2026-09-23T12:20:20.993Z","conn":"A","dir":"in","prefix":"DATIS","text":"DATIS: LFBO|W|LFBO ATIS W 1146Z VRB03KT CAVOK 27/08 Q1023 ARR RWY 32 LEFT DEP RWY 32 RIGHT 32 LEFT TRANSITION-LEVEL FL050 ACKNOWLEDGE RECEIPT OF INFORMATION W AND ADVISE AIRCRAFT TYPE ON FIRST CONTACT "}
+{"t":"2026-09-23T12:20:20.993Z","conn":"A","dir":"in","prefix":"DATIS_END","text":"DATIS_END:"}
+{"t":"2026-09-23T12:20:21.004Z","conn":"A","dir":"in","prefix":"Settings","text":"Settings: {\"voiceVolume\":70,\"uiSounds\":true,\"controllerVoice\":\"Local\",\"trafficVoice\":\"Local\",\"trafficOn\":true,\"parkedDensity\":5,\"departuresDensity\":5,\"arrivalsDensity\":5,\"enrouteDensity\":5,\"navigraphLiveTraffic\":false,\"navigraphLinked\":true,\"navigraphUltimate\":true,\"taxiArrowsShown\":false,\"simIs2024\":true,\"dynamicVoiceOn\":false,\"dynamicVoiceGender\":0,\"autoRespondVoice\":0,\"autoRespondVoiceOptions\":[\"US Male\",\"US Female\",\"UK Male\",\"UK Female\",\"AU Male\",\"Jeff Favignano (Premium Only)\",\"CivRyan (Premium Only)\",\"Squirrel (Premium Only)\",\"EasyJetSimPilot (Premium Only)\",\"British Avgeek (Premium Only)\",\"Overkill (Premium Only)\",\"FlyBy Simulations (Premium Only)\",\"V1-Simulations (Premium Only)\",\"FSFO English1 (Premium Only)\",\"FS2Crew US Stephanie (Premium Only)\"],\"voiceQualityOptions\":[{\"value\":\"Off\",\"label\":\"Off (No Cost)\"},{\"value\":\"Local\",\"label\":\"Local (No Cost)\"},{\"value\":\"Premium\",\"label\":\"Premium (Higher Cost)\"}],\"voiceGenderOptions\":[{\"value\":\"0\",\"label\":\"Any\"},{\"value\":\"1\",\"label\":\"Female\"},{\"value\":\"2\",\"label\":\"Male\"}],\"premiumUnits\":49185,\"premiumUnitsMax\":50000}"}
+{"t":"2026-09-23T12:20:21.580Z","conn":"A","dir":"in","prefix":"Progress","text":"Progress: {\"from\":\"LFBZ\",\"to\":\"LFBO\",\"pct\":37.6}"}
+{"t":"2026-09-23T12:20:21.910Z","conn":"A","dir":"out","text":"ping"}
+{"t":"2026-09-23T12:20:21.911Z","conn":"A","dir":"in","prefix":"Pong","text":"Pong:"}
+{"t":"2026-09-23T12:20:26.579Z","conn":"A","dir":"in","prefix":"Progress","text":"Progress: {\"from\":\"LFBZ\",\"to\":\"LFBO\",\"pct\":37.8}"}
+{"t":"2026-09-23T12:20:31.579Z","conn":"A","dir":"in","prefix":"Progress","text":"Progress: {\"from\":\"LFBZ\",\"to\":\"LFBO\",\"pct\":37.9}"}
+{"t":"2026-09-23T12:20:33.475Z","conn":"B","dir":"sys","text":"Connecting to ws://127.0.0.1:41716"}
+{"t":"2026-09-23T12:20:33.479Z","conn":"A","dir":"in","prefix":"Facility","text":"Facility: Bordeaux Control|125.105"}
+{"t":"2026-09-23T12:20:33.480Z","conn":"A","dir":"in","prefix":"CPDLCCode","text":"CPDLCCode: LFBB"}
+{"t":"2026-09-23T12:20:33.480Z","conn":"A","dir":"in","prefix":"AutoTune","text":"AutoTune: true"}
+{"t":"2026-09-23T12:20:33.481Z","conn":"A","dir":"in","prefix":"AutoRespond","text":"AutoRespond: true"}
+{"t":"2026-09-23T12:20:33.481Z","conn":"A","dir":"in","prefix":"Actions","text":"Actions: [Call Ready for Descent¬Request Approach Change¬Request Runway Change¬Request Altitude Change¬Request Direct to Fix¬Submit Turbulence Pirep¬Submit Icing Pirep¬Radio Check¬]"}
+{"t":"2026-09-23T12:20:33.481Z","conn":"A","dir":"in","prefix":"DATIS","text":"DATIS: LFBZ|V|LFBZ ATIS V 1145Z 30004KT 260V010 CAVOK 24/14 Q1023 RWY 27 IN USE TRANSITION-LEVEL FL050 BIRD ACTIVITY REPORTED ACKNOWLEDGE RECEIPT OF INFORMATION V AND ADVISE AIRCRAFT TYPE ON FIRST CONTACT "}
+{"t":"2026-09-23T12:20:33.481Z","conn":"A","dir":"in","prefix":"DATIS","text":"DATIS: LFBO|W|LFBO ATIS W 1146Z VRB03KT CAVOK 27/08 Q1023 ARR RWY 32 LEFT DEP RWY 32 RIGHT 32 LEFT TRANSITION-LEVEL FL050 ACKNOWLEDGE RECEIPT OF INFORMATION W AND ADVISE AIRCRAFT TYPE ON FIRST CONTACT "}
+{"t":"2026-09-23T12:20:33.481Z","conn":"A","dir":"in","prefix":"DATIS_END","text":"DATIS_END:"}
+{"t":"2026-09-23T12:20:33.482Z","conn":"A","dir":"in","prefix":"QueuedAction","text":"QueuedAction: "}
+{"t":"2026-09-23T12:20:33.482Z","conn":"A","dir":"in","prefix":"InfoBoxes","text":"InfoBoxes: [{\"title\":\"Climb\",\"info\":\"FL120\"}]"}
+{"t":"2026-09-23T12:20:33.482Z","conn":"A","dir":"in","prefix":"Com2","text":"Com2: {\"label\":\"124.850\",\"frequency\":\"124.850\",\"monitor\":false}"}
+{"t":"2026-09-23T12:20:33.482Z","conn":"A","dir":"in","prefix":"RadioMute","text":"RadioMute: {\"com1\":false,\"com2\":false}"}
+{"t":"2026-09-23T12:20:33.482Z","conn":"A","dir":"in","prefix":"Progress","text":"Progress: {\"from\":\"LFBZ\",\"to\":\"LFBO\",\"pct\":37.9}"}
+{"t":"2026-09-23T12:20:33.482Z","conn":"A","dir":"in","prefix":"CommsState","text":"CommsState: {\"mode\":\"ready\",\"text\":\"\"}"}
+{"t":"2026-09-23T12:20:33.484Z","conn":"A","dir":"in","prefix":"LoadState","text":"LoadState: {\"stage\":\"ready\",\"text\":\"\",\"pct\":-1,\"vfr\":false,\"loggedIn\":true}"}
+{"t":"2026-09-23T12:20:33.484Z","conn":"A","dir":"in","prefix":"Callsign","text":"Callsign: {\"full\":\"Airbus\",\"shortForm\":\"A-us\"}"}
+{"t":"2026-09-23T12:20:33.485Z","conn":"B","dir":"sys","text":"Connected ✔"}
+{"t":"2026-09-23T12:20:33.485Z","conn":"A","dir":"in","prefix":"ToolbarVersion","text":"ToolbarVersion: 3.1"}
+{"t":"2026-09-23T12:20:33.485Z","conn":"B","dir":"in","prefix":"Facility","text":"Facility: Bordeaux Control|125.105"}
+{"t":"2026-09-23T12:20:33.485Z","conn":"B","dir":"in","prefix":"CPDLCCode","text":"CPDLCCode: LFBB"}
+{"t":"2026-09-23T12:20:33.486Z","conn":"B","dir":"in","prefix":"AutoTune","text":"AutoTune: true"}
+{"t":"2026-09-23T12:20:33.486Z","conn":"B","dir":"in","prefix":"AutoRespond","text":"AutoRespond: true"}
+{"t":"2026-09-23T12:20:33.486Z","conn":"B","dir":"in","prefix":"Actions","text":"Actions: [Call Ready for Descent¬Request Approach Change¬Request Runway Change¬Request Altitude Change¬Request Direct to Fix¬Submit Turbulence Pirep¬Submit Icing Pirep¬Radio Check¬]"}
+{"t":"2026-09-23T12:20:33.486Z","conn":"B","dir":"in","prefix":"DATIS","text":"DATIS: LFBZ|V|LFBZ ATIS V 1145Z 30004KT 260V010 CAVOK 24/14 Q1023 RWY 27 IN USE TRANSITION-LEVEL FL050 BIRD ACTIVITY REPORTED ACKNOWLEDGE RECEIPT OF INFORMATION V AND ADVISE AIRCRAFT TYPE ON FIRST CONTACT "}
+{"t":"2026-09-23T12:20:33.486Z","conn":"B","dir":"in","prefix":"DATIS","text":"DATIS: LFBO|W|LFBO ATIS W 1146Z VRB03KT CAVOK 27/08 Q1023 ARR RWY 32 LEFT DEP RWY 32 RIGHT 32 LEFT TRANSITION-LEVEL FL050 ACKNOWLEDGE RECEIPT OF INFORMATION W AND ADVISE AIRCRAFT TYPE ON FIRST CONTACT "}
+{"t":"2026-09-23T12:20:33.486Z","conn":"B","dir":"in","prefix":"DATIS_END","text":"DATIS_END:"}
+{"t":"2026-09-23T12:20:33.487Z","conn":"B","dir":"in","prefix":"QueuedAction","text":"QueuedAction: "}
+{"t":"2026-09-23T12:20:33.487Z","conn":"B","dir":"in","prefix":"InfoBoxes","text":"InfoBoxes: [{\"title\":\"Climb\",\"info\":\"FL120\"}]"}
+{"t":"2026-09-23T12:20:33.487Z","conn":"B","dir":"in","prefix":"Com2","text":"Com2: {\"label\":\"124.850\",\"frequency\":\"124.850\",\"monitor\":false}"}
+{"t":"2026-09-23T12:20:33.487Z","conn":"B","dir":"in","prefix":"RadioMute","text":"RadioMute: {\"com1\":false,\"com2\":false}"}
+{"t":"2026-09-23T12:20:33.487Z","conn":"B","dir":"in","prefix":"Progress","text":"Progress: {\"from\":\"LFBZ\",\"to\":\"LFBO\",\"pct\":37.9}"}
+{"t":"2026-09-23T12:20:33.488Z","conn":"B","dir":"in","prefix":"CommsState","text":"CommsState: {\"mode\":\"ready\",\"text\":\"\"}"}
+{"t":"2026-09-23T12:20:33.488Z","conn":"B","dir":"in","prefix":"LoadState","text":"LoadState: {\"stage\":\"ready\",\"text\":\"\",\"pct\":-1,\"vfr\":false,\"loggedIn\":true}"}
+{"t":"2026-09-23T12:20:33.488Z","conn":"B","dir":"in","prefix":"Callsign","text":"Callsign: {\"full\":\"Airbus\",\"shortForm\":\"A-us\"}"}
+{"t":"2026-09-23T12:20:33.488Z","conn":"B","dir":"in","prefix":"ToolbarVersion","text":"ToolbarVersion: 3.1"}
+{"t":"2026-09-23T12:20:33.489Z","conn":"A","dir":"in","prefix":"Settings","text":"Settings: {\"voiceVolume\":70,\"uiSounds\":true,\"controllerVoice\":\"Local\",\"trafficVoice\":\"Local\",\"trafficOn\":true,\"parkedDensity\":5,\"departuresDensity\":5,\"arrivalsDensity\":5,\"enrouteDensity\":5,\"navigraphLiveTraffic\":false,\"navigraphLinked\":true,\"navigraphUltimate\":true,\"taxiArrowsShown\":false,\"simIs2024\":true,\"dynamicVoiceOn\":false,\"dynamicVoiceGender\":0,\"autoRespondVoice\":0,\"autoRespondVoiceOptions\":[\"US Male\",\"US Female\",\"UK Male\",\"UK Female\",\"AU Male\",\"Jeff Favignano (Premium Only)\",\"CivRyan (Premium Only)\",\"Squirrel (Premium Only)\",\"EasyJetSimPilot (Premium Only)\",\"British Avgeek (Premium Only)\",\"Overkill (Premium Only)\",\"FlyBy Simulations (Premium Only)\",\"V1-Simulations (Premium Only)\",\"FSFO English1 (Premium Only)\",\"FS2Crew US Stephanie (Premium Only)\"],\"voiceQualityOptions\":[{\"value\":\"Off\",\"label\":\"Off (No Cost)\"},{\"value\":\"Local\",\"label\":\"Local (No Cost)\"},{\"value\":\"Premium\",\"label\":\"Premium (Higher Cost)\"}],\"voiceGenderOptions\":[{\"value\":\"0\",\"label\":\"Any\"},{\"value\":\"1\",\"label\":\"Female\"},{\"value\":\"2\",\"label\":\"Male\"}],\"premiumUnits\":49185,\"premiumUnitsMax\":50000}"}
+{"t":"2026-09-23T12:20:33.489Z","conn":"B","dir":"in","prefix":"Settings","text":"Settings: {\"voiceVolume\":70,\"uiSounds\":true,\"controllerVoice\":\"Local\",\"trafficVoice\":\"Local\",\"trafficOn\":true,\"parkedDensity\":5,\"departuresDensity\":5,\"arrivalsDensity\":5,\"enrouteDensity\":5,\"navigraphLiveTraffic\":false,\"navigraphLinked\":true,\"navigraphUltimate\":true,\"taxiArrowsShown\":false,\"simIs2024\":true,\"dynamicVoiceOn\":false,\"dynamicVoiceGender\":0,\"autoRespondVoice\":0,\"autoRespondVoiceOptions\":[\"US Male\",\"US Female\",\"UK Male\",\"UK Female\",\"AU Male\",\"Jeff Favignano (Premium Only)\",\"CivRyan (Premium Only)\",\"Squirrel (Premium Only)\",\"EasyJetSimPilot (Premium Only)\",\"British Avgeek (Premium Only)\",\"Overkill (Premium Only)\",\"FlyBy Simulations (Premium Only)\",\"V1-Simulations (Premium Only)\",\"FSFO English1 (Premium Only)\",\"FS2Crew US Stephanie (Premium Only)\"],\"voiceQualityOptions\":[{\"value\":\"Off\",\"label\":\"Off (No Cost)\"},{\"value\":\"Local\",\"label\":\"Local (No Cost)\"},{\"value\":\"Premium\",\"label\":\"Premium (Higher Cost)\"}],\"voiceGenderOptions\":[{\"value\":\"0\",\"label\":\"Any\"},{\"value\":\"1\",\"label\":\"Female\"},{\"value\":\"2\",\"label\":\"Male\"}],\"premiumUnits\":49185,\"premiumUnitsMax\":50000}"}
+{"t":"2026-09-23T12:20:36.579Z","conn":"A","dir":"in","prefix":"Progress","text":"Progress: {\"from\":\"LFBZ\",\"to\":\"LFBO\",\"pct\":38.1}"}
+{"t":"2026-09-23T12:20:36.581Z","conn":"B","dir":"in","prefix":"Progress","text":"Progress: {\"from\":\"LFBZ\",\"to\":\"LFBO\",\"pct\":38.1}"}
+{"t":"2026-09-23T12:20:41.579Z","conn":"A","dir":"in","prefix":"Progress","text":"Progress: {\"from\":\"LFBZ\",\"to\":\"LFBO\",\"pct\":38.3}"}
+{"t":"2026-09-23T12:20:41.581Z","conn":"B","dir":"in","prefix":"Progress","text":"Progress: {\"from\":\"LFBZ\",\"to\":\"LFBO\",\"pct\":38.3}"}
+{"t":"2026-09-23T12:20:41.923Z","conn":"A","dir":"out","text":"ping"}
+{"t":"2026-09-23T12:20:41.923Z","conn":"A","dir":"in","prefix":"Pong","text":"Pong:"}
+{"t":"2026-09-23T12:20:46.579Z","conn":"A","dir":"in","prefix":"Progress","text":"Progress: {\"from\":\"LFBZ\",\"to\":\"LFBO\",\"pct\":38.5}"}
+{"t":"2026-09-23T12:20:46.581Z","conn":"B","dir":"in","prefix":"Progress","text":"Progress: {\"from\":\"LFBZ\",\"to\":\"LFBO\",\"pct\":38.5}"}
+{"t":"2026-09-23T12:20:46.879Z","conn":"A","dir":"in","prefix":"CommsState","text":"CommsState: {\"mode\":\"traffic\",\"text\":\"ATC Generating\"}"}
+{"t":"2026-09-23T12:20:46.880Z","conn":"B","dir":"in","prefix":"CommsState","text":"CommsState: {\"mode\":\"traffic\",\"text\":\"ATC Generating\"}"}
+{"t":"2026-09-23T12:20:47.505Z","conn":"A","dir":"in","prefix":"ATCTraffic","text":"ATCTraffic: FJDVN QNH 1022 expect radar vectors for R-NAV-Z approach runway 27."}
+{"t":"2026-09-23T12:20:47.508Z","conn":"B","dir":"in","prefix":"ATCTraffic","text":"ATCTraffic: FJDVN QNH 1022 expect radar vectors for R-NAV-Z approach runway 27."}
+{"t":"2026-09-23T12:20:47.529Z","conn":"A","dir":"in","prefix":"CommsState","text":"CommsState: {\"mode\":\"traffic\",\"text\":\"ATC Transmitting\"}"}
+{"t":"2026-09-23T12:20:47.531Z","conn":"B","dir":"in","prefix":"CommsState","text":"CommsState: {\"mode\":\"traffic\",\"text\":\"ATC Transmitting\"}"}
+{"t":"2026-09-23T12:20:51.579Z","conn":"A","dir":"in","prefix":"Progress","text":"Progress: {\"from\":\"LFBZ\",\"to\":\"LFBO\",\"pct\":38.7}"}
+{"t":"2026-09-23T12:20:51.581Z","conn":"B","dir":"in","prefix":"Progress","text":"Progress: {\"from\":\"LFBZ\",\"to\":\"LFBO\",\"pct\":38.7}"}
+{"t":"2026-09-23T12:20:55.254Z","conn":"A","dir":"in","prefix":"CommsState","text":"CommsState: {\"mode\":\"ready\",\"text\":\"\"}"}
+{"t":"2026-09-23T12:20:55.256Z","conn":"B","dir":"in","prefix":"CommsState","text":"CommsState: {\"mode\":\"ready\",\"text\":\"\"}"}
+{"t":"2026-09-23T12:20:55.279Z","conn":"A","dir":"in","prefix":"CommsState","text":"CommsState: {\"mode\":\"traffic\",\"text\":\"Traffic Generating\"}"}
+{"t":"2026-09-23T12:20:55.280Z","conn":"B","dir":"in","prefix":"CommsState","text":"CommsState: {\"mode\":\"traffic\",\"text\":\"Traffic Generating\"}"}
+{"t":"2026-09-23T12:20:55.906Z","conn":"A","dir":"in","prefix":"Traffic","text":"Traffic: QNH 1022 expect radar vectors for R-NAV-Z approach runway 27, FJDVN."}
+{"t":"2026-09-23T12:20:55.908Z","conn":"B","dir":"in","prefix":"Traffic","text":"Traffic: QNH 1022 expect radar vectors for R-NAV-Z approach runway 27, FJDVN."}
+{"t":"2026-09-23T12:20:55.929Z","conn":"A","dir":"in","prefix":"CommsState","text":"CommsState: {\"mode\":\"traffic\",\"text\":\"Traffic Transmitting\"}"}
+{"t":"2026-09-23T12:20:55.931Z","conn":"B","dir":"in","prefix":"CommsState","text":"CommsState: {\"mode\":\"traffic\",\"text\":\"Traffic Transmitting\"}"}
+{"t":"2026-09-23T12:20:56.579Z","conn":"A","dir":"in","prefix":"Progress","text":"Progress: {\"from\":\"LFBZ\",\"to\":\"LFBO\",\"pct\":38.9}"}
+{"t":"2026-09-23T12:20:56.581Z","conn":"B","dir":"in","prefix":"Progress","text":"Progress: {\"from\":\"LFBZ\",\"to\":\"LFBO\",\"pct\":38.9}"}
+{"t":"2026-09-23T12:21:01.579Z","conn":"A","dir":"in","prefix":"Progress","text":"Progress: {\"from\":\"LFBZ\",\"to\":\"LFBO\",\"pct\":39.1}"}
+{"t":"2026-09-23T12:21:01.582Z","conn":"B","dir":"in","prefix":"Progress","text":"Progress: {\"from\":\"LFBZ\",\"to\":\"LFBO\",\"pct\":39.1}"}
+{"t":"2026-09-23T12:21:01.935Z","conn":"A","dir":"out","text":"ping"}
+{"t":"2026-09-23T12:21:01.935Z","conn":"A","dir":"in","prefix":"Pong","text":"Pong:"}
+{"t":"2026-09-23T12:21:03.629Z","conn":"A","dir":"in","prefix":"CommsState","text":"CommsState: {\"mode\":\"ready\",\"text\":\"\"}"}
+{"t":"2026-09-23T12:21:03.632Z","conn":"B","dir":"in","prefix":"CommsState","text":"CommsState: {\"mode\":\"ready\",\"text\":\"\"}"}
+{"t":"2026-09-23T12:21:05.579Z","conn":"A","dir":"in","prefix":"CommsState","text":"CommsState: {\"mode\":\"traffic\",\"text\":\"ATC Generating\"}"}
+{"t":"2026-09-23T12:21:05.582Z","conn":"B","dir":"in","prefix":"CommsState","text":"CommsState: {\"mode\":\"traffic\",\"text\":\"ATC Generating\"}"}
+{"t":"2026-09-23T12:21:06.055Z","conn":"A","dir":"in","prefix":"ATCTraffic","text":"ATCTraffic: FJDVN, turn right, heading 010, vectors for the approach."}
+{"t":"2026-09-23T12:21:06.057Z","conn":"B","dir":"in","prefix":"ATCTraffic","text":"ATCTraffic: FJDVN, turn right, heading 010, vectors for the approach."}
+{"t":"2026-09-23T12:21:06.079Z","conn":"A","dir":"in","prefix":"CommsState","text":"CommsState: {\"mode\":\"traffic\",\"text\":\"ATC Transmitting\"}"}
+{"t":"2026-09-23T12:21:06.081Z","conn":"B","dir":"in","prefix":"CommsState","text":"CommsState: {\"mode\":\"traffic\",\"text\":\"ATC Transmitting\"}"}
+{"t":"2026-09-23T12:21:06.578Z","conn":"A","dir":"in","prefix":"Progress","text":"Progress: {\"from\":\"LFBZ\",\"to\":\"LFBO\",\"pct\":39.3}"}
+{"t":"2026-09-23T12:21:06.580Z","conn":"B","dir":"in","prefix":"Progress","text":"Progress: {\"from\":\"LFBZ\",\"to\":\"LFBO\",\"pct\":39.3}"}
+{"t":"2026-09-23T12:21:11.579Z","conn":"A","dir":"in","prefix":"Progress","text":"Progress: {\"from\":\"LFBZ\",\"to\":\"LFBO\",\"pct\":39.4}"}
+{"t":"2026-09-23T12:21:11.580Z","conn":"B","dir":"in","prefix":"Progress","text":"Progress: {\"from\":\"LFBZ\",\"to\":\"LFBO\",\"pct\":39.4}"}
+{"t":"2026-09-23T12:21:11.929Z","conn":"A","dir":"in","prefix":"CommsState","text":"CommsState: {\"mode\":\"ready\",\"text\":\"\"}"}
+{"t":"2026-09-23T12:21:11.930Z","conn":"B","dir":"in","prefix":"CommsState","text":"CommsState: {\"mode\":\"ready\",\"text\":\"\"}"}
+{"t":"2026-09-23T12:21:11.954Z","conn":"A","dir":"in","prefix":"CommsState","text":"CommsState: {\"mode\":\"traffic\",\"text\":\"Traffic Generating\"}"}
+{"t":"2026-09-23T12:21:11.955Z","conn":"B","dir":"in","prefix":"CommsState","text":"CommsState: {\"mode\":\"traffic\",\"text\":\"Traffic Generating\"}"}
+{"t":"2026-09-23T12:21:12.380Z","conn":"A","dir":"in","prefix":"Traffic","text":"Traffic: Turn right, heading 010, FJDVN."}
+{"t":"2026-09-23T12:21:12.382Z","conn":"B","dir":"in","prefix":"Traffic","text":"Traffic: Turn right, heading 010, FJDVN."}
+{"t":"2026-09-23T12:21:12.404Z","conn":"A","dir":"in","prefix":"CommsState","text":"CommsState: {\"mode\":\"traffic\",\"text\":\"Traffic Transmitting\"}"}
+{"t":"2026-09-23T12:21:12.405Z","conn":"B","dir":"in","prefix":"CommsState","text":"CommsState: {\"mode\":\"traffic\",\"text\":\"Traffic Transmitting\"}"}
+{"t":"2026-09-23T12:21:16.579Z","conn":"A","dir":"in","prefix":"Progress","text":"Progress: {\"from\":\"LFBZ\",\"to\":\"LFBO\",\"pct\":39.6}"}
+{"t":"2026-09-23T12:21:16.580Z","conn":"B","dir":"in","prefix":"Progress","text":"Progress: {\"from\":\"LFBZ\",\"to\":\"LFBO\",\"pct\":39.6}"}
+{"t":"2026-09-23T12:21:17.529Z","conn":"A","dir":"in","prefix":"CommsState","text":"CommsState: {\"mode\":\"ready\",\"text\":\"\"}"}
+{"t":"2026-09-23T12:21:17.531Z","conn":"B","dir":"in","prefix":"CommsState","text":"CommsState: {\"mode\":\"ready\",\"text\":\"\"}"}
+{"t":"2026-09-23T12:21:21.579Z","conn":"A","dir":"in","prefix":"Progress","text":"Progress: {\"from\":\"LFBZ\",\"to\":\"LFBO\",\"pct\":39.8}"}
+{"t":"2026-09-23T12:21:21.581Z","conn":"B","dir":"in","prefix":"Progress","text":"Progress: {\"from\":\"LFBZ\",\"to\":\"LFBO\",\"pct\":39.8}"}
+{"t":"2026-09-23T12:21:21.942Z","conn":"A","dir":"out","text":"ping"}
+{"t":"2026-09-23T12:21:21.943Z","conn":"A","dir":"in","prefix":"Pong","text":"Pong:"}
+{"t":"2026-09-23T12:21:26.580Z","conn":"A","dir":"in","prefix":"Progress","text":"Progress: {\"from\":\"LFBZ\",\"to\":\"LFBO\",\"pct\":40.0}"}
+{"t":"2026-09-23T12:21:26.582Z","conn":"B","dir":"in","prefix":"Progress","text":"Progress: {\"from\":\"LFBZ\",\"to\":\"LFBO\",\"pct\":40.0}"}
+{"t":"2026-09-23T12:21:31.606Z","conn":"A","dir":"in","prefix":"Progress","text":"Progress: {\"from\":\"LFBZ\",\"to\":\"LFBO\",\"pct\":40.2}"}
+{"t":"2026-09-23T12:21:31.608Z","conn":"B","dir":"in","prefix":"Progress","text":"Progress: {\"from\":\"LFBZ\",\"to\":\"LFBO\",\"pct\":40.2}"}
+{"t":"2026-09-23T12:21:36.629Z","conn":"A","dir":"in","prefix":"Progress","text":"Progress: {\"from\":\"LFBZ\",\"to\":\"LFBO\",\"pct\":40.4}"}
+{"t":"2026-09-23T12:21:36.632Z","conn":"B","dir":"in","prefix":"Progress","text":"Progress: {\"from\":\"LFBZ\",\"to\":\"LFBO\",\"pct\":40.4}"}
+{"t":"2026-09-23T12:21:41.632Z","conn":"A","dir":"in","prefix":"Progress","text":"Progress: {\"from\":\"LFBZ\",\"to\":\"LFBO\",\"pct\":40.6}"}
+{"t":"2026-09-23T12:21:41.634Z","conn":"B","dir":"in","prefix":"Progress","text":"Progress: {\"from\":\"LFBZ\",\"to\":\"LFBO\",\"pct\":40.6}"}
+{"t":"2026-09-23T12:21:41.952Z","conn":"A","dir":"out","text":"ping"}
+{"t":"2026-09-23T12:21:41.953Z","conn":"A","dir":"in","prefix":"Pong","text":"Pong:"}
+{"t":"2026-09-23T12:21:46.657Z","conn":"A","dir":"in","prefix":"Progress","text":"Progress: {\"from\":\"LFBZ\",\"to\":\"LFBO\",\"pct\":40.8}"}
+{"t":"2026-09-23T12:21:46.660Z","conn":"B","dir":"in","prefix":"Progress","text":"Progress: {\"from\":\"LFBZ\",\"to\":\"LFBO\",\"pct\":40.8}"}
+{"t":"2026-09-23T12:21:51.657Z","conn":"A","dir":"in","prefix":"Progress","text":"Progress: {\"from\":\"LFBZ\",\"to\":\"LFBO\",\"pct\":41.0}"}
+{"t":"2026-09-23T12:21:51.659Z","conn":"B","dir":"in","prefix":"Progress","text":"Progress: {\"from\":\"LFBZ\",\"to\":\"LFBO\",\"pct\":41.0}"}
+{"t":"2026-09-23T12:21:56.657Z","conn":"A","dir":"in","prefix":"Progress","text":"Progress: {\"from\":\"LFBZ\",\"to\":\"LFBO\",\"pct\":41.2}"}
+{"t":"2026-09-23T12:21:56.660Z","conn":"B","dir":"in","prefix":"Progress","text":"Progress: {\"from\":\"LFBZ\",\"to\":\"LFBO\",\"pct\":41.2}"}
+{"t":"2026-09-23T12:21:58.916Z","conn":"A","dir":"in","prefix":"CommsState","text":"CommsState: {\"mode\":\"traffic\",\"text\":\"Traffic Generating\"}"}
+{"t":"2026-09-23T12:21:58.918Z","conn":"B","dir":"in","prefix":"CommsState","text":"CommsState: {\"mode\":\"traffic\",\"text\":\"Traffic Generating\"}"}
+{"t":"2026-09-23T12:21:59.509Z","conn":"A","dir":"in","prefix":"Traffic","text":"Traffic: Bordeaux Control, Ryanair 67RC, passing FL150 climbing to FL180 direct GALDO."}
+{"t":"2026-09-23T12:21:59.512Z","conn":"B","dir":"in","prefix":"Traffic","text":"Traffic: Bordeaux Control, Ryanair 67RC, passing FL150 climbing to FL180 direct GALDO."}
+{"t":"2026-09-23T12:21:59.538Z","conn":"A","dir":"in","prefix":"CommsState","text":"CommsState: {\"mode\":\"traffic\",\"text\":\"Traffic Transmitting\"}"}
+{"t":"2026-09-23T12:21:59.540Z","conn":"B","dir":"in","prefix":"CommsState","text":"CommsState: {\"mode\":\"traffic\",\"text\":\"Traffic Transmitting\"}"}
+{"t":"2026-09-23T12:22:01.657Z","conn":"A","dir":"in","prefix":"Progress","text":"Progress: {\"from\":\"LFBZ\",\"to\":\"LFBO\",\"pct\":41.4}"}
+{"t":"2026-09-23T12:22:01.659Z","conn":"B","dir":"in","prefix":"Progress","text":"Progress: {\"from\":\"LFBZ\",\"to\":\"LFBO\",\"pct\":41.4}"}
+{"t":"2026-09-23T12:22:01.962Z","conn":"A","dir":"out","text":"ping"}
+{"t":"2026-09-23T12:22:01.964Z","conn":"A","dir":"in","prefix":"Pong","text":"Pong:"}
+{"t":"2026-09-23T12:22:06.681Z","conn":"A","dir":"in","prefix":"CommsState","text":"CommsState: {\"mode\":\"ready\",\"text\":\"\"}"}
+{"t":"2026-09-23T12:22:06.683Z","conn":"A","dir":"in","prefix":"Progress","text":"Progress: {\"from\":\"LFBZ\",\"to\":\"LFBO\",\"pct\":41.6}"}
+{"t":"2026-09-23T12:22:06.684Z","conn":"B","dir":"in","prefix":"CommsState","text":"CommsState: {\"mode\":\"ready\",\"text\":\"\"}"}
+{"t":"2026-09-23T12:22:06.684Z","conn":"B","dir":"in","prefix":"Progress","text":"Progress: {\"from\":\"LFBZ\",\"to\":\"LFBO\",\"pct\":41.6}"}
+{"t":"2026-09-23T12:22:08.656Z","conn":"A","dir":"in","prefix":"CommsState","text":"CommsState: {\"mode\":\"traffic\",\"text\":\"ATC Generating\"}"}
+{"t":"2026-09-23T12:22:08.658Z","conn":"B","dir":"in","prefix":"CommsState","text":"CommsState: {\"mode\":\"traffic\",\"text\":\"ATC Generating\"}"}
+{"t":"2026-09-23T12:22:09.132Z","conn":"A","dir":"in","prefix":"ATCTraffic","text":"ATCTraffic: Ryanair 67RC, Bordeaux Control, identified, climb FL370."}
+{"t":"2026-09-23T12:22:09.135Z","conn":"B","dir":"in","prefix":"ATCTraffic","text":"ATCTraffic: Ryanair 67RC, Bordeaux Control, identified, climb FL370."}
+{"t":"2026-09-23T12:22:09.157Z","conn":"A","dir":"in","prefix":"CommsState","text":"CommsState: {\"mode\":\"traffic\",\"text\":\"ATC Transmitting\"}"}
+{"t":"2026-09-23T12:22:09.157Z","conn":"B","dir":"in","prefix":"CommsState","text":"CommsState: {\"mode\":\"traffic\",\"text\":\"ATC Transmitting\"}"}
+{"t":"2026-09-23T12:22:11.681Z","conn":"A","dir":"in","prefix":"Progress","text":"Progress: {\"from\":\"LFBZ\",\"to\":\"LFBO\",\"pct\":41.8}"}
+{"t":"2026-09-23T12:22:11.683Z","conn":"B","dir":"in","prefix":"Progress","text":"Progress: {\"from\":\"LFBZ\",\"to\":\"LFBO\",\"pct\":41.8}"}
+{"t":"2026-09-23T12:22:15.231Z","conn":"A","dir":"in","prefix":"CommsState","text":"CommsState: {\"mode\":\"ready\",\"text\":\"\"}"}
+{"t":"2026-09-23T12:22:15.233Z","conn":"B","dir":"in","prefix":"CommsState","text":"CommsState: {\"mode\":\"ready\",\"text\":\"\"}"}
+{"t":"2026-09-23T12:22:15.256Z","conn":"A","dir":"in","prefix":"CommsState","text":"CommsState: {\"mode\":\"traffic\",\"text\":\"Traffic Generating\"}"}
+{"t":"2026-09-23T12:22:15.257Z","conn":"B","dir":"in","prefix":"CommsState","text":"CommsState: {\"mode\":\"traffic\",\"text\":\"Traffic Generating\"}"}
+{"t":"2026-09-23T12:22:15.532Z","conn":"A","dir":"in","prefix":"Traffic","text":"Traffic: Climb FL370, Ryanair 67RC."}
+{"t":"2026-09-23T12:22:15.533Z","conn":"B","dir":"in","prefix":"Traffic","text":"Traffic: Climb FL370, Ryanair 67RC."}
+{"t":"2026-09-23T12:22:15.556Z","conn":"A","dir":"in","prefix":"CommsState","text":"CommsState: {\"mode\":\"traffic\",\"text\":\"Traffic Transmitting\"}"}
+{"t":"2026-09-23T12:22:15.556Z","conn":"B","dir":"in","prefix":"CommsState","text":"CommsState: {\"mode\":\"traffic\",\"text\":\"Traffic Transmitting\"}"}
+{"t":"2026-09-23T12:22:17.159Z","conn":"A","dir":"sys","text":"Closed (code 1005)"}
+{"t":"2026-09-23T12:22:17.160Z","conn":"A","dir":"sys","text":"New attempt in 1 s"}
+{"t":"2026-09-23T12:22:17.162Z","conn":"B","dir":"sys","text":"Closed (code 1005)"}
+{"t":"2026-09-23T12:22:17.162Z","conn":"B","dir":"sys","text":"New attempt in 1 s"}
+{"t":"2026-09-23T12:22:18.161Z","conn":"A","dir":"sys","text":"Connecting to ws://127.0.0.1:41716"}
+{"t":"2026-09-23T12:22:18.163Z","conn":"B","dir":"sys","text":"Connecting to ws://127.0.0.1:41716"}
+{"t":"2026-09-23T12:22:22.252Z","conn":"A","dir":"sys","text":"WebSocket error (unreachable host, port closed, or firewall)"}
+{"t":"2026-09-23T12:22:22.253Z","conn":"A","dir":"sys","text":"Closed (code 1006)"}
+{"t":"2026-09-23T12:22:22.253Z","conn":"A","dir":"sys","text":"New attempt in 2 s"}
+{"t":"2026-09-23T12:22:24.274Z","conn":"A","dir":"sys","text":"Connecting to ws://127.0.0.1:41716"}
+{"t":"2026-09-23T12:22:24.586Z","conn":"B","dir":"sys","text":"WebSocket error (unreachable host, port closed, or firewall)"}
+{"t":"2026-09-23T12:22:24.586Z","conn":"B","dir":"sys","text":"Closed (code 1006)"}
+{"t":"2026-09-23T12:22:24.586Z","conn":"B","dir":"sys","text":"New attempt in 2 s"}
+{"t":"2026-09-23T12:22:26.599Z","conn":"B","dir":"sys","text":"Connecting to ws://127.0.0.1:41716"}
